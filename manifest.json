@@ -19,9 +19,9 @@
     }
   ],
   "start_url": "index.html",
-  "background_color": "#FCFCFC",
+  "background_color": "#F4CE14",
   "display": "fullscreen",
   "scope": "/",
-  "theme_color": "#F4CE14",
+  "theme_color": "#FCFCFC",
   "description": "Social media for coffee addicts. Post, review, interact, shop."
 }
