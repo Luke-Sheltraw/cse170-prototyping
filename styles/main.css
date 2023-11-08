@@ -72,6 +72,7 @@ header {
   border: 0.2rem solid var(--tertiary-teal);
   overflow: hidden;
   box-shadow: var(--default-shadow);
+  z-index: 5;
 }
 
 .profile-button:active {
