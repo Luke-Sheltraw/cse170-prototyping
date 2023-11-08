@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home | Brew+Buzz</title>
+  <link rel="stylesheet" href="styles/main.css" media="screen" type="text/css">
+  <link rel="manifest" href="manifest.json">
+</head>
+<body>
+  <header>
+    <button class="profile-button">
+      <picture>
+        <source srcset="" type="image/avif">
+        <img
+          src="assets/images/profiles/self_profile.png"
+          alt="Profile picture"
+          width="50"
+          height="50"
+        >
+      </picture>
+    </button>
+  </header>
+  <main>
+    <h1>Brew<span class="text__secondaryColor">+</span>Buzz</h1>
+    <figure class="post-wrapper">
+      <address><a href="#">Home Coffee Roasters <span class="city-state">San Francisco, CA</span></a></address>
+      <div class="image-wrapper">
+        <picture>
+          <source srcset="" type="image/avif">
+          <img
+            src="assets/images/posts/example_post1.png"
+            alt="Image of a woman smiling with a matcha latte and cinnamon latte on a table in front of her"
+            width="400"
+            height="400"
+          >
+        </picture>
+      </div>
+      <figcaption>
+        <a href="#" rel="author">Luke Sheltraw</a>
+        <p class="post-description">Taking a quick study break... had to drop in for a few lattes. Peep the Totoro latte art.</p>
+      </figcaption>
+      <div class="button-wrapper">
+        <button class="button-counter likes-counter"><span class="emoji">♥️</span> 6 likes</button>
+        <button class="button-counter comments-counter"><span class="emoji">💬</span> 2 comments</button>
+      </div>
+      <button class="leave-comment chevron-button">Leave a comment</button>
+    </figure>
+  </main>
+  <footer>
+    <svg id="footer-decor" xmlns="http://www.w3.org/2000/svg" width="194" height="15" viewBox="0 0 194 15">
+      <path d="M0.577454 14.8C33.7871 14.8 62.5775 4.5 67.0775 0H127.077C131.577 4.5 160.368 14.8 193.577 14.8H0.577454Z" />
+    </svg>
+    <nav>
+      <ul>
+        <li class="footer__button footer__button__active">
+          <button
+            aria-label="Home"
+          >
+            <img
+              src="assets/images/icons/home_icon.svg"
+              alt="Home icon image"
+              width="40"
+              height="40"
+              draggable="false"
+            >
+          </button>
+        </li>
+        <li class="footer__button">
+          <button
+            aria-label="Trending"
+          >
+            <img
+              src="assets/images/icons/trending_icon.svg"
+              alt="Trending icon image"
+              width="40"
+              height="40"
+              draggable="false"
+            >
+          </button>
+        </li>
+        <li>
+          <button
+            aria-label="Camera"
+            id="camera-button"
+          >
+            <img
+              src="assets/images/icons/camera_icon.svg"
+              alt="Camera icon image"
+              width="40"
+              height="40"
+              draggable="false"
+            >
+          </button>
+        </li>
+        <li class="footer__button">
+          <button
+            aria-label="Shop"
+          >
+            <img
+              src="assets/images/icons/shop_icon.svg"
+              alt="Shop icon image"
+              width="40"
+              height="40"
+              draggable="false"
+            >
+          </button>
+        </li>
+        <li class="footer__button">
+          <button
+            aria-label="Search"
+          >
+            <img
+              src="assets/images/icons/search_icon.svg"
+              alt="Search icon image"
+              width="40"
+              height="40"
+              draggable="false"
+            >
+          </button>
+        </li>
+      </ul>
+    </nav>
+  </footer>
+  <script src="scripts/pages.js"></script>
+</body>
+</html>

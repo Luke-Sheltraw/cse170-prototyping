@@ -1,0 +1,264 @@
+@import url(tokens.css);
+
+@font-face {
+  font-family: "Inknut Antiqua";
+  font-weight: normal;
+  src: url(../assets/fonts/InknutAntiqua-Light.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "Inter";
+  font-weight: normal;
+  src: url(../assets/fonts/Inter-Regular.ttf) format("truetype");
+}
+
+body {
+  font-family: "Inknut Antiqua", serif;
+  color: var(--psuedo-black);
+  background-color: var(--psuedo-white);
+}
+
+/* General */
+
+.text__secondaryColor {
+  color: var(--secondary-red);
+}
+
+.emoji {
+  font-size: 1.2em;
+  margin-right: 0.2em;
+}
+
+.chevron-button {
+  background: none;
+  border: none;
+  font-family: "Inknut Antiqua", serif;
+  color: var(--psuedo-black);
+  text-align: left;
+  border-radius: 0.75rem;
+  box-shadow: var(--default-shadow);
+  padding: 0.25rem 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.chevron-button::after {
+  content: "";
+  display: inline-block;
+  width: 0.75rem;
+  height: 0.75rem;
+  background: url(../assets/images/icons/chevron_icon.svg);
+  background-position: center;
+  background-size:contain;
+  background-repeat: no-repeat;
+}
+
+/* Header */
+
+header {
+
+}
+
+.profile-button {
+  position: fixed;
+  right: 1rem;
+  top: 2rem;
+  width: 2rem;
+  height: 2rem;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  border: 0.2rem solid var(--tertiary-teal);
+  overflow: hidden;
+  box-shadow: var(--default-shadow);
+}
+
+.profile-button:active {
+  filter: brightness(0.9);
+}
+
+.profile-button img {
+  width: 110%;
+  height: auto;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Main */
+
+main {
+  padding: 0.5rem;
+}
+
+/* Footer */
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background-color: var(--primary-gold);
+  height: 5.5rem;
+  width: 100%;
+  box-shadow: var(--up-shadow);
+  border-radius: 0.75rem 1rem 0 0;
+}
+
+footer nav {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+footer ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0;
+}
+
+footer button {
+  background: none;
+  border: none;
+  width: 4rem;
+  height: 4rem;
+}
+
+footer button#camera-button {
+  background-color: var(--psuedo-white);
+  border-radius: 50%;
+  box-sizing: border-box;
+  border: 2px solid var(--primary-gold);
+  position: relative;
+  padding: 2.5rem;
+  bottom: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--default-shadow);
+}
+
+footer button#camera-button img {
+  width: 3rem;
+  height: auto;
+}
+
+footer button#camera-button:active {
+  filter: brightness(0.9);
+}
+
+footer svg#footer-decor {
+  fill: var(--primary-gold);
+  position: absolute;
+  top: -16%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50%;
+  height: auto;
+  z-index: -1;
+}
+
+.footer__button__active {
+  background-color: var(--psuedo-white);
+  height: 7rem;
+  border-radius: 0.75rem 1rem 0 0;
+  outline: 2px solid var(--primary-gold);
+  box-shadow: var(--default-shadow);
+  z-index: 1;
+}
+
+.footer__button__active button {
+  margin-top: 0.5rem;
+}
+
+/* Posts */
+
+.post-wrapper {
+  margin: 0;
+}
+
+.post-wrapper .image-wrapper {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  position: relative;
+  border-radius: 0.75rem;
+  box-shadow: var(--default-shadow);
+}
+
+.post-wrapper img {
+  width: 100%;
+  height: auto;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.post-wrapper address {
+  font-style: normal;
+  font-size: 0.75rem;
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.375rem;
+}
+
+.post-wrapper address a {
+  text-decoration: none;
+  color: var(--psuedo-black);
+}
+
+.post-wrapper address::before {
+  content: "";
+  display: inline-block;
+  width: 1.25rem;
+  height: 1.25rem;
+  background: url(../assets/images/icons/pin_icon.svg);
+  background-position: center;
+  background-size: cover;
+  margin-right: 0.25rem;
+}
+
+span.city-state {
+  color: var(--psuedo-black-lightened);
+  margin-left: 0.375rem;
+}
+
+.post-wrapper figcaption {
+  margin-top: 0.5rem;
+}
+
+.post-wrapper figcaption a {
+  color: var(--psuedo-black);
+  font-weight: bold;
+  font-size: 0.9375rem;
+  text-decoration: none;
+}
+
+.post-description {
+  font-family: "Inter", sans-serif;
+  font-size: 0.875rem;
+  margin: 0;
+}
+
+.button-counter {
+  background: none;
+  border: none;
+  font-family: "Inknut Antiqua", serif;
+  color: var(--psuedo-black);
+  font-size: 0.75rem;
+}
+
+figure .button-wrapper {
+  display: flex;
+  margin-bottom: 0.25rem;
+}
+
+.leave-comment {
+  width: 100%;
+}

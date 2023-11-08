@@ -1,0 +1,12 @@
+:root {
+  --primary-gold: #F4CE14;
+  --secondary-red: #CC2936;
+  --tertiary-teal: #3CBBB1;
+  --psuedo-white: #FCFCFC;
+  --psuedo-black: #3E363F;
+
+  --psuedo-black-lightened: #a39ba4;
+
+  --default-shadow: 0px 4px 10px 1px #3E363F26;
+  --up-shadow: 0px 1px 10px 0 #3E363F26;
+}
