@@ -16,10 +16,7 @@ body {
   font-family: "Inknut Antiqua", serif;
   color: var(--psuedo-black);
   background-color: var(--psuedo-white);
-}
-
-* {
-  touch-action: pan-y !important;
+  touch-action: pan-y;
 }
 
 /* General */
@@ -201,6 +198,7 @@ footer svg#footer-decor {
   position: relative;
   border-radius: 0.75rem;
   box-shadow: var(--default-shadow);
+  touch-action: pinch-zoom;
 }
 
 .post-wrapper img {
