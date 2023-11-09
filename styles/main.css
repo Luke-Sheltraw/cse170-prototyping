@@ -16,7 +16,10 @@ body {
   font-family: "Inknut Antiqua", serif;
   color: var(--psuedo-black);
   background-color: var(--psuedo-white);
-  touch-action: pan-y;
+}
+
+* {
+  touch-action: pan-y !important;
 }
 
 /* General */
