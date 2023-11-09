@@ -49,6 +49,6 @@ window.addEventListener('resize', () => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-  positionModalInformation();
+  setTimeout(positionModalInformation, 150);
   enableModalButtonListeners();
 });
