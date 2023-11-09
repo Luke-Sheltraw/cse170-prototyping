@@ -1,4 +1,4 @@
-function enableButtonListeners() {
+function enableNavButtonListeners() {
   let currentActiveElement = document.querySelector('.footer__button__active');
 
   document.querySelectorAll('.footer__button').forEach((el) => {
@@ -12,5 +12,5 @@ function enableButtonListeners() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  enableButtonListeners();
+  enableNavButtonListeners();
 });

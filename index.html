@@ -35,6 +35,20 @@
             height="400"
           >
         </picture>
+        <div>
+          <dialog class="drink-info-modal" open>
+            <button class="chevron-button">
+              Matcha Latte
+              <span class="stars stars-5" aria-label="5 Stars"></span>
+            </button>
+          </dialog>
+          <svg class="drink-info-svg" id="drink1-button-line" xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100">
+            <line x1="0" y1="0" x2="0" y2="0" stroke-width="3" stroke="#FCFCFC" />
+          </svg>
+          <button class="drink-info-button" aria-label="Drink">
+            <div class="small-white-icon"></div>
+          </button>
+        </div>
       </div>
       <figcaption>
         <a href="#" rel="author">Luke Sheltraw</a>
@@ -122,6 +136,7 @@
       </ul>
     </nav>
   </footer>
-  <script src="scripts/pages.js"></script>
+  <script src="scripts/pages.js" type="module"></script>
+  <script src="scripts/modal.js" type="module"></script>
 </body>
 </html>
