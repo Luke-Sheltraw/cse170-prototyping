@@ -44,11 +44,9 @@ function enableModalButtonListeners() {
   });
 }
 
-window.addEventListener('resize', () => {
-  positionModalInformation();
-});
+window.addEventListener('resize', positionModalInformation);
 
 document.addEventListener('DOMContentLoaded', () => {
-  setTimeout(positionModalInformation, 150);
+  positionModalInformation();
   enableModalButtonListeners();
 });
