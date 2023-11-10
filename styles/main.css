@@ -51,6 +51,7 @@ body {
   padding: 0.25rem 0.75rem;
   display: flex;
   align-items: center;
+  position: relative;
 }
 
 .chevron-button::after {
@@ -63,7 +64,7 @@ body {
   background-size: contain;
   background-repeat: no-repeat;
   position: absolute;
-  right: 2rem;
+  right: 1rem;
 }
 
 /* Header */
@@ -316,6 +317,7 @@ figure .button-wrapper {
   transform: translate(-50%, -50%);
   z-index: 10;
   margin: 0;
+  padding: 0;
 }
 
 .drink-info-modal button {
@@ -381,15 +383,15 @@ figure .button-wrapper {
   aspect-ratio: 1;
 
   position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  left: 0;
+  top: 0;
   
   z-index: 20;
 
   background: url(../assets/images/icons/heart_icon.svg);
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
+  background-position: center;
   
   animation-name: liked-post-animation;
   animation-duration: 350ms;
@@ -399,9 +401,9 @@ figure .button-wrapper {
 }
 
 @keyframes liked-post-animation {
-  0% { width: 0%; }
+  0% { transform: scale(0); }
 
-  50% { width: 80%; }
+  50% { transform: scale(0.8); }
 
-  100% { width: 0%; }
+  100% { transform: scale(0); }
 }
