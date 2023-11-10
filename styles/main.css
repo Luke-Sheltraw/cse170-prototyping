@@ -187,7 +187,7 @@ footer svg#footer-decor {
 /* Posts */
 
 .post-wrapper {
-  margin: 0;
+  margin: 0 0 3rem 0;
 }
 
 .post-wrapper .image-wrapper {
@@ -317,7 +317,7 @@ figure .button-wrapper {
 }
 
 .drink-info-svg {
-  position: relative;
+  position: absolute;
 }
 
 .stars::before {

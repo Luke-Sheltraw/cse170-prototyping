@@ -10,6 +10,7 @@
   <link rel="apple-touch-icon" sizes="180x180" href="assets/manifest/apple-touch-icon.png">
 </head>
 <body>
+  <!-- HEADER -->
   <header>
     <button class="profile-button">
       <picture>
@@ -23,46 +24,17 @@
       </picture>
     </button>
   </header>
+
+  <!-- MAIN CONTENT -->
   <main>
     <h1>Brew<span class="text__secondaryColor">+</span>Buzz</h1>
-    <figure class="post-wrapper">
-      <address><a href="#">Home Coffee Roasters <span class="city-state">San Francisco, CA</span></a></address>
-      <div class="image-wrapper">
-        <picture>
-          <source srcset="" type="image/avif">
-          <img
-            src="assets/images/posts/example_post1.png"
-            alt="Image of a woman smiling with a matcha latte and cinnamon latte on a table in front of her"
-            width="400"
-            height="400"
-          >
-        </picture>
-        <div>
-          <dialog class="drink-info-modal" open>
-            <button class="chevron-button">
-              Matcha Latte
-              <span class="stars stars-5" aria-label="5 Stars"></span>
-            </button>
-          </dialog>
-          <svg class="drink-info-svg" id="drink1-button-line" xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100">
-            <line x1="0" y1="0" x2="0" y2="0" stroke-width="3" stroke="#FCFCFC" />
-          </svg>
-          <button class="drink-info-button" aria-label="Drink">
-            <div class="small-white-icon"></div>
-          </button>
-        </div>
-      </div>
-      <figcaption>
-        <a href="#" rel="author">Luke Sheltraw</a>
-        <p class="post-description">Taking a quick study break... had to drop in for a few lattes. Peep the Totoro latte art.</p>
-      </figcaption>
-      <div class="button-wrapper">
-        <button class="button-counter likes-counter"><span class="emoji">♥️</span> 6 likes</button>
-        <button class="button-counter comments-counter"><span class="emoji">💬</span> 2 comments</button>
-      </div>
-      <button class="leave-comment chevron-button">Leave a comment</button>
-    </figure>
+    <user-post></user-post>
+    <user-post></user-post>
+    <user-post></user-post>
+    <user-post></user-post>
   </main>
+
+  <!-- FOOTER -->
   <footer>
     <svg id="footer-decor" xmlns="http://www.w3.org/2000/svg" width="194" height="15" viewBox="0 0 194 15">
       <path d="M0.577454 14.8C33.7871 14.8 62.5775 4.5 67.0775 0H127.077C131.577 4.5 160.368 14.8 193.577 14.8H0.577454Z" />
@@ -138,7 +110,68 @@
       </ul>
     </nav>
   </footer>
+
+  <!-- POST TEMPLATE -->
+  <template id="post-template">
+    <link rel="stylesheet" href="styles/main.css" media="screen">
+    <figure class="post-wrapper">
+      <address>
+        <a href="#">
+          <span class="store-name">{{ store name }}</span>
+          <span class="city-state">{{ store location }}</span>
+        </a>
+      </address>
+      <div class="image-wrapper">
+        <picture>
+          <source srcset="" type="image/avif">
+          <img
+            src="{{ image url }}"
+            alt="{{ image desc }}"
+            width="400"
+            height="400"
+          >
+        </picture>
+      </div>
+      <figcaption>
+        <a href="#" rel="author">{{ post author }}</a>
+        <p class="post-description">{{ post desc }}</p>
+      </figcaption>
+      <div class="button-wrapper">
+        <button class="button-counter likes-counter">
+          <span class="emoji">♥️</span>
+          <span id="count-likes">{{ num likes }}</span>
+          likes
+        </button>
+        <button class="button-counter comments-counter">
+          <span class="emoji">💬</span>
+          <span id="count-comments">{{ num comments }}</span>
+          comments
+        </button>
+      </div>
+      <button class="leave-comment chevron-button">Leave a comment</button>
+    </figure>
+  </template>
+
+  <!-- DRINK MODAL TEMPLATE -->
+  <template id="drink-modal-template">
+    <dialog class="drink-info-modal">
+      <button class="chevron-button">
+        <span class="item-name">{{ item name }}</span>
+        <span class="stars" aria-label="{{ item rating }} Stars"></span>
+      </button>
+    </dialog>
+    <svg class="drink-info-svg hidden" xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100">
+      <line x1="0" y1="0" x2="0" y2="0" stroke-width="3" stroke="#FCFCFC" />
+    </svg>
+    <button class="drink-info-button" aria-label="Drink">
+      <div class="small-white-icon"></div>
+    </button>
+  </template>
+
+  <!-- SCRIPTS -->
   <script src="scripts/pages.js" type="module"></script>
-  <script src="scripts/modal.js" type="module"></script>
+  <script src="scripts/DrinkModal.js" type="module"></script>
+  <script src="scripts/UserPost.js" type="module"></script>
+  <script src="scripts/posts.js" type="module"></script>
 </body>
 </html>
