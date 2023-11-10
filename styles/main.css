@@ -103,6 +103,10 @@ main {
   margin-bottom: 8rem;
 }
 
+main h1 {
+  font-weight: normal;
+}
+
 .end-of-content-text {
   font-size: 0.875rem;
   color: var(--psuedo-black-lightened);
@@ -253,7 +257,6 @@ span.city-state {
 
 .post-wrapper figcaption a {
   color: var(--psuedo-black);
-  font-weight: bold;
   font-size: 0.9375rem;
   text-decoration: none;
 }
