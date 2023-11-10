@@ -86,6 +86,7 @@ class DrinkModal extends HTMLElement {
       if (newValue !== null) {
         this._dialogElement.setAttribute('open', '');
         this._lineContainerElement.classList.remove('hidden');
+        this.dispatchEvent(new CustomEvent('modal-opened'));
       } else {
         this._dialogElement.removeAttribute('open');
         this._lineContainerElement.classList.add('hidden');

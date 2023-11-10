@@ -60,9 +60,18 @@ class UserPost extends HTMLElement {
       if (i === 0) modal.setAttribute('open', '');
 
       imageWrapper.appendChild(modal);
+
+      modal.addEventListener('modal-opened', () => this._closeAllModalsExcept(i));
     });
 
     shadow.appendChild(post);
+  }
+
+  _closeAllModalsExcept(n) {
+    this.shadowRoot.querySelectorAll('drink-modal').forEach((el, i) => {
+      if (i === n) return;
+      el.removeAttribute('open');
+    });
   }
 }
 
