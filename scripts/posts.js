@@ -1,6 +1,6 @@
 const MAX_POSTS = 50;
 
-let currentPosts = 0;
+let currentNumPosts = 0;
 
 function initializeInfiniteScroll() {
   loadNextPostBatch();
@@ -12,7 +12,7 @@ function initializeInfiniteScroll() {
 }
 
 function loadNextPostBatch() {
-  if (currentPosts >= MAX_POSTS) return;
+  if (currentNumPosts >= MAX_POSTS) return;
 
   const container = document.querySelector('#post-container');
 
@@ -24,7 +24,7 @@ function loadNextPostBatch() {
     container.appendChild(el);
   });
 
-  currentPosts += newPosts.length;
+  currentNumPosts += newPosts.length;
 }
 
 document.addEventListener('DOMContentLoaded', () => {

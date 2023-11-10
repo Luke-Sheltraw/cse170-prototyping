@@ -31,8 +31,6 @@ class DrinkModal extends HTMLElement {
     this._posX = +this.getAttribute('item-pos-x');
     this._posY = +this.getAttribute('item-pos-y');
 
-    setTimeout(() => this._positionModal(), 100); // TODO: fix this
-
     /* open modal if needed */
     if (this.hasAttribute('open')) {
       this._dialogElement.setAttribute('open', '');
@@ -48,12 +46,16 @@ class DrinkModal extends HTMLElement {
       }
     });
 
-    this.appendChild(modal);
+    const resizeObserver = new ResizeObserver(() => {
+      this._positionModal();
+    });
 
-    window.addEventListener('resize', this._positionModal.bind(this), { passive: true });
+    resizeObserver.observe(this.parentElement);
+
+    this.appendChild(modal);
   }
 
-  _positionModal() {
+  _positionModal() {      
     const imageRect = this.parentElement.getBoundingClientRect();
 
     /* position button */
