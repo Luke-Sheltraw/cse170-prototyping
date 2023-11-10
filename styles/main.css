@@ -97,6 +97,13 @@ main {
   margin-bottom: 8rem;
 }
 
+.end-of-content-text {
+  font-size: 0.875rem;
+  color: var(--psuedo-black-lightened);
+  text-align: center;
+  font-family: "Inter", sans-serif;
+}
+
 /* Footer */
 
 footer {

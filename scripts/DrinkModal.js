@@ -31,7 +31,7 @@ class DrinkModal extends HTMLElement {
     this._posX = +this.getAttribute('item-pos-x');
     this._posY = +this.getAttribute('item-pos-y');
 
-    this._positionModal();
+    setTimeout(() => this._positionModal(), 100); // TODO: fix this
 
     /* open modal if needed */
     if (this.hasAttribute('open')) {
@@ -50,7 +50,7 @@ class DrinkModal extends HTMLElement {
 
     this.appendChild(modal);
 
-    window.addEventListener('resize', this._positionModal.bind(this));
+    window.addEventListener('resize', this._positionModal.bind(this), { passive: true });
   }
 
   _positionModal() {
