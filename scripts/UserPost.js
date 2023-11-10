@@ -24,6 +24,8 @@ const POST_DATA = {
 };
 
 class UserPost extends HTMLElement {
+  _userLikedPost = false;
+
   constructor() {
     super();
   }
@@ -34,6 +36,7 @@ class UserPost extends HTMLElement {
     const postTemplate = document.querySelector('#post-template');
     const post = postTemplate.content.cloneNode(true);
 
+    /* embed information into post */
     post.querySelector('address .store-name').innerText = POST_DATA.store_name;
     post.querySelector('address .city-state').innerText = POST_DATA.store_location;
     
@@ -49,6 +52,7 @@ class UserPost extends HTMLElement {
 
     const imageWrapper = post.querySelector('.image-wrapper');
 
+    /* create popover drink modals */
     POST_DATA.image_items.forEach((item, i) => {
       const modal = document.createElement('drink-modal');
 
@@ -64,6 +68,20 @@ class UserPost extends HTMLElement {
       modal.addEventListener('modal-opened', () => this._closeAllModalsExcept(i));
     });
 
+    /* initialize double-tap-to-like image listener */
+    let lastTouchTimestamp = 0;
+    imageWrapper.addEventListener('touchstart', (e) => {
+      const timestamp = new Date().getTime();
+      if (timestamp - lastTouchTimestamp < 350) this._handleDblTapLike();
+      lastTouchTimestamp = timestamp;
+    }, { passive: true });
+
+    /* initialize like/unlike toggle button listeners */
+    post.querySelector('.likes-counter').addEventListener('click', () => {
+      if (this._userLikedPost) this._handleUnlike();
+      else this._handleLike();
+    });
+
     shadow.appendChild(post);
   }
 
@@ -72,6 +90,29 @@ class UserPost extends HTMLElement {
       if (i === n) return;
       el.removeAttribute('open');
     });
+  }
+
+  _handleLike() {
+    if (this._userLikedPost) return;
+    this._userLikedPost = true;
+    this.shadowRoot.querySelector('.likes-counter').classList.add('user-liked-counter');
+    this.shadowRoot.querySelector('#count-likes').innerText = POST_DATA.likes_count + 1;
+  }
+
+  _handleUnlike() {
+    if (!this._userLikedPost) return;
+    this._userLikedPost = false;
+    this.shadowRoot.querySelector('.likes-counter').classList.remove('user-liked-counter');
+    this.shadowRoot.querySelector('#count-likes').innerText = POST_DATA.likes_count;
+  }
+
+  _handleDblTapLike() {
+    const picture = this.shadowRoot.querySelector('picture');
+    picture.classList.add('liked-post');
+    picture.addEventListener('animationend', () => {
+      picture.classList.remove('liked-post');
+    });
+    this._handleLike();
   }
 }
 

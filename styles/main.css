@@ -7,6 +7,12 @@
 }
 
 @font-face {
+  font-family: "Inknut Antiqua";
+  font-weight: bold;
+  src: url(../assets/fonts/InknutAntiqua-Bold.ttf) format("truetype");
+}
+
+@font-face {
   font-family: "Inter";
   font-weight: normal;
   src: url(../assets/fonts/Inter-Regular.ttf) format("truetype");
@@ -349,4 +355,42 @@ figure .button-wrapper {
 
 .stars-1::before {
   width: 1rem;
+}
+
+.likes-counter {
+  display: inline-block;
+  width: 5rem;
+}
+
+.user-liked-counter {
+  color: var(--secondary-red);
+  font-weight: bold;
+}
+
+.liked-post::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  background: radial-gradient(circle, #cc29add6 0%, var(--secondary-red) 40%, #ffffff00 100%);
+  background-repeat: no-repeat;
+  background-position: center;
+
+  animation-name: liked-post-animation;
+  animation-duration: 350ms;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: none;
+  animation-iteration-count: 1;
+}
+
+@keyframes liked-post-animation {
+  0% { background-size: 0% 0%; }
+
+  50% { background-size: 150% 150%; }
+
+  100% { background-size: 0% 0%; }
 }
