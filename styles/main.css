@@ -359,7 +359,8 @@ figure .button-wrapper {
 
 .likes-counter {
   display: inline-block;
-  width: 5.5rem;
+  width: 5rem;
+  white-space: nowrap;
 }
 
 .user-liked-counter {
