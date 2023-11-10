@@ -387,8 +387,9 @@ figure .button-wrapper {
   
   z-index: 20;
 
-  border-image: radial-gradient(var(--secondary-red) 69%, #0000 70%) 84.5%/50%;
-  clip-path: polygon(-41% 0, 50% 91%, 141% 0);
+  background: url(../assets/images/icons/heart_icon.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
   
   animation-name: liked-post-animation;
   animation-duration: 350ms;
