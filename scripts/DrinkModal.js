@@ -3,6 +3,11 @@ class DrinkModal extends HTMLElement {
 
   _dialogElement;
   _lineContainerElement;
+  _lineObject;
+  _button;
+
+  _posX;
+  _posY;
 
   constructor() {
     super();
@@ -20,24 +25,47 @@ class DrinkModal extends HTMLElement {
 
     this._dialogElement = modal.querySelector('.drink-info-modal');
     this._lineContainerElement = modal.querySelector('.drink-info-svg');
-    const lineObject = modal.querySelector('.drink-info-svg line');
-    const button = modal.querySelector('.drink-info-button');
+    this._lineObject = modal.querySelector('.drink-info-svg line');
+    this._button = modal.querySelector('.drink-info-button');
 
-    const posX = +this.getAttribute('item-pos-x');
-    const posY = +this.getAttribute('item-pos-y');
+    this._posX = +this.getAttribute('item-pos-x');
+    this._posY = +this.getAttribute('item-pos-y');
 
+    this._positionModal();
+
+    /* open modal if needed */
+    if (this.hasAttribute('open')) {
+      this._dialogElement.setAttribute('open', '');
+      this._lineContainerElement.classList.remove('hidden');
+    }
+
+    /* initialize event listeners */
+    this._button.addEventListener('click', () => {
+      if (this.hasAttribute('open')) {
+        this.removeAttribute('open');
+      } else {
+        this.setAttribute('open', '');
+      }
+    });
+
+    this.appendChild(modal);
+
+    window.addEventListener('resize', this._positionModal.bind(this));
+  }
+
+  _positionModal() {
     const imageRect = this.parentElement.getBoundingClientRect();
 
     /* position button */
-    const buttonX = imageRect.width * posX;
-    const buttonY = imageRect.height * posY;
+    const buttonX = imageRect.width * this._posX;
+    const buttonY = imageRect.height * this._posY;
 
-    button.style.left = `${ buttonX }px`;
-    button.style.top = `${ buttonY }px`;
+    this._button.style.left = `${ buttonX }px`;
+    this._button.style.top = `${ buttonY }px`;
 
     /* position modal */
-    const dialogX = imageRect.width * (posX - 0.1);
-    const dialogY = imageRect.height * (posY - 0.3);
+    const dialogX = imageRect.width * (this._posX - 0.1);
+    const dialogY = imageRect.height * (this._posY - 0.3);
 
     this._dialogElement.style.left = `${ dialogX }px`;
     this._dialogElement.style.top = `${ dialogY }px`;
@@ -47,27 +75,10 @@ class DrinkModal extends HTMLElement {
     this._lineContainerElement.setAttribute('height', imageRect.height);
     this._lineContainerElement.setAttribute('viewBox', `0 0 ${ imageRect.width } ${ imageRect.height }`);
 
-    lineObject.setAttribute('x1', buttonX);
-    lineObject.setAttribute('y1', buttonY);
-    lineObject.setAttribute('x2', dialogX);
-    lineObject.setAttribute('y2', dialogY);
-
-    /* open modal if needed */
-    if (this.hasAttribute('open')) {
-      this._dialogElement.setAttribute('open', '');
-      this._lineContainerElement.classList.remove('hidden');
-    }
-
-    /* initialize event listeners */
-    button.addEventListener('click', () => {
-      if (this.hasAttribute('open')) {
-        this.removeAttribute('open');
-      } else {
-        this.setAttribute('open', '');
-      }
-    });
-
-    this.appendChild(modal);
+    this._lineObject.setAttribute('x1', buttonX);
+    this._lineObject.setAttribute('y1', buttonY);
+    this._lineObject.setAttribute('x2', dialogX);
+    this._lineObject.setAttribute('y2', dialogY);
   }
 
   attributeChangedCallback(name, _, newValue) {
