@@ -103,8 +103,9 @@ main {
   margin-bottom: 8rem;
 }
 
-main h1 {
+main > h1 {
   font-weight: normal;
+  margin: 0;
 }
 
 .end-of-content-text {
