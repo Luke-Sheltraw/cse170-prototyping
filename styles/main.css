@@ -394,7 +394,7 @@ figure .button-wrapper {
   background-position: center;
   
   animation-name: liked-post-animation;
-  animation-duration: 350ms;
+  animation-duration: 700ms;
   animation-timing-function: ease-in-out;
   animation-fill-mode: none;
   animation-iteration-count: 1;
@@ -403,7 +403,9 @@ figure .button-wrapper {
 @keyframes liked-post-animation {
   0% { transform: scale(0); }
 
-  50% { transform: scale(0.8); }
+  25% { transform: scale(0.8); }
+
+  75% { transform: scale(0.8); }
 
   100% { transform: scale(0); }
 }
