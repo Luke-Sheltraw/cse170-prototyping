@@ -70,7 +70,7 @@ class UserPost extends HTMLElement {
 
     /* initialize double-tap-to-like image listener */
     let lastTouchTimestamp = 0;
-    imageWrapper.addEventListener('touchstart', (e) => {
+    image.addEventListener('touchstart', (e) => {
       const timestamp = new Date().getTime();
       if (timestamp - lastTouchTimestamp < 350) this._handleDblTapLike();
       lastTouchTimestamp = timestamp;
