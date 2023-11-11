@@ -1,0 +1,46 @@
+[
+  {
+    "post_id": "aP4rTq",
+    "store_name": "Home Coffee Roasters",
+    "store_location": "San Francisco, CA",
+    "image_url": "/assets/images/posts/example_post1.jpg",
+    "image_desc": "Image of a woman smiling with a matcha latte and cinnamon latte on a table in front of her",
+    "image_items": [
+      {
+        "item_name": "Matcha Latte",
+        "item_rating": 5,
+        "item_x": 0.47,
+        "item_y": 0.73
+      },
+      {
+        "item_name": "Cinnamon Latte",
+        "item_rating": 4,
+        "item_x": 0.68,
+        "item_y": 0.9
+      }
+    ],
+    "post_desc": "Taking a quick study break... had to drop in for a few lattes. Peep the Totoro latte art.",
+    "post_author": "Luke Sheltraw",
+    "likes_count": 263,
+    "comments_count": 17
+  },
+  {
+    "post_id": "9rifdG",
+    "store_name": "Sit and Stay Cafe",
+    "store_location": "Richmond, CA",
+    "image_url": "/assets/images/posts/example_post2.jpg",
+    "image_desc": "Image of a small white dog drinking out of a plastic cup through a straw",
+    "image_items": [
+      {
+        "item_name": "Ice Water",
+        "item_rating": 5,
+        "item_x": 0.59,
+        "item_y": 0.70
+      }
+    ],
+    "post_desc": "Who said this app is only for two-legged creatures?",
+    "post_author": "Woof Woof",
+    "likes_count": 156,
+    "comments_count": 22
+  }
+]

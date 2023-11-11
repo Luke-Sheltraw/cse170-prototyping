@@ -118,7 +118,7 @@ main > h1 {
 
 /* Footer */
 
-footer {
+#main-footer {
   position: fixed;
   bottom: 0;
   left: 0;
@@ -130,14 +130,14 @@ footer {
   z-index: 20;
 }
 
-footer nav {
+#main-footer nav {
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-footer ul {
+#main-footer ul {
   list-style-type: none;
   display: flex;
   justify-content: space-around;
@@ -145,14 +145,14 @@ footer ul {
   padding: 0;
 }
 
-footer button {
+#main-footer button {
   background: none;
   border: none;
   width: 4rem;
   height: 4rem;
 }
 
-footer button#camera-button {
+#main-footer button#camera-button {
   background-color: var(--psuedo-white);
   border-radius: 50%;
   box-sizing: border-box;
@@ -166,16 +166,16 @@ footer button#camera-button {
   box-shadow: var(--default-shadow);
 }
 
-footer button#camera-button img {
+#main-footer button#camera-button img {
   width: 3rem;
   height: auto;
 }
 
-footer button#camera-button:active {
+#main-footer button#camera-button:active {
   filter: brightness(0.9);
 }
 
-footer svg#footer-decor {
+#main-footer svg#footer-decor {
   fill: var(--primary-gold);
   position: absolute;
   top: -16%;
@@ -275,11 +275,16 @@ span.city-state {
   font-family: "Inknut Antiqua", serif;
   color: var(--psuedo-black);
   font-size: 0.75rem;
+  display: inline-block;
+  min-width: 6.675rem;
+  text-align: left;
+  white-space: nowrap;
 }
 
 figure .button-wrapper {
   display: flex;
   margin-bottom: 0.25rem;
+  padding-left: 0.5rem;
 }
 
 .leave-comment {
@@ -291,7 +296,7 @@ figure .button-wrapper {
   height: 1rem;
   border-radius: 50%;
   background-color: var(--psuedo-white);
-  box-shadow: 0px 4px 5px 1px var(--psuedo-black-lightened);
+  box-shadow: 0px 4px 5px 1px rgba(128, 123, 123, 0.495);
 }
 
 .drink-info-button {
@@ -364,14 +369,9 @@ figure .button-wrapper {
   width: 1rem;
 }
 
-.likes-counter {
-  display: inline-block;
-  width: 5rem;
-  white-space: nowrap;
-}
-
 .user-liked-counter {
   color: var(--secondary-red);
+  letter-spacing: -0.005em;
   font-weight: bold;
 }
 
@@ -394,7 +394,7 @@ figure .button-wrapper {
   background-position: center;
   
   animation-name: liked-post-animation;
-  animation-duration: 700ms;
+  animation-duration: 900ms;
   animation-timing-function: ease-in-out;
   animation-fill-mode: none;
   animation-iteration-count: 1;
@@ -402,10 +402,52 @@ figure .button-wrapper {
 
 @keyframes liked-post-animation {
   0% { transform: scale(0); }
-
-  25% { transform: scale(0.8); }
-
-  75% { transform: scale(0.8); }
-
+  15% { transform: scale(0.8); }
+  85% { transform: scale(0.8); }
   100% { transform: scale(0); }
+}
+
+.loading-icon {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  border: 0.25rem solid var(--psuedo-white);
+  border-top: 0.25rem solid var(--primary-gold);
+  border-bottom: 0.25rem solid var(--primary-gold);
+  
+  animation-name: loading-spinner;
+  animation-duration: 1000ms;
+  animation-timing-function: linear;
+  animation-fill-mode: none;
+  animation-iteration-count: infinite;
+}
+
+@keyframes loading-spinner {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+#post-feed-container:empty + #post-feed-footer {
+  margin-top: 5rem;
+}
+
+#post-feed-footer {
+  display: flex;
+  justify-content: center;
+}
+
+#post-feed-footer[data-loading=true] .loading-icon {
+  display: block;
+}
+
+#post-feed-footer[data-loading=false] .loading-icon {
+  display: none;
+}
+
+#post-feed-footer[data-loading=true] .end-of-content-text {
+  display: none;
+}
+
+#post-feed-footer[data-loading=false] .end-of-content-text {
+  display: block;
 }

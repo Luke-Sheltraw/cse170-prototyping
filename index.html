@@ -16,7 +16,7 @@
       <picture>
         <source srcset="" type="image/avif">
         <img
-          src="assets/images/profiles/self_profile.png"
+          src="assets/images/profiles/self_profile.jpg"
           alt="Profile picture"
           width="50"
           height="50"
@@ -28,14 +28,15 @@
   <!-- MAIN CONTENT -->
   <main>
     <h1>Brew<span class="text__secondaryColor">+</span>Buzz</h1>
-    <div id="post-container">
-      
-    </div>
-    <p class="end-of-content-text">That's it! Invite your friends and see more posts.</p>
+    <div id="post-feed-container" aria-label="feed"></div>
+    <footer id="post-feed-footer" data-loading="false">
+      <div class="loading-icon" aria-label="Loading"></div>
+      <p class="end-of-content-text">That's it! Invite your friends and see more posts.</p>
+    </footer>
   </main>
 
   <!-- FOOTER -->
-  <footer>
+  <footer id="main-footer">
     <svg id="footer-decor" xmlns="http://www.w3.org/2000/svg" width="194" height="15" viewBox="0 0 194 15">
       <path d="M0.577454 14.8C33.7871 14.8 62.5775 4.5 67.0775 0H127.077C131.577 4.5 160.368 14.8 193.577 14.8H0.577454Z" />
     </svg>
@@ -169,9 +170,9 @@
   </template>
 
   <!-- SCRIPTS -->
-  <script src="scripts/pages.js"></script>
   <script src="scripts/DrinkModal.js"></script>
   <script src="scripts/UserPost.js"></script>
-  <script src="scripts/posts.js"></script>
+  <script src="scripts/pages.js" type="module"></script>
+  <script src="scripts/posts.js" type="module"></script>
 </body>
 </html>

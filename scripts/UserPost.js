@@ -1,30 +1,31 @@
-const POST_DATA = {
-  store_name: 'Home Coffee Roasters',
-  store_location: 'San Francisco, CA',
-  image_url: '/assets/images/posts/example_post1.png',
+const DEFAULT_POST = {
+  store_name: 'Store Name',
+  store_location: 'City, ST',
+  image_url: '/assets/images/posts/example_post1.jpg',
   image_desc: 'Image of a woman smiling with a matcha latte and cinnamon latte on a table in front of her',
   image_items: [
     {
-      item_name: 'Matcha Latte',
+      item_name: 'Example item 1',
       item_rating: 5,
       item_x: 0.47,
       item_y: 0.73,
     },
     {
-      item_name: 'Cinnamon Latte',
+      item_name: 'Example item 2',
       item_rating: 4,
       item_x: 0.68,
       item_y: 0.9,
     }
   ],
-  post_desc: 'Taking a quick study break... had to drop in for a few lattes. Peep the Totoro latte art.',
-  post_author: 'Luke Sheltraw',
-  likes_count: 6,
-  comments_count: 2,
+  post_desc: 'Lorem ipsum description.',
+  post_author: 'First Last',
+  likes_count: 99,
+  comments_count: 99,
 };
 
 class UserPost extends HTMLElement {
   _userLikedPost = false;
+  _postData;
 
   constructor() {
     super();
@@ -36,24 +37,27 @@ class UserPost extends HTMLElement {
     const postTemplate = document.querySelector('#post-template');
     const post = postTemplate.content.cloneNode(true);
 
+    /* fetch post data */
+    this._post_data = JSON.parse(window.sessionStorage.getItem(this.getAttribute('post-id'))) ?? DEFAULT_POST;
+
     /* embed information into post */
-    post.querySelector('address .store-name').innerText = POST_DATA.store_name;
-    post.querySelector('address .city-state').innerText = POST_DATA.store_location;
+    post.querySelector('address .store-name').innerText = this._post_data.store_name;
+    post.querySelector('address .city-state').innerText = this._post_data.store_location;
     
     const image = post.querySelector('picture img');
-    image.setAttribute('src', POST_DATA.image_url);
-    image.setAttribute('alt', POST_DATA.image_desc);
+    image.setAttribute('src', this._post_data.image_url);
+    image.setAttribute('alt', this._post_data.image_desc);
 
-    post.querySelector('figcaption a').innerText = POST_DATA.post_author;
-    post.querySelector('figcaption .post-description').innerText = POST_DATA.post_desc;
+    post.querySelector('figcaption a').innerText = this._post_data.post_author;
+    post.querySelector('figcaption .post-description').innerText = this._post_data.post_desc;
 
-    post.querySelector('#count-likes').innerText = POST_DATA.likes_count;
-    post.querySelector('#count-comments').innerText = POST_DATA.comments_count;
+    post.querySelector('#count-likes').innerText = this._post_data.likes_count;
+    post.querySelector('#count-comments').innerText = this._post_data.comments_count;
 
     const imageWrapper = post.querySelector('.image-wrapper');
 
     /* create popover drink modals */
-    POST_DATA.image_items.forEach((item, i) => {
+    this._post_data.image_items.forEach((item, i) => {
       const modal = document.createElement('drink-modal');
 
       modal.setAttribute('item-name', item.item_name);
@@ -96,14 +100,14 @@ class UserPost extends HTMLElement {
     if (this._userLikedPost) return;
     this._userLikedPost = true;
     this.shadowRoot.querySelector('.likes-counter').classList.add('user-liked-counter');
-    this.shadowRoot.querySelector('#count-likes').innerText = POST_DATA.likes_count + 1;
+    this.shadowRoot.querySelector('#count-likes').innerText = this._post_data.likes_count + 1;
   }
 
   _handleUnlike() {
     if (!this._userLikedPost) return;
     this._userLikedPost = false;
     this.shadowRoot.querySelector('.likes-counter').classList.remove('user-liked-counter');
-    this.shadowRoot.querySelector('#count-likes').innerText = POST_DATA.likes_count;
+    this.shadowRoot.querySelector('#count-likes').innerText = this._post_data.likes_count;
   }
 
   _handleDblTapLike() {
