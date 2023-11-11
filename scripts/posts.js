@@ -1,4 +1,5 @@
 const MOCK_SERVER_DELAY_MS = 500;
+const MOCK_POSTS_URI = '/scripts/mock_posts.json';
 let mock_posts;
 
 const MAX_POSTS = 35;
@@ -8,7 +9,7 @@ let currentlyFetchingData = false;
 let postFeedFooterElement;
 
 async function initializeInfiniteScroll() {
-  mock_posts = await fetch('/scripts/mock_posts.json').then((contents) => contents.json());
+  mock_posts = await fetch(MOCK_POSTS_URI).then((contents) => contents.json());
 
   postFeedFooterElement = document.querySelector('#post-feed-footer');
 
