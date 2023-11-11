@@ -15,7 +15,7 @@ function initializeInfiniteScroll() {
 
   window.addEventListener('scroll', () => {
     const { scrollHeight, scrollTop, clientHeight } = document.documentElement;
-    if (scrollTop + clientHeight + 500 >= scrollHeight) loadNextPostBatch();
+    if (scrollTop + clientHeight + 800 >= scrollHeight) loadNextPostBatch();
   }, { passive: true });
 }
 
