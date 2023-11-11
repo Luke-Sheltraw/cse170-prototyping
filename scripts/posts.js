@@ -1,15 +1,16 @@
-import mock_posts from './mock_posts.json' assert { type: 'json' };
-
 const MOCK_SERVER_DELAY_MS = 500;
+let mock_posts;
 
 const MAX_POSTS = 35;
 
 let currentNumPosts = 0;
 let currentlyFetchingData = false;
-let postFeedFooter;
+let postFeedFooterElement;
 
-function initializeInfiniteScroll() {
-  postFeedFooter = document.querySelector('#post-feed-footer');
+async function initializeInfiniteScroll() {
+  mock_posts = await fetch('/scripts/mock_posts.json').then((contents) => contents.json());
+
+  postFeedFooterElement = document.querySelector('#post-feed-footer');
 
   loadNextPostBatch();
 
@@ -22,7 +23,7 @@ function initializeInfiniteScroll() {
 function loadNextPostBatch() {
   if (currentlyFetchingData || currentNumPosts >= MAX_POSTS) return;
   currentlyFetchingData = true;
-  postFeedFooter.setAttribute('data-loading', 'true');
+  postFeedFooterElement.setAttribute('data-loading', 'true');
 
   const container = document.querySelector('#post-feed-container');
 
@@ -37,7 +38,7 @@ function loadNextPostBatch() {
     })
     .finally(() => {
       currentlyFetchingData = false;
-      postFeedFooter.setAttribute('data-loading', 'false');
+      postFeedFooterElement.setAttribute('data-loading', 'false');
     });
 }
 
