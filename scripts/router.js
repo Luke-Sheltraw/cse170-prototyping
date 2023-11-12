@@ -54,6 +54,9 @@ export async function loadView(viewName) {
   const header = document.querySelector('#main-header');
   const footer = document.querySelector('#main-footer');
 
+  const viewContent = await fetch(`${ viewName }.tpl.html`).then((res) => res.text());
+  mainContainer.innerHTML = viewContent;
+
   if (curView) curButton.classList.remove('footer__button__active');
   viewButton.classList.add('footer__button__active');
 
@@ -64,9 +67,6 @@ export async function loadView(viewName) {
   else footer.classList.add('hidden');
 
   curView = viewName;
-
-  const viewContent = await fetch(`${ viewName }.tpl.html`).then((res) => res.text());
-  mainContainer.innerHTML = viewContent;
 
   view.initialize();
 }

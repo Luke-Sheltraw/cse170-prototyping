@@ -462,10 +462,14 @@ figure .button-wrapper {
   width: 100%;
   height: auto;
   aspect-ratio: 1;
-  border: 2px solid var(--primary-gold);
   border-radius: 0.75rem;
   position: relative;
   overflow: hidden;
+  box-shadow: var(--default-shadow);
+}
+
+.image-upload-wrapper:not(:has(img[src])) {
+  border: 2px solid var(--primary-gold);
 }
 
 .image-upload-wrapper form {
