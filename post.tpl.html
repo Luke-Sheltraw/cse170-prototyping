@@ -1,1 +1,20 @@
-<h1>Camera page</h1>
+<div class="video-display-wrapper">
+  <video id="video-display">Video stream not supported.</video>
+</div>
+<div class="video-overlay">
+  <button aria-label="Close" id="close-video-button">Close</button>
+  <button
+    id="take-photo-button"
+    class="camera-button"
+    aria-label="Take picture"
+  >
+    <img
+      src="assets/images/icons/camera_icon.svg"
+      alt="Camera icon image"
+      width="40"
+      height="40"
+      draggable="false"
+    >
+  </button>
+</div>
+<canvas id="video-output-canvas"></canvas>

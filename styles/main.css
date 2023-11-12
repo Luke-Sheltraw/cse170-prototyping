@@ -146,11 +146,14 @@ main > h1 {
 }
 
 #post-button {
+  position: relative;
+}
+
+.camera-button {
   background-color: var(--psuedo-white);
   border-radius: 50%;
   box-sizing: border-box;
   border: 2px solid var(--primary-gold);
-  position: relative;
   padding: 1rem;
   bottom: 2rem;
   display: flex;
@@ -159,12 +162,12 @@ main > h1 {
   box-shadow: var(--default-shadow);
 }
 
-#post-button img {
+.camera-button img {
   width: 3rem;
   height: auto;
 }
 
-#post-button:active {
+.camera-button:active {
   filter: brightness(0.9);
 }
 
@@ -448,4 +451,41 @@ figure .button-wrapper {
 
 #post-feed-footer[data-loading=false] .end-of-content-text {
   display: block;
+}
+
+/* Post view */
+.video-display-wrapper {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-70%);
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  background-color: black;
+}
+
+#video-display {
+  display: block;
+  height: 100%;
+  width: auto;
+}
+
+#close-video-button {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+}
+
+#take-photo-button {
+  position: absolute;
+  bottom: calc(2rem + 2px);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#video-output-canvas {
+  position: absolute;
+  width: 100%;
+  height: auto;
 }

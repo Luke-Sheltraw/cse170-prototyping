@@ -11,7 +11,7 @@
 </head>
 <body>
   <!-- HEADER -->
-  <header>
+  <header id="main-header">
     <button class="profile-button">
       <picture>
         <source srcset="" type="image/avif">
@@ -74,7 +74,7 @@
             aria-label="Post"
             id="post-button"
             data-view="post"
-            class="footer__button"
+            class="camera-button footer__button"
           >
             <img
               src="assets/images/icons/camera_icon.svg"
@@ -179,8 +179,8 @@
   </template>
 
   <!-- SCRIPTS -->
-  <script src="scripts/DrinkModal.js"></script>
-  <script src="scripts/UserPost.js"></script>
-  <script src="scripts/pages.js" type="module"></script>
+  <script src="scripts/components/DrinkModal.js"></script>
+  <script src="scripts/components/UserPost.js"></script>
+  <script src="scripts/router.js" type="module"></script>
 </body>
 </html>
