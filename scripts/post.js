@@ -16,6 +16,15 @@ function initializeUpload() {
   });
 }
 
+function initializeListeners() {
+  const closeButton = document.querySelector('#close-post-interface');
+
+  closeButton.addEventListener('click', () => {
+    window.history.back();
+  });
+}
+
 export function initPost() {
   initializeUpload();
+  initializeListeners();
 }
