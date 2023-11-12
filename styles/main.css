@@ -145,20 +145,13 @@ main > h1 {
   padding: 0;
 }
 
-#main-footer button {
-  background: none;
-  border: none;
-  width: 4rem;
-  height: 4rem;
-}
-
-#main-footer button#camera-button {
+#post-button {
   background-color: var(--psuedo-white);
   border-radius: 50%;
   box-sizing: border-box;
   border: 2px solid var(--primary-gold);
   position: relative;
-  padding: 2.5rem;
+  padding: 1rem;
   bottom: 2rem;
   display: flex;
   align-items: center;
@@ -166,16 +159,16 @@ main > h1 {
   box-shadow: var(--default-shadow);
 }
 
-#main-footer button#camera-button img {
+#post-button img {
   width: 3rem;
   height: auto;
 }
 
-#main-footer button#camera-button:active {
+#post-button:active {
   filter: brightness(0.9);
 }
 
-#main-footer svg#footer-decor {
+#footer-decor {
   fill: var(--primary-gold);
   position: absolute;
   top: -16%;
@@ -186,17 +179,22 @@ main > h1 {
   z-index: -1;
 }
 
-.footer__button__active {
+.footer__button:not(#post-button) {
+  background: none;
+  border: none;
+  width: 4rem;
+}
+
+.footer__button__active:not(#post-button) {
   background-color: var(--psuedo-white);
   height: 7rem;
   border-radius: 0.75rem 1rem 0 0;
   outline: 2px solid var(--primary-gold);
   box-shadow: var(--default-shadow);
-  z-index: 1;
 }
 
-.footer__button__active button {
-  margin-top: 0.5rem;
+.footer__button__active:not(#post-button) img {
+  margin-bottom: 2rem;
 }
 
 /* Posts */

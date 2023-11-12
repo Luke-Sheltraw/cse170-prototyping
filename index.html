@@ -27,12 +27,7 @@
 
   <!-- MAIN CONTENT -->
   <main>
-    <h1>Brew<span class="text__secondaryColor">+</span>Buzz</h1>
-    <div id="post-feed-container" aria-label="feed"></div>
-    <footer id="post-feed-footer" data-loading="false">
-      <div class="loading-icon" aria-label="Loading"></div>
-      <p class="end-of-content-text">That's it! Invite your friends and see more posts.</p>
-    </footer>
+    
   </main>
 
   <!-- FOOTER -->
@@ -42,9 +37,12 @@
     </svg>
     <nav>
       <ul>
-        <li class="footer__button footer__button__active">
+        <li>
           <button
             aria-label="Home"
+            id="home-button"
+            data-view="home"
+            class="footer__button"
           >
             <img
               src="assets/images/icons/home_icon.svg"
@@ -55,9 +53,12 @@
             >
           </button>
         </li>
-        <li class="footer__button">
+        <li>
           <button
             aria-label="Trending"
+            id="trending-button"
+            data-view="trending"
+            class="footer__button"
           >
             <img
               src="assets/images/icons/trending_icon.svg"
@@ -70,8 +71,10 @@
         </li>
         <li>
           <button
-            aria-label="Camera"
-            id="camera-button"
+            aria-label="Post"
+            id="post-button"
+            data-view="post"
+            class="footer__button"
           >
             <img
               src="assets/images/icons/camera_icon.svg"
@@ -82,9 +85,12 @@
             >
           </button>
         </li>
-        <li class="footer__button">
+        <li>
           <button
             aria-label="Shop"
+            id="shop-button"
+            data-view="shop"
+            class="footer__button"
           >
             <img
               src="assets/images/icons/shop_icon.svg"
@@ -95,9 +101,12 @@
             >
           </button>
         </li>
-        <li class="footer__button">
+        <li>
           <button
             aria-label="Search"
+            id="search-button"
+            data-view="search"
+            class="footer__button"
           >
             <img
               src="assets/images/icons/search_icon.svg"
@@ -173,6 +182,5 @@
   <script src="scripts/DrinkModal.js"></script>
   <script src="scripts/UserPost.js"></script>
   <script src="scripts/pages.js" type="module"></script>
-  <script src="scripts/posts.js" type="module"></script>
 </body>
 </html>

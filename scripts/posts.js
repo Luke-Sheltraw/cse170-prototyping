@@ -4,13 +4,15 @@ let mock_posts;
 
 const MAX_POSTS = 35;
 
-let currentNumPosts = 0;
-let currentlyFetchingData = false;
+let currentNumPosts;
+let currentlyFetchingData;
 let postFeedFooterElement;
 
 async function initializeInfiniteScroll() {
   mock_posts = await fetch(MOCK_POSTS_URI).then((contents) => contents.json());
 
+  currentlyFetchingData = false;
+  currentNumPosts = 0;
   postFeedFooterElement = document.querySelector('#post-feed-footer');
 
   loadNextPostBatch();
@@ -60,6 +62,6 @@ function getMockedPostInfo() {
   return mock_posts[Math.floor(Math.random() * mock_posts.length)];
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+export function initHome() {
   initializeInfiniteScroll();
-});
+}
