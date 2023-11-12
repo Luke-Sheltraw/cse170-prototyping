@@ -88,7 +88,7 @@ class UserPost extends HTMLElement {
   }
 
   _closeAllModalsExcept(n) {
-    this.shadowRoot.querySelectorAll('drink-modal').forEach((el, i) => {
+    this.querySelectorAll('drink-modal').forEach((el, i) => {
       if (i === n) return;
       el.removeAttribute('open');
     });
@@ -97,19 +97,19 @@ class UserPost extends HTMLElement {
   _handleLike() {
     if (this._userLikedPost) return;
     this._userLikedPost = true;
-    this.shadowRoot.querySelector('.likes-counter').classList.add('user-liked-counter');
-    this.shadowRoot.querySelector('#count-likes').innerText = this._post_data.likes_count + 1;
+    this.querySelector('.likes-counter').classList.add('user-liked-counter');
+    this.querySelector('#count-likes').innerText = this._post_data.likes_count + 1;
   }
 
   _handleUnlike() {
     if (!this._userLikedPost) return;
     this._userLikedPost = false;
-    this.shadowRoot.querySelector('.likes-counter').classList.remove('user-liked-counter');
-    this.shadowRoot.querySelector('#count-likes').innerText = this._post_data.likes_count;
+    this.querySelector('.likes-counter').classList.remove('user-liked-counter');
+    this.querySelector('#count-likes').innerText = this._post_data.likes_count;
   }
 
   _handleDblTapLike() {
-    const picture = this.shadowRoot.querySelector('picture');
+    const picture = this.querySelector('picture');
     picture.classList.add('liked-post');
     picture.addEventListener('animationend', () => {
       picture.classList.remove('liked-post');
