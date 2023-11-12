@@ -469,6 +469,7 @@ figure .button-wrapper {
   display: block;
   height: 100%;
   width: auto;
+  position: absolute;
 }
 
 #close-video-button {
@@ -486,6 +487,7 @@ figure .button-wrapper {
 
 #video-output-canvas {
   position: absolute;
-  width: 100%;
-  height: auto;
+  height: 100%;
+  width: auto;
+  z-index: 5;
 }
