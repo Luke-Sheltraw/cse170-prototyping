@@ -32,8 +32,6 @@ class UserPost extends HTMLElement {
   }
 
   connectedCallback() {
-    const shadow = this.attachShadow({ mode: 'open' });
-
     const postTemplate = document.querySelector('#post-template');
     const post = postTemplate.content.cloneNode(true);
 
@@ -86,7 +84,7 @@ class UserPost extends HTMLElement {
       else this._handleLike();
     });
 
-    shadow.appendChild(post);
+    this.appendChild(post);
   }
 
   _closeAllModalsExcept(n) {
