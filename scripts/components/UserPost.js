@@ -72,11 +72,12 @@ class UserPost extends HTMLElement {
 
     /* initialize double-tap-to-like image listener */
     let lastTouchTimestamp = 0;
-    image.addEventListener('touchstart', (e) => {
+    const tapHandler = () => {
       const timestamp = new Date().getTime();
       if (timestamp - lastTouchTimestamp < 350) this._handleDblTapLike();
       lastTouchTimestamp = timestamp;
-    }, { passive: true });
+    };
+    image.addEventListener('click', tapHandler, { passive: true });
 
     /* initialize like/unlike toggle button listeners */
     post.querySelector('.likes-counter').addEventListener('click', () => {
