@@ -567,9 +567,16 @@ html:has(form#post-upload) {
   font-family: "Inknut Antiqua", serif;
 }
 
-.form-nav button:not(:disabled) {
+.next-button:not(:disabled),
+.form-nav button.submit-button {
   background-color: var(--primary-gold);
   color: var(--psuedo-black);
+}
+
+.form-nav button.back-button {
+  border: none;
+  color: var(--psuedo-black);
+  background-color: var(--psuedo-white);
 }
 
 .post-view {
