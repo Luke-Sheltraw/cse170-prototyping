@@ -1,23 +1,26 @@
 <button aria-label="Close" id="close-post-interface"></button>
-<div class="image-upload-wrapper">
-  <form>
-    <label for="image-upload">
-      <img
-        src="assets/images/icons/upload_icon.svg"
-        alt="Upload icon"
-        width="75"
-        height="75"
-        class="hide-on-upload"
-      >
-      Upload or take a picture
-    </label>
-    <input type="file" accept="image/*" id="image-upload">
-  </form>
-  <img
-    id="image-preview"
-    alt="User uploaded image"
-    width="200"
-    height="200"
-    class="hidden"
-  >
-</div>
+<form>
+  <div class="image-upload-wrapper">
+      <label for="image-upload">
+        <img
+          src="assets/images/icons/upload_icon.svg"
+          alt="Upload icon"
+          width="75"
+          height="75"
+          class="hide-on-upload"
+        >
+        Upload or take a picture
+      </label>
+      <input type="file" accept="image/*" id="image-upload">
+    <img
+      id="image-preview"
+      alt="User uploaded image"
+      width="200"
+      height="200"
+      class="hidden"
+    >
+  </div>
+  <label for="desc-input" id="desc-label">Description</label>
+  <textarea id="desc-input"></textarea>
+</form>
+<button class="next-button">Next</button>
