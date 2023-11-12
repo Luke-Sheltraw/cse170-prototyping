@@ -13,7 +13,7 @@
         >
         <span class="hide-on-upload">Upload or take a picture</span>
       </label>
-      <input type="file" accept="image/*" id="image-upload">
+      <input type="file" accept="image/*" id="image-upload" class="required-input">
       <input type="hidden" name="image-url" id="image-url">
       <img
         id="image-preview"
@@ -24,17 +24,17 @@
       >
     </div>
     <label for="desc-input" id="desc-label">Caption</label>
-    <textarea id="desc-input" name="post-caption"></textarea>
+    <textarea id="desc-input" name="post-caption" class="required-input"></textarea>
     <nav class="form-nav">
       <span></span>
-      <button class="next-button" type="button">Next</button>
+      <button class="next-button" type="button" disabled>Next</button>
     </nav>
   </div>
 
   <!-- VIEW 2 -->
   <div class="post-view" data-active="false">
     <h2>Tell us about the location</h2>
-    <input type="search" name="search-stores" id="search-stores">
+    <input type="search" name="search-stores" id="search-stores" class="required-input">
     <h3>Your recents</h3>
     <ul>
       <li>Store 1</li>
@@ -51,7 +51,7 @@
     </ul>
     <nav class="form-nav">
       <button class="back-button" type="button">Back</button>
-      <button class="next-button" type="button">Next</button>
+      <button class="next-button" type="button" disabled>Next</button>
     </nav>
   </div>
 
@@ -64,7 +64,7 @@
     </section>
     <nav class="form-nav">
       <button class="back-button" type="button">Back</button>
-      <button class="next-button" type="button">Next</button>
+      <button class="next-button" type="button" disabled>Next</button>
     </nav>
   </div>
 

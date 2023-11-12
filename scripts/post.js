@@ -50,6 +50,34 @@ function initializeButtonListeners() {
       currentView += 1;
     }
   ));
+
+  viewList.forEach((viewElement) => {
+    const requiredFields = viewElement.querySelectorAll('.required-input');
+    const nextButton = viewElement.querySelector('.next-button');
+
+    if (nextButton === null) return;
+    if (requiredFields.length === 0) nextButton.disabled = false;
+
+    const populatedFields = [];
+
+    requiredFields.forEach((requiredField) => {
+      requiredField.addEventListener('input', (e) => {
+        if (requiredField.value) {
+          if (!populatedFields.includes(requiredField))
+            populatedFields.push(requiredField);
+        } else {
+          if (populatedFields.includes(requiredField))
+            populatedFields.splice(populatedFields.indexOf(requiredField), 1);
+        }
+
+        if (populatedFields.length === requiredFields.length) {
+          nextButton.disabled = false;
+        } else {
+          nextButton.disabled = true;
+        }
+      });
+    });
+  });
 }
 
 function initializeFormListener() {
