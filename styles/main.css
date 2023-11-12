@@ -458,6 +458,10 @@ figure .button-wrapper {
 }
 
 /* Post view */
+body:has(form#post-upload) {
+  overflow-y: hidden;
+}
+
 .image-upload-wrapper {
   width: 100%;
   height: auto;
