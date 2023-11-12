@@ -1,25 +1,79 @@
 <button aria-label="Close" id="close-post-interface"></button>
 <form id="post-upload">
-  <div class="image-upload-wrapper">
-      <label for="image-upload" class="hide-on-upload">
+  <!-- VIEW 1 -->
+  <div class="post-view" data-active="true">
+    <div class="image-upload-wrapper">
+      <label for="image-upload">
         <img
           src="assets/images/icons/upload_icon.svg"
           alt="Upload icon"
           width="75"
           height="75"
+          class="hide-on-upload"
         >
-        Upload or take a picture
+        <span class="hide-on-upload">Upload or take a picture</span>
       </label>
       <input type="file" accept="image/*" id="image-upload">
-    <img
-      id="image-preview"
-      alt="User uploaded image"
-      width="200"
-      height="200"
-      class="hidden"
-    >
+      <input type="hidden" name="image-url" id="image-url">
+      <img
+        id="image-preview"
+        alt="User uploaded image"
+        width="200"
+        height="200"
+        class="hidden"
+      >
+    </div>
+    <label for="desc-input" id="desc-label">Caption</label>
+    <textarea id="desc-input" name="post-caption"></textarea>
+    <nav class="form-nav">
+      <span></span>
+      <button class="next-button" type="button">Next</button>
+    </nav>
   </div>
-  <label for="desc-input" id="desc-label">Caption</label>
-  <textarea id="desc-input"></textarea>
+
+  <!-- VIEW 2 -->
+  <div class="post-view" data-active="false">
+    <h2>Tell us about the location</h2>
+    <input type="search" name="search-stores" id="search-stores">
+    <h3>Your recents</h3>
+    <ul>
+      <li>Store 1</li>
+      <li>Store 2</li>
+      <li>Store 3</li>
+      <li>Store 4</li>
+    </ul>
+    <h3>Popular stores</h3>
+    <ul>
+      <li>Store 1</li>
+      <li>Store 2</li>
+      <li>Store 3</li>
+      <li>Store 4</li>
+    </ul>
+    <nav class="form-nav">
+      <button class="back-button" type="button">Back</button>
+      <button class="next-button" type="button">Next</button>
+    </nav>
+  </div>
+
+  <!-- VIEW 3 -->
+  <div class="post-view" data-active="false">
+    <h2>Tell us about your order</h2>
+    <section>
+      <div></div>
+      <button type="button">Add an<span class="hide-when-items-added">other</span> item</button>
+    </section>
+    <nav class="form-nav">
+      <button class="back-button" type="button">Back</button>
+      <button class="next-button" type="button">Next</button>
+    </nav>
+  </div>
+
+  <!-- VIEW 4 -->
+  <div class="post-view" data-active="false">
+    <h2>You're ready to post!</h2>
+    <nav class="form-nav">
+      <button class="back-button" type="button">Back</button>
+      <button class="submit-button">Post!</button>
+    </nav>
+  </div>
 </form>
-<button class="next-button">Next</button>

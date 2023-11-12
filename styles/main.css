@@ -108,7 +108,7 @@ main {
   margin-bottom: 8rem;
 }
 
-main > h1 {
+h1, h2, h3, h4, h5, h6 {
   font-weight: normal;
   margin: 0;
 }
@@ -546,11 +546,17 @@ html:has(form#post-upload) {
   font-size: 0.75rem;
 }
 
-.next-button {
+.form-nav {
   position: absolute;
   bottom: 2rem;
-  right: 1rem;
+  display: flex;
+  justify-content: space-between;
+  width: calc(100vw - 2rem);
+}
+
+.form-nav button {
   padding: 0.5rem 2.7rem;
+  width: 10rem;
   background-color: var(--psuedo-white);
   border: 2px solid var(--primary-gold);
   border-radius: 0.75rem;
@@ -560,7 +566,15 @@ html:has(form#post-upload) {
   font-family: "Inknut Antiqua", serif;
 }
 
-.next-button:not(:disabled) {
+.form-nav button:not(:disabled) {
   background-color: var(--primary-gold);
   color: var(--psuedo-black);
+}
+
+.post-view {
+  display: none;
+}
+
+.post-view[data-active=true] {
+  display: block;
 }

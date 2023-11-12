@@ -1,40 +1,29 @@
-import { initHome } from "./home.js";
-import { initPost } from "./post.js";
-
 const VIEWS = {
   '/home': {
-    initialize: initHome,
     showHeader: true,
     showFooter: true,
   },
   '/trending': {
-    initialize: () => {},
     showHeader: true,
     showFooter: true,
   },
   '/post': {
-    initialize: initPost,
     showFooter: false,
     showHeader: false,
   },
   '/shop': {
-    initialize: () => {},
     showHeader: true,
     showFooter: true,
   },
   '/search': {
-    initialize: () => {},
     showHeader: false,
     showFooter: true,
   },
 };
 
 let curView;
-let mainContainer;
 
 function enablePageRouting() {
-  mainContainer = document.querySelector('main');
-
   window.addEventListener('popstate', (e) => {
     loadView(window.location.pathname);
   });
@@ -52,10 +41,13 @@ export async function loadView(viewName) {
   const curButton = document.querySelector(`#${ curView?.slice(1) }-button`);
   const viewButton = document.querySelector(`#${ viewName.slice(1) }-button`);
   const header = document.querySelector('#main-header');
+  const main = document.querySelector('main');
   const footer = document.querySelector('#main-footer');
 
   const viewContent = await fetch(`${ viewName }.tpl.html`).then((res) => res.text());
-  mainContainer.innerHTML = viewContent;
+  
+  main.innerHTML = viewContent;
+  main.setAttribute('data-curview', viewName);
 
   if (curView) curButton.classList.remove('footer__button__active');
   viewButton.classList.add('footer__button__active');
@@ -67,8 +59,6 @@ export async function loadView(viewName) {
   else footer.classList.add('hidden');
 
   curView = viewName;
-
-  view.initialize();
 }
 
 function enableNavButtonListeners() {
@@ -79,8 +69,8 @@ function enableNavButtonListeners() {
   });
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+export function initRouting() {
   enablePageRouting();
   loadView('/home');
   enableNavButtonListeners();
-});
+};
