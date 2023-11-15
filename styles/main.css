@@ -109,7 +109,6 @@ button {
 
 main {
   padding: 0.5rem;
-  margin-bottom: 8rem;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -440,6 +439,7 @@ figure .button-wrapper {
 #post-feed-footer {
   display: flex;
   justify-content: center;
+  margin-bottom: 8rem;
 }
 
 #post-feed-footer[data-loading=true] .loading-icon {
@@ -621,7 +621,7 @@ html:has(form#post-upload) {
 }
 
 #suggested-search-stores h3 {
-  margin-top: 1rem;
+  margin-top: 1.5rem;
 }
 
 #suggested-search-stores ul {
