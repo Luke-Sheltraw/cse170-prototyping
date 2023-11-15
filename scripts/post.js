@@ -98,7 +98,7 @@ function initializeFormListener() {
     e.preventDefault();
     const formData = new FormData(form);
 
-    const store_name = formData.get('search-stores');
+    const store_name = formData.get('selected-store'); // currently tracking store id
     const store_location = 'User City, ST';
     const image_url = formData.get('image-url');
     const post_desc = formData.get('post-caption');

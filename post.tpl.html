@@ -15,13 +15,15 @@
       </label>
       <input type="file" accept="image/*" id="image-upload">
       <input type="hidden" name="image-url" id="image-url" class="required-input">
-      <img
-        id="image-preview"
-        alt="User uploaded image"
-        width="200"
-        height="200"
-        class="hidden"
-      >
+      <div class="image-wrapper">
+        <img
+          id="image-preview"
+          alt="User uploaded image"
+          width="200"
+          height="200"
+          class="hidden"
+        >
+      </div>
     </div>
     <label for="desc-input" id="desc-label">Caption</label>
     <textarea id="desc-input" name="post-caption" class="required-input"></textarea>
@@ -111,9 +113,14 @@
   <!-- VIEW 3 -->
   <div class="post-view" data-active="false">
     <h2>Tell us about your order</h2>
-    <section>
-      <div></div>
-      <button type="button">Add an<span class="hide-when-items-added">other</span> item</button>
+    <section id="add-items">
+      <div id="current-items">
+        <div id="current-item-wrapper"></div>
+        <span>You haven't added anything yet</span>
+      </div>
+      <button type="button" id="add-more-btn" class="chevron-button">
+        Add an<span class="hide-when-items-added">other</span>&nbsp;item
+      </button>
     </section>
     <nav class="form-nav">
       <div>
