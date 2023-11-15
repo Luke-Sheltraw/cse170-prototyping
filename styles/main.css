@@ -642,6 +642,7 @@ html:has(form#post-upload) {
 
 #suggested-search-stores button {
   box-shadow: var(--default-shadow);
+  color: var(--psuedo-black);
   border-radius: 0.75rem;
   padding: 0.25rem 0.75rem;
   border: none;
