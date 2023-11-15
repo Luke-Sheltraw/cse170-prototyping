@@ -56,6 +56,7 @@ body {
   display: flex;
   align-items: center;
   position: relative;
+  font-size: 0.875rem;
 }
 
 .chevron-button::after {
@@ -336,7 +337,6 @@ figure .button-wrapper {
   width: 10rem;
   line-height: 1.5rem;
   font-family: "Inter", sans-serif;
-  font-size: 0.875rem;
 }
 
 .drink-info-svg {
@@ -585,4 +585,19 @@ html:has(form#post-upload) {
 
 .post-view[data-active=true] {
   display: block;
+}
+
+.fw-text-input {
+  width: 100%;
+  padding: 0.75rem 0.75rem 0.75rem 1.75rem;
+  border-radius: 0.75rem;
+  border: none;
+  outline: none;
+  box-shadow: var(--default-shadow);
+  font-size: 0.875rem;
+  font-family: "Inter", sans-serif;
+}
+
+.fw-text-input::placeholder {
+  color: var(--psuedo-black-lightened);
 }
