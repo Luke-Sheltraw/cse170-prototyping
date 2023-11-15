@@ -31,6 +31,11 @@ body {
 
 /* General */
 
+button {
+  font-size: 0.875rem;
+  font-family: "Inknut Antiqua", sans-serif;
+}
+
 .hidden {
   visibility: hidden;
 }
@@ -47,7 +52,6 @@ body {
 .chevron-button {
   background-color: var(--psuedo-white);
   border: none;
-  font-family: "Inknut Antiqua", serif;
   color: var(--psuedo-black);
   text-align: left;
   border-radius: 0.75rem;
@@ -56,7 +60,6 @@ body {
   display: flex;
   align-items: center;
   position: relative;
-  font-size: 0.875rem;
 }
 
 .chevron-button::after {
@@ -620,7 +623,7 @@ html:has(form#post-upload) {
 }
 
 #suggested-search-stores {
-  overflow: clip auto;
+  overflow-y: auto;
 }
 
 #suggested-search-stores h3 {
@@ -633,9 +636,31 @@ html:has(form#post-upload) {
   margin: 0;
 }
 
-#suggested-search-stores ul li {
+#suggested-search-stores li {
+  margin: 0.75rem 0;
+}
+
+#suggested-search-stores button {
   box-shadow: var(--default-shadow);
-  margin: 0.5rem 0;
   border-radius: 0.75rem;
   padding: 0.25rem 0.75rem;
+  border: none;
+  background: none;
+  width: 100%;
+  height: 100%;
+  text-align: left;
+}
+
+#suggested-search-stores button[data-selected] {
+  background-color: var(--primary-gold);
+}
+
+#suggested-search-stores address {
+  color: var(--psuedo-black-lightened);
+  font-style: normal;
+  font-size: 0.75rem;
+}
+
+#suggested-search-stores button[data-selected] address {
+  color: var(--psuedo-black);
 }

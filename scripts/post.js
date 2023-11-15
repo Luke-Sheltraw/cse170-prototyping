@@ -9,6 +9,7 @@ function initializeUpload() {
 
   fileReader.addEventListener('loadend', (e) => {
     const encoding = e.target.result;
+    if (!encoding) return;
 
     imagePreview.src = encoding;
     imageUrl.value = encoding;
@@ -17,11 +18,13 @@ function initializeUpload() {
   });
 
   imageUpload.addEventListener('change', () => {
-    fileReader.readAsDataURL(imageUpload.files[0]);
+    try {
+      fileReader.readAsDataURL(imageUpload.files[0]);
+    } catch { return; }
   });
 }
 
-function initializeButtonListeners() {
+function initializeNavigationListeners() {
   const closeButton = document.querySelector('#close-post-interface');
   const backButtons = document.querySelectorAll('.back-button');
   const nextButtons = document.querySelectorAll('.next-button');
@@ -58,25 +61,33 @@ function initializeButtonListeners() {
     if (nextButton === null) return;
     if (requiredFields.length === 0) nextButton.disabled = false;
 
-    const populatedFields = [];
+    const populatedFields = {};
 
+    const handleInputChange = (e) => {
+      if (e.target.value) {
+        populatedFields[e.target] = e.target.value;
+      } else {
+        delete populatedFields[e.target];
+      }
+
+      if (Object.entries(populatedFields).length === requiredFields.length) {
+        nextButton.disabled = false;
+      } else {
+        nextButton.disabled = true;
+      }
+    };
+
+    const observer = new MutationObserver((e) => handleInputChange(e[0]));
+  
     requiredFields.forEach((requiredField) => {
-      requiredField.addEventListener('input', (e) => {
-        if (requiredField.value) {
-          if (!populatedFields.includes(requiredField))
-            populatedFields.push(requiredField);
-        } else {
-          if (populatedFields.includes(requiredField))
-            populatedFields.splice(populatedFields.indexOf(requiredField), 1);
-        }
-
-        if (populatedFields.length === requiredFields.length) {
-          nextButton.disabled = false;
-        } else {
-          nextButton.disabled = true;
-        }
+      observer.observe(requiredField, {
+        attributeFilter: ['value'],
       });
     });
+
+    requiredFields.forEach((requiredField) =>
+      requiredField.addEventListener('input', handleInputChange)
+    );
   });
 }
 
@@ -128,8 +139,30 @@ function initializeFormListener() {
   });
 }
 
+function initializeStoreSearch() {
+  const hiddenFieldElement = document.querySelector('#selected-store');
+  const suggestedOptionElements = document.querySelectorAll('#suggested-search-stores button');
+  let activeButtonElement;
+
+  suggestedOptionElements.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      if (btn === activeButtonElement) {
+        activeButtonElement.removeAttribute('data-selected');
+        activeButtonElement = undefined;
+        hiddenFieldElement.value = '';
+        return;
+      };
+      activeButtonElement?.removeAttribute('data-selected');
+      btn.setAttribute('data-selected', '');
+      activeButtonElement = btn;
+      hiddenFieldElement.value = activeButtonElement.getAttribute('data-storeid');
+    });
+  });
+}
+
 export function initPost() {
   initializeUpload();
-  initializeButtonListeners();
+  initializeNavigationListeners();
+  initializeStoreSearch();
   initializeFormListener();
 }

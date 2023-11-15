@@ -13,8 +13,8 @@
         >
         <span class="hide-on-upload">Upload or take a picture</span>
       </label>
-      <input type="file" accept="image/*" id="image-upload" class="required-input">
-      <input type="hidden" name="image-url" id="image-url">
+      <input type="file" accept="image/*" id="image-upload">
+      <input type="hidden" name="image-url" id="image-url" class="required-input">
       <img
         id="image-preview"
         alt="User uploaded image"
@@ -38,27 +38,67 @@
     <h2>Tell us about the location</h2>
     <input
       type="search"
-      name="search-stores"
       id="search-stores"
-      class="required-input fw-text-input"
+      class="fw-text-input"
       placeholder="Search for a store"
       title="Search for a store"
     >
     <section id="suggested-search-stores">
       <h3>Your recents</h3>
       <ul>
-        <li>Store 1</li>
-        <li>Store 2</li>
-        <li>Store 3</li>
-        <li>Store 4</li>
+        <li>
+          <button type="button" data-storeid="1234Z">
+            <h4>Bird Rock Coffee</h4>
+            <address>San Diego, CA</address>
+          </button>
+        </li>
+        <li>
+          <button type="button" data-storeid="1234Y">
+            <h4>Pannikin Coffee and Tea</h4>
+            <address>Encinitas, CA</address>
+          </button>
+        </li>
+        <li>
+          <button type="button" data-storeid="1234X">
+            <h4>Home Coffee Roasters</h4>
+            <address>San Francisco, CA</address>
+          </button>
+        </li>
+        <li>
+          <button type="button" data-storeid="1234W">
+            <h4>Art of Espresso</h4>
+            <address>La Jolla, CA</address>
+          </button>
+        </li>
       </ul>
-      <h3>Popular stores</h3>
+      <h3>Popular near you</h3>
       <ul>
-        <li>Store 1</li>
-        <li>Store 2</li>
-        <li>Store 3</li>
-        <li>Store 4</li>
+        <li>
+          <button type="button" data-storeid="1234A">
+            <h4>Starbucks</h4>
+            <address>San Diego, CA</address>
+          </button>
+        </li>
+        <li>
+          <button type="button" data-storeid="1234B">
+            <h4>Peet's Coffee and Tea</h4>
+            <address>San Diego, CA</address>
+          </button>
+        </li>
+        <li>
+          <button type="button" data-storeid="1234C">
+            <h4>Dutch Bros Coffee</h4>
+            <address>San Diego, CA</address>
+          </button>
+        </li>
+        <li>
+          <button type="button" data-storeid="1234D">
+            <h4>Tim Hortons</h4>
+            <address>San Diego, CA</address>
+          </button>
+        </li>
       </ul>
+      <input type="hidden" name="selected-store" id="selected-store" class="required-input">
     </section>
     <nav class="form-nav">
       <div>
