@@ -681,6 +681,10 @@ html:has(form#post-upload) {
   display: inline-block;
 }
 
+#current-items:has(:empty) + #add-more-btn .hide-when-no-items {
+  display: none;
+}
+
 #add-items #add-more-btn {
   width: 100%;
 }
