@@ -68,17 +68,15 @@ function initializeNavigationListeners() {
       } else if (currentView === viewList.length - 2) { // confirmation screen
         const wrapper = document.querySelector('#post-preview-wrapper');
         const postInfo = getCurrentFormData();
-        const postPreview = document.querySelector('#post-template').content.cloneNode(true);
-        postPreview.querySelector('.store-name').innerText = postInfo.store_name;
-        postPreview.querySelector('.city-state').innerText = postInfo.store_location;
-        postPreview.querySelector('.image-wrapper img').src = postInfo.image_url;
-        postPreview.querySelector('.image-wrapper img').alt = postInfo.image_desc;
-        postPreview.querySelector('figcaption a').innerText = postInfo.post_author;
-        postPreview.querySelector('.post-description').innerText = postInfo.image_desc;
+        postInfo.post_id = 'POST_PREVIEW';
+        window.sessionStorage.setItem(postInfo.post_id, JSON.stringify(postInfo));
+        const postPreview = document.createElement('user-post');
+        postPreview.setAttribute('post-id', postInfo.post_id);
+        postPreview.setAttribute('preview', 'true');
+        wrapper.innerHTML = '';
+        wrapper.append(postPreview);
         postPreview.querySelector('.button-wrapper').remove();
         postPreview.querySelector('.leave-comment').remove();
-
-        wrapper.append(postPreview);
         moveToNextView();
       } else {
         moveToNextView();

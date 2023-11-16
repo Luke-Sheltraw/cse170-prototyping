@@ -110,6 +110,7 @@ class UserPost extends HTMLElement {
   }
 
   _handleDblTapLike() {
+    if (this.getAttribute('preview') === 'true') return;
     const picture = this.querySelector('picture');
     picture.classList.add('liked-post');
     picture.addEventListener('animationend', () => {
