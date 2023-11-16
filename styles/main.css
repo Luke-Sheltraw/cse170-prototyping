@@ -667,13 +667,13 @@ html:has(form#post-upload) {
 
 #location-rating-modal {
   outline: none;
-  border: 2px solid var(--tertiary-teal);
+  border: none;
   border-radius: 0.75rem;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  box-shadow: var(--default-shadow);
+  box-shadow: 0 0.25rem 0.75rem 0.1rem #3E363F50, 0 0 7rem 2rem var(--psuedo-white);
   background-color: var(--psuedo-white);
   width: calc(100vw - 2rem);
   flex-direction: column;
@@ -709,7 +709,6 @@ html:has(form#post-upload) {
   flex-direction: column;
   justify-content: center;
   margin-bottom: 1rem;
-  box-shadow: var(--default-shadow);
   border-radius: 0.75rem;
 }
 
@@ -723,6 +722,10 @@ html:has(form#post-upload) {
 
 #current-item-wrapper:empty + span {
   display: inline-block;
+}
+
+#current-items:not(:has(:empty)) {
+  box-shadow: var(--default-shadow);
 }
 
 #current-items:has(:empty) + #add-more-btn .hide-when-no-items {
