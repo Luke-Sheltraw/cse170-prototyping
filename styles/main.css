@@ -189,6 +189,12 @@ h1, h2, h3, h4, h5, h6 {
   z-index: -1;
 }
 
+.footer__button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .footer__button:not(#post-button) {
   background: none;
   border: none;
@@ -372,6 +378,10 @@ figure .button-wrapper {
 
 .stars-1::before {
   width: 1rem;
+}
+
+.likes-counter .emoji:not(.user-liked-counter .emoji) {
+  filter: grayscale(1) brightness(1.5);
 }
 
 .user-liked-counter {
