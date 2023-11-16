@@ -659,6 +659,42 @@ html:has(form#post-upload) {
   color: var(--psuedo-black);
 }
 
+#location-rating-modal {
+  outline: none;
+  border: 2px solid var(--tertiary-teal);
+  border-radius: 0.75rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: var(--default-shadow);
+  background-color: var(--psuedo-white);
+  width: calc(100vw - 2rem);
+  flex-direction: column;
+}
+
+#location-rating-modal[open] {
+  display: flex;
+}
+
+#location-rating-modal h3 {
+  font-size: 1rem;
+  line-height: 2rem;
+}
+
+#location-rating-modal .save-stars-button {
+  background: none;
+  border: none;
+  border-radius: 0.75rem;
+  box-shadow: var(--default-shadow);
+  padding: 0.25rem;
+  width: 100%;
+}
+
+#location-rating-modal .save-stars-button:not([disabled]) {
+  background-color: var(--primary-gold);
+}
+
 #add-items #current-items {
   min-height: 5rem;
   display: flex;
@@ -687,4 +723,24 @@ html:has(form#post-upload) {
 
 #add-items #add-more-btn {
   width: 100%;
+}
+
+.star-input-wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 1.5rem 0;
+}
+
+.star-input-wrapper button {
+  width: 2rem;
+  height: 2rem;
+  background: none;
+  border: none;
+  background-image: url(../assets/images/icons/star_icon.svg);
+  background-size: contain;
+  margin: 0 0.175rem;
+}
+
+.star-input-wrapper button:not([data-selected]) {
+  filter: grayscale();
 }

@@ -49,25 +49,25 @@
       <h3>Your recents</h3>
       <ul>
         <li>
-          <button type="button" data-storeid="1234Z">
+          <button type="button" data-storename="Bird Rock Coffee" data-storelocation="San Diego, CA">
             <h4>Bird Rock Coffee</h4>
             <address>San Diego, CA</address>
           </button>
         </li>
         <li>
-          <button type="button" data-storeid="1234Y">
+          <button type="button" data-storename="Pannikin Coffee and Tea" data-storelocation="Encinitas, CA">
             <h4>Pannikin Coffee and Tea</h4>
             <address>Encinitas, CA</address>
           </button>
         </li>
         <li>
-          <button type="button" data-storeid="1234X">
+          <button type="button" data-storename="Home Coffee Roasters" data-storelocation="San Francisco, CA">
             <h4>Home Coffee Roasters</h4>
             <address>San Francisco, CA</address>
           </button>
         </li>
         <li>
-          <button type="button" data-storeid="1234W">
+          <button type="button" data-storename="Art of Espresso" data-storelocation="La Jolla, CA">
             <h4>Art of Espresso</h4>
             <address>La Jolla, CA</address>
           </button>
@@ -76,32 +76,44 @@
       <h3>Popular near you</h3>
       <ul>
         <li>
-          <button type="button" data-storeid="1234A">
+          <button type="button" data-storename="Starbucks" data-storelocation="San Diego, CA">
             <h4>Starbucks</h4>
             <address>San Diego, CA</address>
           </button>
         </li>
         <li>
-          <button type="button" data-storeid="1234B">
+          <button type="button" data-storename="Peet's Coffee and Tea" data-storelocation="San Diego, CA">
             <h4>Peet's Coffee and Tea</h4>
             <address>San Diego, CA</address>
           </button>
         </li>
         <li>
-          <button type="button" data-storeid="1234C">
+          <button type="button" data-storename="Dutch Bros Coffee" data-storelocation="San Diego, CA">
             <h4>Dutch Bros Coffee</h4>
             <address>San Diego, CA</address>
           </button>
         </li>
         <li>
-          <button type="button" data-storeid="1234D">
+          <button type="button" data-storename="Tim Hortons" data-storelocation="San Diego, CA">
             <h4>Tim Hortons</h4>
             <address>San Diego, CA</address>
           </button>
         </li>
       </ul>
-      <input type="hidden" name="selected-store" id="selected-store" class="required-input">
+      <input type="hidden" name="selected-store-name" id="selected-store-name" class="required-input">
+      <input type="hidden" name="selected-store-location" id="selected-store-location" class="required-input">
     </section>
+    <dialog id="location-rating-modal">
+      <h3>
+        Review
+        <span id="review-store-name">{{ store name }}</span>
+        in
+        <span id="review-store-location">{{ store location }}</span>
+      </h3>
+      <rating-input name="location-rating">
+        <button class="save-stars-button" type="button" disabled>Save rating</button>
+      </rating-input>
+    </dialog>
     <nav class="form-nav">
       <div>
         <button class="back-button" type="button">Back</button>

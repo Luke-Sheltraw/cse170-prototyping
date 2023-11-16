@@ -45,12 +45,29 @@ function initializeNavigationListeners() {
     }
   ));
 
+  const moveToNextView = () => {
+    if (currentView >= viewList.length - 1) return;
+    viewList[currentView].setAttribute('data-active', 'false');
+    viewList[currentView + 1].setAttribute('data-active', 'true');
+    currentView += 1;
+  }
+
   nextButtons.forEach((btn) => 
     btn.addEventListener('click', () => {
-      if (currentView >= viewList.length - 1) return;
-      viewList[currentView].setAttribute('data-active', 'false');
-      viewList[currentView + 1].setAttribute('data-active', 'true');
-      currentView += 1;
+      if (currentView === 1) { // store select next button
+        const modal = document.querySelector('#location-rating-modal');
+        document.querySelector('#review-store-name').innerText = 
+          document.querySelector('#selected-store-name').value;
+        document.querySelector('#review-store-location').innerText = 
+          document.querySelector('#selected-store-location').value;
+        modal.setAttribute('open', '');
+        document.querySelector('.save-stars-button').addEventListener('click', () => {
+          modal.removeAttribute('open');
+          moveToNextView();
+        }, { once: true });
+      } else {
+        moveToNextView();
+      }
     }
   ));
 
@@ -65,9 +82,9 @@ function initializeNavigationListeners() {
 
     const handleInputChange = (e) => {
       if (e.target.value) {
-        populatedFields[e.target] = e.target.value;
+        populatedFields[e.target.name] = e.target.value;
       } else {
-        delete populatedFields[e.target];
+        delete populatedFields[e.target.name];
       }
 
       if (Object.entries(populatedFields).length === requiredFields.length) {
@@ -77,7 +94,9 @@ function initializeNavigationListeners() {
       }
     };
 
-    const observer = new MutationObserver((e) => handleInputChange(e[0]));
+    const observer = new MutationObserver((e) => {
+      e.forEach((evt) => handleInputChange(evt));
+    });
   
     requiredFields.forEach((requiredField) => {
       observer.observe(requiredField, {
@@ -98,8 +117,8 @@ function initializeFormListener() {
     e.preventDefault();
     const formData = new FormData(form);
 
-    const store_name = formData.get('selected-store'); // currently tracking store id
-    const store_location = 'User City, ST';
+    const store_name = formData.get('selected-store-name');
+    const store_location = formData.get('selected-store-location');
     const image_url = formData.get('image-url');
     const post_desc = formData.get('post-caption');
 
@@ -140,7 +159,8 @@ function initializeFormListener() {
 }
 
 function initializeStoreSearch() {
-  const hiddenFieldElement = document.querySelector('#selected-store');
+  const hiddenFieldElementName = document.querySelector('#selected-store-name');
+  const hiddenFieldElementLocation = document.querySelector('#selected-store-location');
   const suggestedOptionElements = document.querySelectorAll('#suggested-search-stores button');
   let activeButtonElement;
 
@@ -149,13 +169,15 @@ function initializeStoreSearch() {
       if (btn === activeButtonElement) {
         activeButtonElement.removeAttribute('data-selected');
         activeButtonElement = undefined;
-        hiddenFieldElement.value = '';
+        hiddenFieldElementName.value = '';
+        hiddenFieldElementLocation.value = '';
         return;
       };
       activeButtonElement?.removeAttribute('data-selected');
       btn.setAttribute('data-selected', '');
       activeButtonElement = btn;
-      hiddenFieldElement.value = activeButtonElement.getAttribute('data-storeid');
+      hiddenFieldElementName.value = activeButtonElement.getAttribute('data-storename');
+      hiddenFieldElementLocation.value = activeButtonElement.getAttribute('data-storelocation');
     });
   });
 }
