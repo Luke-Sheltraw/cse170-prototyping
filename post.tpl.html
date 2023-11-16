@@ -26,8 +26,12 @@
         >
       </div>
     </div>
-    <label for="desc-input" id="desc-label">Caption</label>
-    <textarea id="desc-input" name="post-caption" class="required-input"></textarea>
+    <textarea 
+      id="desc-input"
+      name="post-caption"
+      class="required-input"
+      placeholder="Write a caption..."
+    ></textarea>
     <nav class="form-nav">
       <div>
         <span></span>
@@ -147,6 +151,9 @@
   <!-- VIEW 4 -->
   <div class="post-view" data-active="false">
     <h2>You're ready to post!</h2>
+    <div id="post-preview-wrapper">
+
+    </div>
     <nav class="form-nav">
       <div>
         <button class="back-button" type="button">Back</button>

@@ -549,8 +549,8 @@ html:has(form#post-upload) {
   padding: 0.875rem;
 }
 
-#desc-label {
-  font-size: 0.75rem;
+#desc-input::placeholder {
+  color: var(--psuedo-black-lightened);
 }
 
 .post-view h2 {

@@ -65,6 +65,21 @@ function initializeNavigationListeners() {
           modal.removeAttribute('open');
           moveToNextView();
         }, { once: true });
+      } else if (currentView === viewList.length - 2) { // confirmation screen
+        const wrapper = document.querySelector('#post-preview-wrapper');
+        const postInfo = getCurrentFormData();
+        const postPreview = document.querySelector('#post-template').content.cloneNode(true);
+        postPreview.querySelector('.store-name').innerText = postInfo.store_name;
+        postPreview.querySelector('.city-state').innerText = postInfo.store_location;
+        postPreview.querySelector('.image-wrapper img').src = postInfo.image_url;
+        postPreview.querySelector('.image-wrapper img').alt = postInfo.image_desc;
+        postPreview.querySelector('figcaption a').innerText = postInfo.post_author;
+        postPreview.querySelector('.post-description').innerText = postInfo.image_desc;
+        postPreview.querySelector('.button-wrapper').remove();
+        postPreview.querySelector('.leave-comment').remove();
+
+        wrapper.append(postPreview);
+        moveToNextView();
       } else {
         moveToNextView();
       }
@@ -110,46 +125,52 @@ function initializeNavigationListeners() {
   });
 }
 
+function getCurrentFormData() {
+  const form = document.querySelector('#post-upload');
+
+  const formData = new FormData(form);
+
+  const store_name = formData.get('selected-store-name');
+  const store_location = formData.get('selected-store-location');
+  const image_url = formData.get('image-url');
+  const post_desc = formData.get('post-caption');
+
+  const post_id = 'xxxxxx';
+  const post_author = 'Luke Sheltraw';
+
+  return {
+    post_id,
+    store_name,
+    store_location,
+    image_url,
+    image_desc: post_desc,
+    image_items: [
+      // {
+      //   item_name: 'User-flagged item',
+      //   item_rating: 5,
+      //   item_x: 0.5,
+      //   item_y: 0.5
+      // },
+    ],
+    post_desc,
+    post_author,
+    likes_count: 0,
+    comments_count: 0,
+  };
+}
+
 function initializeFormListener() {
   const form = document.querySelector('#post-upload');
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
-    const formData = new FormData(form);
+    
+    const newPost = getCurrentFormData();
 
-    const store_name = formData.get('selected-store-name');
-    const store_location = formData.get('selected-store-location');
-    const image_url = formData.get('image-url');
-    const post_desc = formData.get('post-caption');
-
-    const post_id = 'xxxxxx';
-    const post_author = 'Luke Sheltraw';
-
-    if (!store_name || !store_location || !image_url || !post_desc) return;
-
-    const newPost = {
-      post_id,
-      store_name,
-      store_location,
-      image_url,
-      image_desc: post_desc,
-      image_items: [
-        // {
-        //   item_name: 'User-flagged item',
-        //   item_rating: 5,
-        //   item_x: 0.5,
-        //   item_y: 0.5
-        // },
-      ],
-      post_desc,
-      post_author,
-      likes_count: 0,
-      comments_count: 0,
-    };
-    window.sessionStorage.setItem(post_id, JSON.stringify(newPost));
+    window.sessionStorage.setItem(newPost.post_id, JSON.stringify(newPost));
 
     const postElement = document.createElement('user-post');
-    postElement.setAttribute('post-id', post_id);
+    postElement.setAttribute('post-id', newPost.post_id);
 
     loadView('/home').then(() => {
       const feedContainer = document.querySelector('#post-feed-container');
