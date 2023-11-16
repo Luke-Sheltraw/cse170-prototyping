@@ -289,7 +289,7 @@ span.city-state {
   font-family: "Inknut Antiqua", serif;
   font-size: 0.75rem;
   display: inline-block;
-  min-width: 6.675rem;
+  width: 6.675rem;
   text-align: left;
   white-space: nowrap;
 }
@@ -569,7 +569,7 @@ html:has(form#post-upload) {
   display: flex;
   justify-content: space-between;
   position: relative;
-  bottom: 2rem;
+  bottom: 3rem;
   width: 100%;
 }
 
@@ -603,7 +603,7 @@ html:has(form#post-upload) {
   display: none;
 
   flex-direction: column;
-  height: calc(100vh - 11.5rem);
+  height: calc(100vh - 12.5rem);
 }
 
 .post-view[data-active=true] {
