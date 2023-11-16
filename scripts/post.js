@@ -123,7 +123,7 @@ function initializeFormListener() {
     const post_desc = formData.get('post-caption');
 
     const post_id = 'xxxxxx';
-    const post_author = 'John Doe';
+    const post_author = 'Luke Sheltraw';
 
     if (!store_name || !store_location || !image_url || !post_desc) return;
 

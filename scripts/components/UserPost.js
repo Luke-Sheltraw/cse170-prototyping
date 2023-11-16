@@ -115,6 +115,7 @@ class UserPost extends HTMLElement {
     picture.addEventListener('animationend', () => {
       picture.classList.remove('liked-post');
     });
+    navigator.vibrate(200);
     this._handleLike();
   }
 }

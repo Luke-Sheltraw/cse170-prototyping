@@ -2,11 +2,12 @@
 <form id="post-upload" autocomplete="off">
   <!-- VIEW 1 -->
   <div class="post-view" data-active="true">
+    <h2>Create a new post</h2>
     <div class="image-upload-wrapper">
       <label for="image-upload">
         <img
-          src="assets/images/icons/upload_icon.svg"
-          alt="Upload icon"
+          src="assets/images/icons/camera_icon.svg"
+          alt="Camera icon"
           width="75"
           height="75"
           class="hide-on-upload"
@@ -105,11 +106,12 @@
     </section>
     <dialog id="location-rating-modal">
       <h3>
-        Review
-        <span id="review-store-name">{{ store name }}</span>
-        in
-        <span id="review-store-location">{{ store location }}</span>
+        How was your visit?
       </h3>
+      <div class="review-location-wrapper">
+        <p id="review-store-name">{{ store name }}</p>
+        <address id="review-store-location">{{ store location }}</address>
+      </div>
       <rating-input name="location-rating">
         <button class="save-stars-button" type="button" disabled>Save rating</button>
       </rating-input>
