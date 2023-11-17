@@ -164,7 +164,6 @@ function initializeFormListener() {
     e.preventDefault();
     
     const newPost = getCurrentFormData();
-
     window.sessionStorage.setItem(newPost.post_id, JSON.stringify(newPost));
 
     const postElement = document.createElement('user-post');

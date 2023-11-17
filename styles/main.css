@@ -700,7 +700,7 @@ html:has(form#post-upload) {
 
 #location-rating-modal .save-stars-button {
   background: none;
-  border: none;
+  border: 2px solid var(--primary-gold);
   border-radius: 0.75rem;
   box-shadow: var(--default-shadow);
   padding: 0.25rem;

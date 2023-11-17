@@ -2,22 +2,27 @@ const VIEWS = {
   '/home': {
     showHeader: true,
     showFooter: true,
+    content: fetch('home.tpl.html').then((res) => res.text()),
   },
   '/trending': {
     showHeader: true,
     showFooter: true,
+    content: fetch('trending.tpl.html').then((res) => res.text()),
   },
   '/post': {
     showFooter: false,
     showHeader: false,
+    content: fetch('post.tpl.html').then((res) => res.text()),
   },
   '/shop': {
     showHeader: true,
     showFooter: true,
+    content: fetch('shop.tpl.html').then((res) => res.text()),
   },
   '/search': {
     showHeader: false,
     showFooter: true,
+    content: fetch('search.tpl.html').then((res) => res.text()),
   },
 };
 
@@ -43,10 +48,8 @@ export async function loadView(viewName) {
   const header = document.querySelector('#main-header');
   const main = document.querySelector('main');
   const footer = document.querySelector('#main-footer');
-
-  const viewContent = await fetch(`${ viewName }.tpl.html`).then((res) => res.text());
   
-  main.innerHTML = viewContent;
+  main.innerHTML = await VIEWS[viewName].content;
   main.setAttribute('data-curview', viewName);
 
   if (curView) curButton.classList.remove('footer__button__active');
