@@ -139,6 +139,26 @@ h1, h2, h3, h4, h5, h6 {
   z-index: 20;
 }
 
+#main-footer::before {
+  content: "";
+  display: block;
+  position: absolute;
+  z-index: -1;
+  width: 100vw;
+  height: 10vw;
+  top: calc(-10vw + 2px);
+  background-color: var(--primary-gold);
+  background-image: var(--gold-gradient);
+  -webkit-mask-image: url(../assets/images/icons/footer_pattern.svg);
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center bottom;
+  -webkit-mask-size: 51%;
+  mask-image: url(../assets/images/icons/footer_pattern.svg);
+  mask-repeat: no-repeat;
+  mask-position: center bottom;
+  mask-size: 51%;
+}
+
 #main-footer nav {
   height: 100%;
   display: flex;
