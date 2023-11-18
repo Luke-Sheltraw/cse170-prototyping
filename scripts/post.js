@@ -29,8 +29,12 @@ function initializeNavigationListeners() {
   const backButtons = document.querySelectorAll('.back-button');
   const nextButtons = document.querySelectorAll('.next-button');
 
+  const progressBar = document.querySelector('#post-progress');
+
   const viewList = document.querySelectorAll('.post-view');
   let currentView = 0;
+
+  progressBar.max = viewList.length;
   
   closeButton.addEventListener('click', () => {
     window.history.back();
@@ -41,6 +45,7 @@ function initializeNavigationListeners() {
       if (currentView <= 0) return;
       viewList[currentView].setAttribute('data-active', 'false');
       viewList[currentView - 1].setAttribute('data-active', 'true');
+      progressBar.value = currentView;
       currentView -= 1;
     }
   ));
@@ -49,6 +54,7 @@ function initializeNavigationListeners() {
     if (currentView >= viewList.length - 1) return;
     viewList[currentView].setAttribute('data-active', 'false');
     viewList[currentView + 1].setAttribute('data-active', 'true');
+    progressBar.value = currentView + 2;
     currentView += 1;
   }
 

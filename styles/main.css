@@ -130,7 +130,9 @@ h1, h2, h3, h4, h5, h6 {
   bottom: 0;
   left: 0;
   background-color: var(--primary-gold);
-  height: 5.5rem;
+  background-image: var(--gold-gradient);
+  background-size: 100vw;
+  height: 5.75rem;
   width: 100%;
   box-shadow: var(--up-shadow);
   border-radius: 0.75rem 1rem 0 0;
@@ -549,12 +551,16 @@ html:has(form#post-upload) {
   padding: 0.875rem;
 }
 
+#desc-input:focus, #desc-input:active {
+  outline: 2px solid var(--tertiary-teal);
+}
+
 #desc-input::placeholder {
   color: var(--psuedo-black-lightened);
 }
 
 .post-view h2 {
-  margin-top: -0.5rem;
+  margin-top: 0.5rem
 }
 
 .form-nav {
@@ -590,6 +596,8 @@ html:has(form#post-upload) {
 .next-button:not(:disabled),
 .form-nav button.submit-button {
   background-color: var(--primary-gold);
+  background-image: var(--gold-gradient);
+  background-size: 100vw;
   color: var(--psuedo-black);
 }
 
@@ -711,6 +719,8 @@ html:has(form#post-upload) {
 #location-rating-modal .save-stars-button:not([disabled]) {
   color: var(--psuedo-black);
   background-color: var(--primary-gold);
+  background-image: var(--gold-gradient);
+  background-size: 100vw;
 }
 
 #add-items #current-items {
@@ -785,4 +795,31 @@ html:has(form#post-upload) {
   font-size: 0.75rem;
   color: var(--psuedo-black-lightened);
   width: 80%;
+}
+
+.post-nav-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+progress {
+  appearance: none;
+  flex: 1;
+  height: 1rem;
+  margin-left: 0.5rem;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  box-shadow: var(--up-shadow);
+}
+
+progress::-webkit-progress-bar {
+  background-color: var(--psuedo-white);
+}
+
+progress::-webkit-progress-value {
+  background-color: var(--primary-gold);
+  background-image: var(--gold-gradient-right);
+  background-size: 100%;
+  transition: width 250ms ease-in-out;
+  border: 2px solid var(--primary-gold);
 }
