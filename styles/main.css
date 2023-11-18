@@ -821,5 +821,4 @@ progress::-webkit-progress-value {
   background-image: var(--gold-gradient-right);
   background-size: 100%;
   transition: width 250ms ease-in-out;
-  border: 2px solid var(--primary-gold);
 }
