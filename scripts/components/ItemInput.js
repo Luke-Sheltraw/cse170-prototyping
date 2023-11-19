@@ -91,9 +91,6 @@ class ItemInput extends HTMLElement {
     this._imageEl.addEventListener('click', (e) => {
       const imageBox = this._imageWrapper.getBoundingClientRect();
 
-      console.log(imageBox);
-      console.log(e);
-
       const dX = e.clientX - imageBox.left;
       const dY = e.clientY - imageBox.top;
       
