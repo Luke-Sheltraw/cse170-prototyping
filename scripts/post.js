@@ -206,9 +206,20 @@ function initializeStoreSearch() {
   });
 }
 
+function initializeItemInterface() {
+  const addMoreBtnEl = document.querySelector('#add-more-btn');
+  const itemContainerEl = document.querySelector('#current-item-wrapper');
+
+  addMoreBtnEl.addEventListener('click', () => {
+    const newItemEl = document.createElement('item-input');
+    itemContainerEl.append(newItemEl);
+  });
+}
+
 export function initPost() {
   initializeUpload();
   initializeNavigationListeners();
   initializeStoreSearch();
   initializeFormListener();
+  initializeItemInterface();
 }

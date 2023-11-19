@@ -32,6 +32,7 @@ function loadNextPostBatch() {
 
   fetchNextPostBatchIds()
     .then((post_ids) => {
+      if (!container) return;
       post_ids.forEach((id) => {
         const post = document.createElement('user-post');
         post.setAttribute('post-id', id);

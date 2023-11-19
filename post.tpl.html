@@ -37,8 +37,8 @@
     ></textarea>
     <nav class="form-nav">
       <div>
-        <span></span>
-        <button class="next-button" type="button" disabled>Next</button>
+        <button class="secondary-button hidden" type="button" disabled>Back</button>
+        <button class="next-button primary-button" type="button" disabled>Next</button>
       </div>
     </nav>
   </div>
@@ -53,7 +53,7 @@
       placeholder="Search for a store"
       title="Search for a store"
     >
-    <section id="suggested-search-stores">
+    <section id="suggested-search-stores" class="suggested-wrapper">
       <h3>Your recents</h3>
       <ul>
         <li>
@@ -120,13 +120,13 @@
         <address id="review-store-location">{{ store location }}</address>
       </div>
       <rating-input name="location-rating">
-        <button class="save-stars-button" type="button" disabled>Save rating</button>
+        <button class="save-stars-button primary-button" type="button" disabled>Save rating</button>
       </rating-input>
     </dialog>
     <nav class="form-nav">
       <div>
-        <button class="back-button" type="button">Back</button>
-        <button class="next-button" type="button" disabled>Next</button>
+        <button class="back-button secondary-button" type="button">Back</button>
+        <button class="next-button primary-button" type="button" disabled>Next</button>
       </div>
     </nav>
   </div>
@@ -145,8 +145,8 @@
     </section>
     <nav class="form-nav">
       <div>
-        <button class="back-button" type="button">Back</button>
-        <button class="next-button" type="button" disabled>Next</button>
+        <button class="back-button secondary-button" type="button">Back</button>
+        <button class="next-button primary-button" type="button" disabled>Next</button>
       </div>
     </nav>
   </div>
@@ -159,8 +159,8 @@
     </div>
     <nav class="form-nav">
       <div>
-        <button class="back-button" type="button">Back</button>
-        <button class="submit-button">Post!</button>
+        <button class="back-button secondary-button" type="button">Back</button>
+        <button class="submit-button primary-button">Post!</button>
       </div>
     </nav>
   </div>

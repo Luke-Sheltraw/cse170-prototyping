@@ -22,4 +22,12 @@
     var(--primary-gold),
     #ffe900
   );
+
+  --red-gradient: linear-gradient(
+    90deg,
+    var(--secondary-red),
+    #d12b05,
+    var(--secondary-red),
+    #d12b05
+  );
 }

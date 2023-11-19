@@ -175,10 +175,90 @@
     </button>
   </template>
 
+  <!-- ITEM INPUT TEMPLATE -->
+  <template id="item-input-template">
+    <section class="item-preview-container">
+      <h3>Cinnamon Latte</h3>
+      <button type="button" class="tertiary-button edit-item-button">Edit</button>
+    </section>
+    <dialog class="choose-item-modal" open>
+      <section class="item-select-modal choose-item-view" data-active>
+        <button type="button" class="item-select-modal-opener"><h3>Select an item</h3></button>
+        <div>
+          <input
+            type="search"
+            class="search-items fw-text-input"
+            placeholder="Search for an item"
+            title="Search for an item"
+          >
+          <section class="suggested-search-items suggested-wrapper">
+            <h3>Your recents</h3>
+            <ul>
+              <li>
+                <button type="button" data-itemname="Cinnamon Latte">
+                  <h4>Cinnamon Latte</h4>
+                </button>
+              </li>
+              <li>
+                <button type="button" data-itemnaem="Matcha Latte">
+                  <h4>Matcha Latte</h4>
+                </button>
+              </li>
+              <li>
+                <button type="button" data-itemname="Iced Mocha">
+                  <h4>Iced Mocha</h4>
+                </button>
+              </li>
+              <li>
+                <button type="button" data-itemname="Hazelnut Latte">
+                  <h4>Hazelnut Latte</h4>
+                </button>
+              </li>
+            </ul>
+            <h3>Popular items</h3>
+            <ul>
+              <li>
+                <button type="button" data-itemname="Vanilla Bean Frappuccino">
+                  <h4>Vanilla Bean Frappuccino</h4>
+                </button>
+              </li>
+              <li>
+                <button type="button" data-itemname="Pumpkin Spice Latte">
+                  <h4>Pumpkin Spice Latte</h4>
+                </button>
+              </li>
+              <li>
+                <button type="button" data-itemname="Chesnut Praline Latte">
+                  <h4>Chestnut Praline Latte</h4>
+                </button>
+              </li>
+              <li>
+                <button type="button" data-itemname="Americano">
+                  <h4>Americano</h4>
+                </button>
+              </li>
+            </ul>
+            <input type="hidden" name="selected-item-name" class="selected-item-name">
+        </div>
+      </section>
+      <section class="item-loc-modal choose-item-view">
+        <button type="button" class="item-loc-modal-opener"><h3>Tag image</h3></button>
+        <div>
+          <img src="" alt="" height="300" width="300">
+        </div>
+      </section>
+      <div class="buttons">
+        <button type="button" class="discard-item-button secondary-button">Discard</button>
+        <button type="button" class="add-item-button primary-button">Add item</button>
+      </div>
+    </dialog>
+  </template>
+
   <!-- SCRIPTS -->
   <script src="scripts/components/DrinkModal.js"></script>
   <script src="scripts/components/UserPost.js"></script>
   <script src="scripts/components/RatingInput.js"></script>
+  <script src="scripts/components/ItemInput.js"></script>
   <script src="scripts/index.js" type="module"></script>
 </body>
 </html>
