@@ -41,6 +41,7 @@ class ItemInput extends HTMLElement {
     const handleItemCreation = () => {
       this._modalWrapper.removeAttribute('open');
       discardItemBtnEl.classList.add('destructive-button');
+      discardItemBtnEl.innerText = 'Delete';
       addItemBtnEl.innerText = 'Save item';
     }
 

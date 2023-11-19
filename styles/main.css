@@ -860,10 +860,10 @@ progress::-webkit-progress-value {
 
 .choose-item-modal {
   width: calc(100% - 2rem);
-  height: calc(100% - 5rem);
+  height: calc(100% - 2rem);
   position: absolute;
   z-index: 20;
-  top: 2.25rem;
+  top: 1rem;
   border-radius: 0.75rem;
   border: none;
   box-shadow: var(--default-shadow);
