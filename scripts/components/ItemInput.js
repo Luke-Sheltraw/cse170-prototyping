@@ -89,10 +89,13 @@ class ItemInput extends HTMLElement {
 
     /* Tagging location in image */
     this._imageEl.addEventListener('click', (e) => {
-      const imageBox = this._imageEl.getBoundingClientRect();
+      const imageBox = this._imageWrapper.getBoundingClientRect();
 
-      const dX = e.clientX - imageBox.x;
-      const dY = e.clientY - imageBox.y;
+      console.log(imageBox);
+      console.log(e);
+
+      const dX = e.clientX - imageBox.left;
+      const dY = e.clientY - imageBox.top;
       
       const ratioX = dX / imageBox.width;
       const ratioY = dY / imageBox.height;
