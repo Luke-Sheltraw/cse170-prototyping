@@ -178,7 +178,7 @@
   <!-- ITEM INPUT TEMPLATE -->
   <template id="item-input-template">
     <section class="item-preview-container">
-      <h3>Cinnamon Latte</h3>
+      <h3 class="replace-w-item-name">{{ item name }}</h3>
       <button type="button" class="tertiary-button edit-item-button">Edit</button>
     </section>
     <dialog class="choose-item-modal blocking" open>
@@ -200,7 +200,7 @@
                 </button>
               </li>
               <li>
-                <button type="button" data-itemnaem="Matcha Latte">
+                <button type="button" data-itemname="Matcha Latte">
                   <h4>Matcha Latte</h4>
                 </button>
               </li>
@@ -244,7 +244,12 @@
       <section class="item-loc-modal choose-item-view">
         <button type="button" class="item-loc-modal-opener"><h3>Tag image</h3></button>
         <div>
-          <img src="" alt="" height="300" width="300">
+          <figure>
+            <img src="" alt="" height="300" width="300">
+            <figcaption>
+              Tap the <span class="replace-w-item-name">{{ item name }}</span> in your post.
+            </figcaption>
+          </figure>
         </div>
       </section>
       <div class="buttons">

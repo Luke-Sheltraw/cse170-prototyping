@@ -962,3 +962,23 @@ progress::-webkit-progress-value {
   background-image: var(--red-gradient);
   background-size: 100vw;
 }
+
+.item-loc-modal figure {
+  margin: 0;
+  padding: 0;
+}
+
+.item-loc-modal img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  border-radius: 0.75rem;
+  box-shadow: var(--default-shadow);
+}
+
+.item-loc-modal figcaption {
+  font-size: 0.95rem;
+  font-family: "Inter", sans-serif;
+  color: var(--psuedo-black-lightened);
+  margin-top: 1rem;
+}
