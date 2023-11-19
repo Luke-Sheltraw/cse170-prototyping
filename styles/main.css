@@ -25,6 +25,11 @@ body {
   touch-action: pan-y;
 }
 
+body:has(dialog.blocking[open]) {
+  overflow: hidden;
+  pointer-events: none;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -107,6 +112,10 @@ button {
 
 dialog:not([open]) {
   display: none;
+}
+
+dialog.blocking[open] {
+  pointer-events: auto;
 }
 
 /* Main */
