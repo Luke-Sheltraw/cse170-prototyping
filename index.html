@@ -161,7 +161,7 @@
   <!-- DRINK MODAL TEMPLATE -->
   <template id="drink-modal-template">
     <dialog class="drink-info-modal">
-      <button class="chevron-button">
+      <button class="chevron-button" type="button">
         <span class="item-name">{{ item name }}</span>
         <span class="stars" aria-label="{{ item rating }} Stars"></span>
       </button>
@@ -169,7 +169,7 @@
     <svg class="drink-info-svg hidden" xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100">
       <line x1="0" y1="0" x2="0" y2="0" stroke-width="3" stroke="#FCFCFC" />
     </svg>
-    <button class="drink-info-button" aria-label="Drink">
+    <button class="drink-info-button" aria-label="Drink" type="button">
       <div class="small-white-icon"></div>
     </button>
   </template>
@@ -244,7 +244,9 @@
         <button type="button" class="item-loc-modal-opener"><h3>Tag image</h3></button>
         <div>
           <figure>
-            <img src="" alt="" height="300" width="300">
+            <div class="image-wrapper">
+              <img src="" alt="" height="300" width="300">
+            </div>
             <figcaption>
               Tap the <span class="replace-w-item-name">{{ item name }}</span> in your post.
             </figcaption>

@@ -259,7 +259,7 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0 0 3rem 0;
 }
 
-.post-wrapper .image-wrapper {
+.image-wrapper {
   width: 100%;
   height: auto;
   aspect-ratio: 1 / 1;
@@ -541,6 +541,8 @@ html:has(form#post-upload) {
   justify-content: center;
   align-items: center;
   font-size: 1rem;
+  position: absolute;
+  z-index: 100;
 }
 
 .image-upload-wrapper label img {
@@ -550,7 +552,7 @@ html:has(form#post-upload) {
 }
 
 #image-upload {
-  visibility: hidden;
+  display: none;
 }
 
 #image-preview {
@@ -996,16 +998,9 @@ progress::-webkit-progress-value {
   padding: 0;
 }
 
-.item-loc-modal img {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 1;
-  border-radius: 0.75rem;
-  box-shadow: var(--default-shadow);
-}
-
 .item-loc-modal figcaption {
   font-size: 0.95rem;
   font-family: "Inter", sans-serif;
   color: var(--psuedo-black-lightened);
+  margin-top: 0.75rem;
 }

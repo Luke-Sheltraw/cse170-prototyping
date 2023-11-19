@@ -1,5 +1,7 @@
 class ItemInput extends HTMLElement {
   _modalWrapper;
+  _imageEl;
+  _itemName;
   
   constructor() {
     super();
@@ -11,6 +13,11 @@ class ItemInput extends HTMLElement {
     const itemChooser = template.content.cloneNode(true);
     this.append(itemChooser);
     this._modalWrapper = this.querySelector('dialog');
+    this._imageWrapper = this.querySelector('.image-wrapper');
+    this._imageEl = this._imageWrapper.querySelector('img');
+
+    const imageUrl = document.querySelector('#image-url').value;
+    this._imageEl.src = imageUrl;
 
     /* Open & close item selection and item tagging menus */
     const itemSelectModalEl = this.querySelector('.item-select-modal');
@@ -55,8 +62,8 @@ class ItemInput extends HTMLElement {
     });
 
     /* Select suggested item */
-    const suggestedOptionEls = document.querySelectorAll('.suggested-search-items button');
-    const hiddenItemInputEl = document.querySelector('.selected-item-name');
+    const suggestedOptionEls = this.querySelectorAll('.suggested-search-items button');
+    const hiddenItemInputEl = this.querySelector('.selected-item-name');
     let activeButtonEl;
 
     suggestedOptionEls.forEach((btn) => {
@@ -70,16 +77,35 @@ class ItemInput extends HTMLElement {
         activeButtonEl?.removeAttribute('data-selected');
         btn.setAttribute('data-selected', '');
         activeButtonEl = btn;
-        const itemName = activeButtonEl.getAttribute('data-itemname');
-        hiddenItemInputEl.value = itemName;
+        this._itemName = activeButtonEl.getAttribute('data-itemname');
+        hiddenItemInputEl.value = this._itemName;
         this.querySelectorAll('.replace-w-item-name').forEach((el) => {
-          el.innerText = itemName;
+          el.innerText = this._itemName;
         });
-        itemSelectButtonEl.querySelector('h3').innerText = `Selected: ${ itemName }`;
+        itemSelectButtonEl.querySelector('h3').innerText = `Selected: ${ this._itemName }`;
         handleModalSwitch(itemLocationModalEl);
       });
     });
 
+    /* Tagging location in image */
+    this._imageEl.addEventListener('click', (e) => {
+      const imageBox = this._imageEl.getBoundingClientRect();
+
+      const dX = e.clientX - imageBox.x;
+      const dY = e.clientY - imageBox.y;
+      
+      const ratioX = dX / imageBox.width;
+      const ratioY = dY / imageBox.height;
+
+      const modal = document.createElement('drink-modal');
+
+      modal.setAttribute('item-name', this._itemName);
+      modal.setAttribute('item-rating', 5);
+      modal.setAttribute('item-pos-x', ratioX);
+      modal.setAttribute('item-pos-y', ratioY);
+
+      this._imageWrapper.append(modal);
+    });
   }
 }
 
