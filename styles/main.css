@@ -118,6 +118,11 @@ dialog.blocking[open] {
   pointer-events: auto;
 }
 
+#css-asset-preloader {
+  display: none;
+  background-image: url(../assets/images/icons/heart_icon.svg);
+}
+
 /* Main */
 
 main {
@@ -663,7 +668,7 @@ html:has(form#post-upload) {
   display: none;
 
   flex-direction: column;
-  height: calc(100vh - 12.5rem);
+  height: calc(100vh - 11.5rem);
 }
 
 .post-view[data-active=true] {
@@ -783,8 +788,20 @@ html:has(form#post-upload) {
   display: inline-block;
 }
 
-#current-items:has(> :empty) + #add-more-btn .hide-when-no-items {
+#current-items:has(#current-item-wrapper:empty) + #add-more-btn .hide-when-no-items {
   display: none;
+}
+
+#current-items:not(:has(#current-item-wrapper:empty))::after {
+  content: "";
+  display: block;
+  width: 45vw;
+  height: 2px;
+  background-color: var(--primary-gold);
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 1rem 0;
 }
 
 #add-items #add-more-btn {
@@ -889,14 +906,25 @@ progress::-webkit-progress-value {
   background: none;
   border: none;
   text-align: left;
-  font-size: 1.17rem;
+  font-size: 1rem;
+  padding: 0;
+}
+
+.choose-item-modal .choose-item-view > button h3 {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.choose-item-modal .choose-item-view[data-active] > button {
+  font-size: 1.1rem;
 }
 
 .choose-item-modal .choose-item-view > div {
   display: none;
   flex: 1;
-  margin: 0 -3rem;
-  padding: 0 3rem;
+  margin: -3rem;
+  padding: 3rem;
   flex-direction: column;
   overflow: hidden;
 }
@@ -980,5 +1008,4 @@ progress::-webkit-progress-value {
   font-size: 0.95rem;
   font-family: "Inter", sans-serif;
   color: var(--psuedo-black-lightened);
-  margin-top: 1rem;
 }

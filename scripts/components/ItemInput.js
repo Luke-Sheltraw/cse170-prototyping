@@ -72,7 +72,7 @@ class ItemInput extends HTMLElement {
         activeButtonEl = btn;
         const itemName = activeButtonEl.getAttribute('data-itemname');
         hiddenItemInputEl.value = itemName;
-        document.querySelectorAll('.replace-w-item-name').forEach((el) => {
+        this.querySelectorAll('.replace-w-item-name').forEach((el) => {
           el.innerText = itemName;
         });
         itemSelectButtonEl.querySelector('h3').innerText = `Selected: ${ itemName }`;
