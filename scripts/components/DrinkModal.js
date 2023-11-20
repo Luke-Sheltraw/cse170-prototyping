@@ -67,8 +67,8 @@ class DrinkModal extends HTMLElement {
     this._button.style.top = `${ buttonY }px`;
 
     /* position modal */
-    const dialogX = imageRect.width * (this._posX - 0.1);
-    const dialogY = imageRect.height * (this._posY - 0.3);
+    const dialogX = imageRect.width * (this._posX + (this._posX < 0.5 ? 1 : -1) * 0.1);
+    const dialogY = imageRect.height * (this._posY + (this._posY < 0.5 ? 1 : -1) * 0.3);
 
     this._dialogElement.style.left = `${ dialogX }px`;
     this._dialogElement.style.top = `${ dialogY }px`;
@@ -96,8 +96,8 @@ class DrinkModal extends HTMLElement {
         this._lineContainerElement.classList.add('hidden');
       }
     } else if (name === 'item-pos-x' || name === 'item-pos-y') {
-      if (name === 'item-pos-x') this._posX = newValue;
-      else if (name === 'item-pos-y') this._posY = newValue;
+      if (name === 'item-pos-x') this._posX = +newValue;
+      else if (name === 'item-pos-y') this._posY = +newValue;
       this._positionModal();
     }
   }

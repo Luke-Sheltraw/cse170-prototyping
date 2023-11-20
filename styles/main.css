@@ -118,6 +118,11 @@ dialog.blocking[open] {
   pointer-events: auto;
 }
 
+dialog {
+  color: var(--psuedo-black);
+  background-color: var(--psuedo-white);
+}
+
 #css-asset-preloader {
   width: 0;
   height: 0;
@@ -764,7 +769,6 @@ html:has(form#post-upload) {
   left: 50%;
   transform: translate(-50%, -50%);
   box-shadow: 0 0.25rem 0.75rem 0.1rem #3E363F50, 0 0 7rem 2rem var(--psuedo-white);
-  background-color: var(--psuedo-white);
   width: calc(100vw - 2rem);
   flex-direction: column;
 }
@@ -894,7 +898,6 @@ progress::-webkit-progress-value {
   width: calc(100% - 2rem);
   height: calc(100% - 2rem);
   position: absolute;
-  background-color: var(--psuedo-white);
   z-index: 20;
   top: 1rem;
   border-radius: 0.75rem;
