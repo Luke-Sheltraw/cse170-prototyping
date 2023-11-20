@@ -447,7 +447,7 @@ figure .button-wrapper {
   left: 0;
   top: 0;
   
-  z-index: 20;
+  z-index: 999;
 
   background: url(../assets/images/icons/heart_icon.svg);
   background-repeat: no-repeat;
@@ -916,6 +916,7 @@ progress::-webkit-progress-value {
   text-align: left;
   font-size: 1rem;
   padding: 0;
+  z-index: 5;
 }
 
 .choose-item-modal .choose-item-view > button h3 {
@@ -954,16 +955,19 @@ progress::-webkit-progress-value {
 }
 
 .choose-item-modal .choose-item-view > div {
-  display: none;
+  display: flex;
   flex: 1;
   margin: -3rem;
   padding: 3rem;
   flex-direction: column;
   overflow: hidden;
+  max-height: 0;
+  transition: max-height 150ms linear;
 }
 
 .choose-item-modal .choose-item-view[data-active] > div {
   display: flex;
+  max-height: 100vh;
 }
 
 .suggested-search-items {
