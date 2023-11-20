@@ -2,6 +2,7 @@ class ItemInput extends HTMLElement {
   _modalWrapper;
   _imageEl;
   _itemName;
+  _drinkModal;
   
   constructor() {
     super();
@@ -49,7 +50,7 @@ class ItemInput extends HTMLElement {
       this._modalWrapper.removeAttribute('open');
       discardItemBtnEl.classList.add('destructive-button');
       discardItemBtnEl.innerText = 'Delete';
-      addItemBtnEl.innerText = 'Save item';
+      addItemBtnEl.innerText = 'Update';
     }
 
     addItemBtnEl.addEventListener('click', handleItemCreation);
@@ -88,6 +89,9 @@ class ItemInput extends HTMLElement {
     });
 
     /* Tagging location in image */
+    const hiddenXEl = this.querySelector('.selected-item-pos-x');
+    const hiddenYEl = this.querySelector('.selected-item-pos-y');
+
     this._imageEl.addEventListener('click', (e) => {
       const imageBox = this._imageWrapper.getBoundingClientRect();
 
@@ -97,14 +101,22 @@ class ItemInput extends HTMLElement {
       const ratioX = dX / imageBox.width;
       const ratioY = dY / imageBox.height;
 
-      const modal = document.createElement('drink-modal');
+      if (!this._drinkModal) {
+        this._drinkModal = document.createElement('drink-modal');
+      }
 
-      modal.setAttribute('item-name', this._itemName);
-      modal.setAttribute('item-rating', 5);
-      modal.setAttribute('item-pos-x', ratioX);
-      modal.setAttribute('item-pos-y', ratioY);
+      this._drinkModal.setAttribute('item-name', this._itemName);
+      this._drinkModal.setAttribute('item-rating', 5);
+      this._drinkModal.setAttribute('item-pos-x', ratioX);
+      this._drinkModal.setAttribute('item-pos-y', ratioY);
+      this._drinkModal.setAttribute('open', '');
 
-      this._imageWrapper.append(modal);
+      hiddenXEl.value = ratioX;
+      hiddenYEl.value = ratioY;
+
+      if (!this._imageWrapper.contains(this._drinkModal)) {
+        this._imageWrapper.append(this._drinkModal);
+      }
     });
   }
 }

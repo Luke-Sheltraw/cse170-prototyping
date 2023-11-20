@@ -377,7 +377,7 @@ figure .button-wrapper {
   border: none;
   position: absolute;
   transform: translate(-50%, -50%);
-  z-index: 10;
+  z-index: 20;
   margin: 0;
   padding: 0;
 }
@@ -394,6 +394,7 @@ figure .button-wrapper {
 .drink-info-svg {
   position: absolute;
   pointer-events: none;
+  z-index: 19;
 }
 
 .stars::before {

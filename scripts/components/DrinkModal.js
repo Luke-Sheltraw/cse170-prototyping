@@ -1,5 +1,5 @@
 class DrinkModal extends HTMLElement {
-  static observedAttributes = ['open'];
+  static observedAttributes = ['open', 'item-pos-x', 'item-pos-y'];
 
   _dialogElement;
   _lineContainerElement;
@@ -55,7 +55,8 @@ class DrinkModal extends HTMLElement {
     this.appendChild(modal);
   }
 
-  _positionModal() {      
+  _positionModal() {
+    if (!this.parentElement) return;
     const imageRect = this.parentElement.getBoundingClientRect();
 
     /* position button */
@@ -84,7 +85,8 @@ class DrinkModal extends HTMLElement {
   }
 
   attributeChangedCallback(name, _, newValue) {
-    if (name === 'open' && this._dialogElement && this._lineContainerElement) {
+    if (name === 'open') {
+      if (!this._dialogElement || !this._lineContainerElement) return;
       if (newValue !== null) {
         this._dialogElement.setAttribute('open', '');
         this._lineContainerElement.classList.remove('hidden');
@@ -93,6 +95,10 @@ class DrinkModal extends HTMLElement {
         this._dialogElement.removeAttribute('open');
         this._lineContainerElement.classList.add('hidden');
       }
+    } else if (name === 'item-pos-x' || name === 'item-pos-y') {
+      if (name === 'item-pos-x') this._posX = newValue;
+      else if (name === 'item-pos-y') this._posY = newValue;
+      this._positionModal();
     }
   }
 }

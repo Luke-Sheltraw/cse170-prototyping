@@ -142,20 +142,22 @@ function getCurrentFormData() {
   const post_id = 'xxxxxx';
   const post_author = 'Luke Sheltraw';
 
+  const image_items = [...document.querySelectorAll('item-input')].map((itemInput) =>
+    ({
+      item_name: itemInput.querySelector('.selected-item-name').value,
+      item_rating: 5,
+      item_x: +itemInput.querySelector('.selected-item-pos-x').value,
+      item_y: +itemInput.querySelector('.selected-item-pos-y').value,
+    })
+  );
+
   return {
     post_id,
     store_name,
     store_location,
     image_url,
     image_desc: post_desc,
-    image_items: [
-      // {
-      //   item_name: 'User-flagged item',
-      //   item_rating: 5,
-      //   item_x: 0.5,
-      //   item_y: 0.5
-      // },
-    ],
+    image_items,
     post_desc,
     post_author,
     likes_count: 0,
