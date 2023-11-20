@@ -84,6 +84,8 @@ class ItemInput extends HTMLElement {
           el.innerText = this._itemName;
         });
         itemSelectButtonEl.querySelector('h3').innerText = `Selected: ${ this._itemName }`;
+        if (this._drinkModal)
+          this._drinkModal.setAttribute('item-name', this._itemName);
         handleModalSwitch(itemLocationModalEl);
       });
     });

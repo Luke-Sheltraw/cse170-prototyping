@@ -1,5 +1,5 @@
 class DrinkModal extends HTMLElement {
-  static observedAttributes = ['open', 'item-pos-x', 'item-pos-y'];
+  static observedAttributes = ['open', 'item-pos-x', 'item-pos-y', 'item-name'];
 
   _dialogElement;
   _lineContainerElement;
@@ -8,6 +8,7 @@ class DrinkModal extends HTMLElement {
 
   _posX;
   _posY;
+  _itemName;
 
   constructor() {
     super();
@@ -16,8 +17,6 @@ class DrinkModal extends HTMLElement {
   connectedCallback() {
     const modalTemplate = document.querySelector('#drink-modal-template');
     const modal = modalTemplate.content.cloneNode(true);
-    
-    modal.querySelector('.item-name').innerText = this.getAttribute('item-name');
 
     const rating = modal.querySelector('.stars');
     rating.classList.add(`stars-${ this.getAttribute('item-rating') }`);
@@ -30,6 +29,9 @@ class DrinkModal extends HTMLElement {
 
     this._posX = +this.getAttribute('item-pos-x');
     this._posY = +this.getAttribute('item-pos-y');
+    this._itemName = this.getAttribute('item-name');
+
+    modal.querySelector('.item-name').innerText = this._itemName;
 
     /* open modal if needed */
     if (this.hasAttribute('open')) {
@@ -99,6 +101,10 @@ class DrinkModal extends HTMLElement {
       if (name === 'item-pos-x') this._posX = +newValue;
       else if (name === 'item-pos-y') this._posY = +newValue;
       this._positionModal();
+    } else if (name === 'item-name') {
+      this._itemName = newValue;
+      if (!this._dialogElement) return;
+      this._dialogElement.querySelector('.item-name').innerText = this._itemName;
     }
   }
 }
