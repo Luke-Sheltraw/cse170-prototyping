@@ -391,6 +391,13 @@ figure .button-wrapper {
   font-family: "Inter", sans-serif;
 }
 
+.drink-info-modal button span {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 7rem;
+}
+
 .drink-info-svg {
   position: absolute;
   pointer-events: none;
@@ -993,6 +1000,7 @@ progress::-webkit-progress-value {
 .suggested-search-items {
   flex: 1;
   max-height: calc(100vh - 16.875rem);
+  padding-bottom: 1rem;
 }
 
 .suggested-search-items h3 {
@@ -1004,6 +1012,7 @@ progress::-webkit-progress-value {
   justify-content: space-between;
   position: absolute;
   bottom: 1rem;
+  width: calc(100vw - 4rem);
 }
 
 .choose-item-modal .buttons button {
