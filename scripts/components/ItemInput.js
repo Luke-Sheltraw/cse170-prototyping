@@ -74,6 +74,7 @@ class ItemInput extends HTMLElement {
           activeButtonEl = undefined;
           hiddenItemInputEl.value = '';
           itemLocationButtonEl.setAttribute('disabled', '');
+          addItemBtnEl.setAttribute('disabled', '');
           return;
         };
         activeButtonEl?.removeAttribute('data-selected');
@@ -88,6 +89,8 @@ class ItemInput extends HTMLElement {
         if (this._drinkModal)
           this._drinkModal.setAttribute('item-name', this._itemName);
         itemLocationButtonEl.removeAttribute('disabled');
+        if (this._drinkModal)
+          addItemBtnEl.removeAttribute('disabled');
         handleModalSwitch(itemLocationModalEl);
       });
     });
@@ -120,6 +123,7 @@ class ItemInput extends HTMLElement {
 
       if (!this._imageWrapper.contains(this._drinkModal)) {
         this._imageWrapper.append(this._drinkModal);
+        addItemBtnEl.removeAttribute('disabled');
       }
     });
   }
