@@ -1000,6 +1000,10 @@ progress::-webkit-progress-value {
   padding: 3rem;
 }
 
+.item-loc-modal-opener[disabled] {
+  color: var(--psuedo-black-lightened);
+}
+
 .suggested-search-items {
   flex: 1;
   max-height: calc(100vh - 16.875rem);

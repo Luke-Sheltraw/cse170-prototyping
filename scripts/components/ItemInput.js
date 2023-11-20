@@ -73,6 +73,7 @@ class ItemInput extends HTMLElement {
           activeButtonEl.removeAttribute('data-selected');
           activeButtonEl = undefined;
           hiddenItemInputEl.value = '';
+          itemLocationButtonEl.setAttribute('disabled', '');
           return;
         };
         activeButtonEl?.removeAttribute('data-selected');
@@ -86,6 +87,7 @@ class ItemInput extends HTMLElement {
         itemSelectButtonEl.querySelector('h3').innerText = `Selected: ${ this._itemName }`;
         if (this._drinkModal)
           this._drinkModal.setAttribute('item-name', this._itemName);
+        itemLocationButtonEl.removeAttribute('disabled');
         handleModalSwitch(itemLocationModalEl);
       });
     });
