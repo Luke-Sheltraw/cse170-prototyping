@@ -896,7 +896,7 @@ progress::-webkit-progress-value {
 
 .choose-item-modal {
   width: calc(100% - 2rem);
-  height: calc(100% - 2rem);
+  height: calc(100% - 3rem);
   position: absolute;
   z-index: 20;
   top: 1rem;
@@ -934,7 +934,7 @@ progress::-webkit-progress-value {
 }
 
 .item-loc-modal:not([data-active]) {
-  transform: translateY(calc(100vh - 14rem));
+  transform: translateY(calc(100vh - 15rem));
 }
 
 .choose-item-modal .choose-item-view > button {
