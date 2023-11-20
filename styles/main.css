@@ -887,27 +887,44 @@ progress::-webkit-progress-value {
   width: calc(100% - 2rem);
   height: calc(100% - 2rem);
   position: absolute;
+  background-color: var(--psuedo-white);
   z-index: 20;
   top: 1rem;
   border-radius: 0.75rem;
   border: none;
   box-shadow: var(--default-shadow);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+}
+
+.choose-item-modal .slider-container {
+  height: calc(100% - 4.5rem);
+  position: relative;
+  overflow: hidden;
+  padding: 0 3rem;
+  margin: 0 -3rem;
 }
 
 .choose-item-modal .choose-item-view {
-  margin: 0 -3rem;
-  padding: 0 3rem;
-  overflow: hidden;
+  position: absolute;
+  width: calc(100vw - 2rem);
+  left: 2rem;
+  padding: 0 1rem;
+  background-color: var(--psuedo-white);
   display: flex;
   flex-direction: column;
   align-items: stretch;
 }
 
-.choose-item-modal .choose-item-view[data-active] {
-  flex-grow: 1;
+.item-select-modal {
+  top: 0;
+}
+
+.item-loc-modal {
+  top: 3rem;
+  transition: transform 250ms linear;
+}
+
+.item-loc-modal:not([data-active]) {
+  transform: translateY(calc(100vh - 14rem));
 }
 
 .choose-item-modal .choose-item-view > button {
@@ -966,18 +983,16 @@ progress::-webkit-progress-value {
   padding: 0 3rem;
   flex-direction: column;
   overflow: hidden;
-  max-height: 0;
-  transition: max-height 250ms linear;
 }
 
 .choose-item-modal .choose-item-view[data-active] > div {
-  max-height: 100vh;
   margin: -3rem;
   padding: 3rem;
 }
 
 .suggested-search-items {
   flex: 1;
+  max-height: calc(100vh - 16.875rem);
 }
 
 .suggested-search-items h3 {
@@ -987,7 +1002,8 @@ progress::-webkit-progress-value {
 .choose-item-modal .buttons {
   display: flex;
   justify-content: space-between;
-  margin-top: 1rem;
+  position: absolute;
+  bottom: 1rem;
 }
 
 .choose-item-modal .buttons button {
