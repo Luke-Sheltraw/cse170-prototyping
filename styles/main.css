@@ -924,6 +924,31 @@ progress::-webkit-progress-value {
   text-overflow: ellipsis;
 }
 
+.choose-item-view:not([data-active]) > button h3 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.choose-item-view:not([data-active]) > button h3::after {
+  content: "";
+  width: 1rem;
+  height: 1rem;
+  background-image: url(../assets/images/icons/chevron_icon.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: inline-block;
+}
+
+.choose-item-view:not([data-active]).item-select-modal > button h3::after {
+  transform: rotate(90deg);
+}
+
+.choose-item-view:not([data-active]).item-loc-modal > button h3::after {
+  transform: rotate(270deg);
+}
+
 .choose-item-modal .choose-item-view[data-active] > button {
   font-size: 1.1rem;
 }
