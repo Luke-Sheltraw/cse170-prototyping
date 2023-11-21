@@ -1081,7 +1081,7 @@ progress::-webkit-progress-value {
 
 .item-information-wrapper figure {
   padding: 0;
-  margin: 0;
+  margin: 0 0 8.5rem 0;
 }
 
 .item-information-wrapper .item-image-wrapper {
@@ -1093,10 +1093,41 @@ progress::-webkit-progress-value {
   box-shadow: var(--default-shadow);
 }
 
+.item-information-wrapper .item-image-wrapper img {
+  width: 100%;
+  height: auto;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  position: relative;
+  top: 50%;
+}
+
+.item-information-wrapper .related-posts-btn {
+  background: none;
+  border: none;
+  font-size: 0.75rem;
+}
+
+.item-information-wrapper .stars-wrapper {
+  display: flex;
+  align-items: center;
+  margin: -1rem 0 0.5rem 0;
+}
+
+.item-information-wrapper .stars-desc {
+  font-size: 0.75rem;
+  margin-left: 0.5rem;
+}
+
 .item-information-wrapper .order-btn-wrapper {
   position: fixed;
   bottom: 8.5rem;
   right: 1rem;
+}
+
+.item-information-wrapper figcaption > p {
+  margin: 0;
+  font-family: "Inter", sans-serif;
 }
 
 .item-information-wrapper .order-btn-wrapper button {
