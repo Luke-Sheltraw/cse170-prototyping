@@ -4,5 +4,4 @@
 /shop /index 200!
 /shop/:store /index 200!
 /shop/:store/:item /index 200!
-/shop/:store/:item/* /:splat 200!
 /trending /index 200!
