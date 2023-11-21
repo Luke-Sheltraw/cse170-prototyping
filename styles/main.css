@@ -1087,10 +1087,11 @@ progress::-webkit-progress-value {
 .item-information-wrapper .item-image-wrapper {
   width: 100%;
   height: auto;
-  aspect-ratio: 3 / 2;
+  aspect-ratio: 3 / 2.375;
   overflow: hidden;
   border-radius: 0.75rem;
   box-shadow: var(--default-shadow);
+  position: relative;
 }
 
 .item-information-wrapper .item-image-wrapper img {
@@ -1106,6 +1107,8 @@ progress::-webkit-progress-value {
   background: none;
   border: none;
   font-size: 0.75rem;
+  padding: 0;
+  line-height: 0.875rem;
 }
 
 .item-information-wrapper .stars-wrapper {
@@ -1119,18 +1122,12 @@ progress::-webkit-progress-value {
   margin-left: 0.5rem;
 }
 
-.item-information-wrapper .order-btn-wrapper {
-  position: fixed;
-  bottom: 8.5rem;
-  right: 1rem;
-}
-
 .item-information-wrapper figcaption > p {
   margin: 0;
   font-family: "Inter", sans-serif;
 }
 
-.item-information-wrapper .order-btn-wrapper button {
+.item-information-wrapper .order-now-btn {
   padding-right: 4rem;
   font-size: 1rem;
   border: 2px solid var(--secondary-red);
@@ -1142,6 +1139,13 @@ progress::-webkit-progress-value {
   align-items: flex-start;
   justify-content: center;
   margin-bottom: 1rem;
+}
+
+.item-information-wrapper .item-info-btn-wrapper {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 
 .item-information-wrapper .store-link-button h3 {
