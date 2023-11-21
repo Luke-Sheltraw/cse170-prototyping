@@ -212,8 +212,20 @@ function initializeItemInterface() {
   const addMoreBtnEl = document.querySelector('#add-more-btn');
   const itemContainerEl = document.querySelector('#current-item-wrapper');
 
+  const itemScreenNextBtnEl = document.querySelector('#item-screen-next');
+
+  const handleItemNextButton = () => {
+    if (document.querySelectorAll('item-input').length === 0) {
+      itemScreenNextBtnEl.setAttribute('disabled', '');
+    } else {
+      itemScreenNextBtnEl.removeAttribute('disabled');
+    }
+  };
+
   addMoreBtnEl.addEventListener('click', () => {
     const newItemEl = document.createElement('item-input');
+    newItemEl.addEventListener('deleted', handleItemNextButton);
+    newItemEl.addEventListener('created', handleItemNextButton);
     itemContainerEl.append(newItemEl);
   });
 }

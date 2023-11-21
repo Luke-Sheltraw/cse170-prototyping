@@ -44,6 +44,7 @@ class ItemInput extends HTMLElement {
     /* Open and close popover */
     discardItemBtnEl.addEventListener('click', () => {
       this.remove();
+      this.dispatchEvent(new CustomEvent('deleted'));
     });
 
     const handleItemCreation = () => {
@@ -51,6 +52,7 @@ class ItemInput extends HTMLElement {
       discardItemBtnEl.classList.add('destructive-button');
       discardItemBtnEl.innerText = 'Delete';
       addItemBtnEl.innerText = 'Update';
+      this.dispatchEvent(new CustomEvent('created'));
     }
 
     addItemBtnEl.addEventListener('click', handleItemCreation);
@@ -86,11 +88,11 @@ class ItemInput extends HTMLElement {
           el.innerText = this._itemName;
         });
         itemSelectButtonEl.querySelector('h3').innerText = `Selected: ${ this._itemName }`;
-        if (this._drinkModal)
-          this._drinkModal.setAttribute('item-name', this._itemName);
         itemLocationButtonEl.removeAttribute('disabled');
-        if (this._drinkModal)
+        if (this._drinkModal) {
+          this._drinkModal.setAttribute('item-name', this._itemName);
           addItemBtnEl.removeAttribute('disabled');
+        }
         handleModalSwitch(itemLocationModalEl);
       });
     });
