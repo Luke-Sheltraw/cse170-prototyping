@@ -1078,3 +1078,69 @@ progress::-webkit-progress-value {
   color: var(--psuedo-black-lightened);
   margin-top: 0.75rem;
 }
+
+.item-information-wrapper figure {
+  padding: 0;
+  margin: 0;
+}
+
+.item-information-wrapper .item-image-wrapper {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  border-radius: 0.75rem;
+  box-shadow: var(--default-shadow);
+}
+
+.item-information-wrapper .order-btn-wrapper {
+  position: fixed;
+  bottom: 8.5rem;
+  right: 1rem;
+}
+
+.item-information-wrapper .order-btn-wrapper button {
+  padding-right: 4rem;
+  font-size: 1rem;
+  border: 2px solid var(--secondary-red);
+}
+
+.item-information-wrapper .store-link-button {
+  width: 100%;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.item-information-wrapper .store-link-button h3 {
+  font-size: 1.175rem;
+  margin-bottom: -0.5rem;
+}
+
+.item-information-wrapper .store-link-button div {
+  display: flex;
+  align-items: center;
+}
+
+.item-information-wrapper .store-link-button address {
+  display: inline;
+  font-style: normal;
+  font-size: 0.75rem;
+}
+
+.item-information-wrapper .store-link-button .stars {
+  margin-left: 1rem;
+}
+
+.back-button {
+  width: 2rem;
+  height: 2rem;
+  border: none;
+  background-color: transparent;
+  background-image: url(../assets/images/icons/chevron_icon.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  transform: rotate(180deg);
+}

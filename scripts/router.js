@@ -41,14 +41,14 @@ function pathNameToRoot(fullPathname) {
   return fullPathname.substring(0, nextSlashIndex);
 }
 
-export async function loadView(viewName) {
+export async function loadView(viewName, displayBackButton) {
   if (viewName === curView) return;
   const viewRoot = pathNameToRoot(viewName);
 
   if (viewRoot === '/' || !VIEWS[viewRoot]) return loadView('/home');
 
   if (pathNameToRoot(window.location.pathname) !== viewName)
-    window.history.pushState({}, '', viewName);
+    window.history.pushState({ displayBackButton }, '', viewName);
   
   const view = VIEWS[viewRoot];
 

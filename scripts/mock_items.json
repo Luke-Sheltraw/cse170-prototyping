@@ -1,5 +1,25 @@
 {
-  "matcha-latte": {
-    "fullname": "Matcha Latte"
+  "store1": {
+    "fullname": "Home Coffee Roasters",
+    "location": "San Francisco, CA",
+    "rating": 4,
+    "items": {
+      "matcha-latte": {
+        "fullname": "Matcha Latte",
+        "rating": 5,
+        "ratings_count": 456,
+        "description": "This is an example description",
+        "related_posts_count": 123,
+        "image_url": "/assets/images/items/matcha_latte.jpg"
+      },
+      "cinnamon-latte": {
+        "fullname": "Cinnamon Latte",
+        "rating": 5,
+        "ratings_count": 789,
+        "description": "This is an example description",
+        "related_posts_count": 123,
+        "image_url": "/assets/images/items/matcha_latte.jpg"
+      }
+    }
   }
 }
