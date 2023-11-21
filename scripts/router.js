@@ -83,6 +83,6 @@ function enableNavButtonListeners() {
 
 export function initRouting() {
   enablePageRouting();
-  loadView('/home');
+  loadView(window.location.pathname);
   enableNavButtonListeners();
 };
