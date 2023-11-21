@@ -2,27 +2,27 @@ const VIEWS = {
   '/home': {
     showHeader: true,
     showFooter: true,
-    content: fetch('home.tpl.html').then((res) => res.text()),
+    content: fetch('/home.tpl.html').then((res) => res.text()),
   },
   '/trending': {
     showHeader: true,
     showFooter: true,
-    content: fetch('trending.tpl.html').then((res) => res.text()),
+    content: fetch('/trending.tpl.html').then((res) => res.text()),
   },
   '/post': {
     showFooter: false,
     showHeader: false,
-    content: fetch('post.tpl.html').then((res) => res.text()),
+    content: fetch('/post.tpl.html').then((res) => res.text()),
   },
   '/shop': {
     showHeader: true,
     showFooter: true,
-    content: fetch('shop.tpl.html').then((res) => res.text()),
+    content: fetch('/shop.tpl.html').then((res) => res.text()),
   },
   '/search': {
     showHeader: false,
     showFooter: true,
-    content: fetch('search.tpl.html').then((res) => res.text()),
+    content: fetch('/search.tpl.html').then((res) => res.text()),
   },
 };
 
@@ -44,13 +44,12 @@ function pathNameToRoot(fullPathname) {
 export async function loadView(viewName, displayBackButton) {
   if (viewName === curView) return;
   const viewRoot = pathNameToRoot(viewName);
+  const view = VIEWS[viewRoot];
 
-  if (viewRoot === '/' || !VIEWS[viewRoot]) return loadView('/home');
+  if (viewRoot === '/' || !view) return loadView('/home');
 
   if (pathNameToRoot(window.location.pathname) !== viewName)
     window.history.pushState({ displayBackButton }, '', viewName);
-  
-  const view = VIEWS[viewRoot];
 
   const curButton = document.querySelector(`#${ pathNameToRoot(curView)?.slice(1) }-button`);
   const viewButton = document.querySelector(`#${ viewRoot.slice(1) }-button`);
@@ -58,7 +57,7 @@ export async function loadView(viewName, displayBackButton) {
   const main = document.querySelector('main');
   const footer = document.querySelector('#main-footer');
   
-  main.innerHTML = await VIEWS[viewRoot].content;
+  main.innerHTML = await view.content;
   main.setAttribute('data-curview', viewRoot);
 
   if (curView) curButton.classList.remove('footer__button__active');

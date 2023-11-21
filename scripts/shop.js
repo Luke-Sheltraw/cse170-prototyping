@@ -58,7 +58,7 @@ export function initShop() {
       window.history.back();
     });
   } else {
-    backButton.remove();
+    backButton?.remove();
   }
 
   const storeName = window.location.pathname.split('/')[2]; 
