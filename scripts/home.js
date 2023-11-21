@@ -1,9 +1,8 @@
 const MOCK_SERVER_DELAY_MS = 500;
 const MOCK_POSTS_URI = '/scripts/mock_posts.json';
-let mock_posts;
-
 const MAX_POSTS = 35;
 
+let mock_posts;
 let currentNumPosts;
 let currentlyFetchingData;
 let postFeedFooterElement;

@@ -1,3 +1,5 @@
+import { loadView } from '../router.js';
+
 class DrinkModal extends HTMLElement {
   static observedAttributes = ['open', 'item-pos-x', 'item-pos-y', 'item-name'];
 
@@ -54,6 +56,8 @@ class DrinkModal extends HTMLElement {
 
     resizeObserver.observe(this.parentElement);
 
+    this._initializeRouting();
+
     this.appendChild(modal);
   }
 
@@ -84,6 +88,13 @@ class DrinkModal extends HTMLElement {
     this._lineObject.setAttribute('y1', buttonY);
     this._lineObject.setAttribute('x2', dialogX);
     this._lineObject.setAttribute('y2', dialogY);
+  }
+
+  _initializeRouting() {
+    const itemButton = this._dialogElement.querySelector('button');
+    itemButton.addEventListener('click', () => {
+      loadView(`/shop/store1/${ this._itemName.replace(' ', '-').toLowerCase() }`);
+    });
   }
 
   attributeChangedCallback(name, _, newValue) {

@@ -30,27 +30,36 @@ let curView;
 
 function enablePageRouting() {
   window.addEventListener('popstate', (e) => {
-    loadView(window.location.pathname);
+    loadView(pathNameToRoot(window.location.pathname));
   });
+}
+
+function pathNameToRoot(fullPathname) {
+  if (fullPathname === undefined || fullPathname === null) return;
+  const nextSlashIndex = fullPathname.indexOf('/', 1);
+  if (nextSlashIndex < 0) return fullPathname;
+  return fullPathname.substring(0, nextSlashIndex);
 }
 
 export async function loadView(viewName) {
   if (viewName === curView) return;
-  if (viewName === '/' || !VIEWS[viewName]) return loadView('/home');
+  const viewRoot = pathNameToRoot(viewName);
 
-  if (window.location.pathname !== viewName)
+  if (viewRoot === '/' || !VIEWS[viewRoot]) return loadView('/home');
+
+  if (pathNameToRoot(window.location.pathname) !== viewName)
     window.history.pushState({}, '', viewName);
   
-  const view = VIEWS[viewName];
+  const view = VIEWS[viewRoot];
 
-  const curButton = document.querySelector(`#${ curView?.slice(1) }-button`);
-  const viewButton = document.querySelector(`#${ viewName.slice(1) }-button`);
+  const curButton = document.querySelector(`#${ pathNameToRoot(curView)?.slice(1) }-button`);
+  const viewButton = document.querySelector(`#${ viewRoot.slice(1) }-button`);
   const header = document.querySelector('#main-header');
   const main = document.querySelector('main');
   const footer = document.querySelector('#main-footer');
   
-  main.innerHTML = await VIEWS[viewName].content;
-  main.setAttribute('data-curview', viewName);
+  main.innerHTML = await VIEWS[viewRoot].content;
+  main.setAttribute('data-curview', viewRoot);
 
   if (curView) curButton.classList.remove('footer__button__active');
   viewButton.classList.add('footer__button__active');

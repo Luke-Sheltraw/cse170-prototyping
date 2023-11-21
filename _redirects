@@ -1,5 +1,5 @@
 /home /index 200!
 /post /index 200!
 /search /index 200!
-/shop /index 200!
+/shop/* /index 200!
 /trending /index 200!
