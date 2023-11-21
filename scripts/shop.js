@@ -52,13 +52,13 @@ async function initializeItemView(storeName, itemName) {
 }
 
 export function initShop() {
-  const backButton = document.querySelector('.back-button');
-  if (window.history.state.displayBackButton) {
+  const backButton = document.querySelector('.shop-back-button');
+  if (window.history.state?.displayBackButton) {
     backButton.addEventListener('click', () => {
       window.history.back();
     });
   } else {
-    backButton?.remove();
+    backButton.remove();
   }
 
   const storeName = window.location.pathname.split('/')[2]; 
