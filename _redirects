@@ -1,5 +1,6 @@
 /home /index 200!
 /post /index 200!
 /search /index 200!
-/shop/:store/:item/:slug /index/:slug 200!
+/shop/:store/:item /index 200!
+/shop/:store/:item/* /:splat 200!
 /trending /index 200!
