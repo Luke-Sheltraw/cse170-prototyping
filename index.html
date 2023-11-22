@@ -308,7 +308,40 @@
 
   <!-- STORE INFORMATION TEMPLATE -->
   <template id="store-information-template">
-    
+    <div class="item-information-wrapper">
+      <figure>
+        <div class="item-image-wrapper">
+          <img
+            src="{{ store image url }}"
+            alt="Image of {{ store name }}"  
+            width="400"
+            height="400"
+          >
+        </div>
+        <figcaption>
+          <h2>{{ store name }}</h2>
+          <h3>{{ store location }}</h3>
+          <div class="stars-wrapper">
+            <span class="stars" aria-label="{{ store name }} is rated {{ store rating }} stars"></span>
+            <span class="stars-desc">{{ store rating }} stars ({{ store reviews }} reviews)</span>
+          </div>
+          <p>
+            {{ store description }}
+          </p>
+          <div class="item-info-btn-wrapper">
+            <button class="related-posts-btn">
+              <span class="emoji">📸</span>
+              <span class="related-posts-count">{{ num related posts }}</span> related posts
+            </button>
+            <button class="chevron-button order-now-btn">
+              Shop items
+            </button>
+          </div>
+          <a href="#{{ maps url }}" target="_blank">Get directions</a>
+          <a href="#{{ website url }}" target="_blank">View website</a>
+        </figcaption>
+      </figure>
+    </div>
   </template>
 
   <div id="css-asset-preloader"></div>

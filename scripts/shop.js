@@ -1,11 +1,26 @@
+import { loadView } from './router.js';
+
 const MOCK_ITEMS_URI = '/scripts/mock_items.json';
 
 function initializeMainView() {
 
 }
 
-function initializeStoreView() {
+async function initializeStoreView(storeName) {
+  /* Fetching store info */
+  const mock_items = await fetch(MOCK_ITEMS_URI).then((contents) => contents.json());
 
+  const storeObj = mock_items[storeName];
+
+  /* Creating store view */
+  const storeViewTemplateEl = document.querySelector('#store-information-template');
+  const storeViewEl = storeViewTemplateEl.content.cloneNode(true);
+  
+  /* Placing store information */
+  
+  /* Attaching to DOM */
+  const pageContainerEl = document.querySelector('#shop-view-container');
+  pageContainerEl.replaceChildren(storeViewEl);
 }
 
 async function initializeItemView(storeName, itemName) {
@@ -16,20 +31,25 @@ async function initializeItemView(storeName, itemName) {
   const itemObj = storeObj.items[itemName];
 
   /* Creating item view */
-  const pageContainerEl = document.querySelector('#shop-view-container');
   const itemViewTemplateEl = document.querySelector('#item-information-template');
   const itemViewEl = itemViewTemplateEl.content.cloneNode(true);
-
+  
   /* Placing store information */
   const storeTitleEl = itemViewEl.querySelector('.store-link-button h3');
   const storeLocationEl = itemViewEl.querySelector('.store-link-button address');
   const storeRatingEl = itemViewEl.querySelector('.store-link-button span');
-
+  
   storeTitleEl.innerText = storeObj.fullname;
-  storeLocationEl.innerText = storeObj.location;
+  storeLocationEl.innerText = storeObj.location.short;
   storeRatingEl.setAttribute('aria-label', `${ storeObj.fullname } is rated ${ storeObj.rating } stars`);
   storeRatingEl.classList.add(`stars-${ storeObj.rating }`);
 
+  /* enable location link */
+  itemViewEl.querySelector('.store-link-button').addEventListener('click', (e) => {
+    e.preventDefault();
+    loadView(`/shop/${ storeObj.fullname.replaceAll(' ', '-').toLowerCase() }`, true);
+  });
+  
   /* Placing item information */
   const itemImageEl = itemViewEl.querySelector('figure img');
   const itemNameEl = itemViewEl.querySelector('figcaption h2');
@@ -37,7 +57,7 @@ async function initializeItemView(storeName, itemName) {
   const itemRatingDescEl = itemViewEl.querySelector('figcaption .stars-desc');
   const itemDescEl = itemViewEl.querySelector('figcaption p');
   const relatedPostsCountEl = itemViewEl.querySelector('figcaption .related-posts-count');
-
+  
   itemImageEl.src = itemObj['image_url'];
   itemImageEl.alt = `Image of ${ itemObj.fullname }`;
   itemNameEl.innerText = itemObj.fullname;
@@ -46,8 +66,9 @@ async function initializeItemView(storeName, itemName) {
   itemRatingDescEl.innerText = `${ itemObj.rating } stars (${ itemObj['ratings_count'] } reviews)`;
   itemDescEl.innerText = itemObj.description;
   relatedPostsCountEl.innerText = itemObj['related_posts_count'];
-
+  
   /* Attaching to DOM */
+  const pageContainerEl = document.querySelector('#shop-view-container');
   pageContainerEl.replaceChildren(itemViewEl);
 }
 

@@ -93,7 +93,7 @@ class DrinkModal extends HTMLElement {
   _initializeRouting() {
     const itemButton = this._dialogElement.querySelector('button');
     itemButton.addEventListener('click', () => {
-      loadView(`/shop/store1/${ this._itemName.replace(' ', '-').toLowerCase() }`, true);
+      loadView(`/shop/${ 'home-coffee-roasters' }/${ this._itemName.replaceAll(' ', '-').toLowerCase() }`, true);
     });
   }
 

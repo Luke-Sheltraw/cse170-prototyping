@@ -1,3 +1,5 @@
+import { loadView } from './../router.js'
+
 const DEFAULT_POST = {
   store_name: 'Store Name',
   store_location: 'City, ST',
@@ -53,6 +55,12 @@ class UserPost extends HTMLElement {
     post.querySelector('#count-comments').innerText = this._post_data.comments_count;
 
     const imageWrapper = post.querySelector('.image-wrapper');
+
+    /* enable location link */
+    post.querySelector('address a').addEventListener('click', (e) => {
+      e.preventDefault();
+      loadView(`/shop/${ this._post_data.store_name.replaceAll(' ', '-').toLowerCase() }`, true);
+    });
 
     /* create popover drink modals */
     this._post_data.image_items.forEach((item, i) => {

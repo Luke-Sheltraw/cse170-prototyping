@@ -1,8 +1,19 @@
 {
-  "store1": {
+  "home-coffee-roasters": {
     "fullname": "Home Coffee Roasters",
-    "location": "San Francisco, CA",
+    "location": {
+      "short": "San Francisco, CA",
+      "street": "1222 Noriega St",
+      "city": "San Francisco",
+      "state": "CA",
+      "zip": "94122"
+    },
     "rating": 4,
+    "ratings_count": 564,
+    "image_url": "/assets/images/stores/example_store1.jpg",
+    "description": "This is an example store-level description.",
+    "website_url": "https://homecoffeesf.com/",
+    "related_posts_count": 789,
     "items": {
       "matcha-latte": {
         "fullname": "Matcha Latte",
