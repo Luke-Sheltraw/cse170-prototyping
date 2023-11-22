@@ -6,12 +6,13 @@
       "street": "1222 Noriega St",
       "city": "San Francisco",
       "state": "CA",
-      "zip": "94122"
+      "zip": "94122",
+      "maps_url": "https://maps.apple.com/?address=1222%20Noriega%20St,%20San%20Francisco,%20CA%20%2094122,%20United%20States&auid=3725780510372061625&ll=37.754421,-122.477142&lsp=9902&q=Home%20Coffee%20Roasters"
     },
     "rating": 4,
     "ratings_count": 564,
     "image_url": "/assets/images/stores/example_store1.jpg",
-    "description": "This is an example store-level description.",
+    "description": "Discover the hidden charm of Home Coffee Roasters, where coffee lovers can dive in the art of small-batch roasting. This inviting roastery boasts a curated selection of globally sourced beans, creating a cozy atmosphere for patrons to delve into the world of coffee craftsmanship.",
     "website_url": "https://homecoffeesf.com/",
     "related_posts_count": 789,
     "items": {

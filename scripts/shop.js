@@ -17,6 +17,27 @@ async function initializeStoreView(storeName) {
   const storeViewEl = storeViewTemplateEl.content.cloneNode(true);
   
   /* Placing store information */
+  const itemImageEl = storeViewEl.querySelector('figure img');
+  const itemNameEl = storeViewEl.querySelector('figcaption h2');
+  const itemLocationEl = storeViewEl.querySelector('figcaption h3');
+  const itemRatingEl = storeViewEl.querySelector('figcaption .stars');
+  const itemRatingDescEl = storeViewEl.querySelector('figcaption .stars-desc');
+  const itemDescEl = storeViewEl.querySelector('figcaption p');
+  const relatedPostsCountEl = storeViewEl.querySelector('figcaption .related-posts-count');
+  const directionsLinkEl = storeViewEl.querySelector('.store-info-links .store-directions-link');
+  const extWebsiteLinkEl = storeViewEl.querySelector('.store-info-links .store-website-link');
+  
+  itemImageEl.src = storeObj['image_url'];
+  itemImageEl.alt = `Image of ${ storeObj.fullname }`;
+  itemNameEl.innerText = storeObj.fullname;
+  itemLocationEl.innerText = storeObj.location.short;
+  itemRatingEl.setAttribute('aria-label', `${ storeObj.fullname } is rated ${ storeObj.rating } stars`);
+  itemRatingEl.classList.add(`stars-${ storeObj.rating }`);
+  itemRatingDescEl.innerText = `${ storeObj.rating } stars (${ storeObj['ratings_count'] } reviews)`;
+  itemDescEl.innerText = storeObj.description;
+  relatedPostsCountEl.innerText = storeObj['related_posts_count'];
+  directionsLinkEl.href = storeObj.location['maps_url'];
+  extWebsiteLinkEl.href = storeObj['website_url'];
   
   /* Attaching to DOM */
   const pageContainerEl = document.querySelector('#shop-view-container');
@@ -44,7 +65,7 @@ async function initializeItemView(storeName, itemName) {
   storeRatingEl.setAttribute('aria-label', `${ storeObj.fullname } is rated ${ storeObj.rating } stars`);
   storeRatingEl.classList.add(`stars-${ storeObj.rating }`);
 
-  /* enable location link */
+  /* Enabling location link */
   itemViewEl.querySelector('.store-link-button').addEventListener('click', (e) => {
     e.preventDefault();
     loadView(`/shop/${ storeObj.fullname.replaceAll(' ', '-').toLowerCase() }`, true);

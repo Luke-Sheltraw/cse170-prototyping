@@ -266,7 +266,7 @@
 
   <!-- ITEM INFORMATION TEMPLATE -->
   <template id="item-information-template">
-    <div class="item-information-wrapper">
+    <div class="item-store-information-wrapper">
       <button class="chevron-button store-link-button">
         <h3>{{ store name }}</h3>
         <div>
@@ -308,7 +308,7 @@
 
   <!-- STORE INFORMATION TEMPLATE -->
   <template id="store-information-template">
-    <div class="item-information-wrapper">
+    <div class="item-store-information-wrapper">
       <figure>
         <div class="item-image-wrapper">
           <img
@@ -325,6 +325,10 @@
             <span class="stars" aria-label="{{ store name }} is rated {{ store rating }} stars"></span>
             <span class="stars-desc">{{ store rating }} stars ({{ store reviews }} reviews)</span>
           </div>
+          <div class="store-info-links">
+            <a href="#{{ maps url }}" target="_blank" class="store-directions-link">Get directions</a>
+            <a href="#{{ website url }}" target="_blank" class="store-website-link">View website</a>
+          </div>
           <p>
             {{ store description }}
           </p>
@@ -337,8 +341,6 @@
               Shop items
             </button>
           </div>
-          <a href="#{{ maps url }}" target="_blank">Get directions</a>
-          <a href="#{{ website url }}" target="_blank">View website</a>
         </figcaption>
       </figure>
     </div>
