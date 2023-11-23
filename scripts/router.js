@@ -84,9 +84,22 @@ function enableProfileButtonListeners() {
   const profileButtonEl = document.querySelector('.profile-button');
   const profileDropdownEl = document.querySelector('#profile-menu-dropdown');
 
+  let lastScrollY;
+
   profileButtonEl.addEventListener('click', () => {
+    lastScrollY = window.scrollY;
     profileDropdownEl.classList.toggle('visible');
   });
+
+  let waitingForFrame = false;
+
+  window.addEventListener('scroll', () => {
+    if (waitingForFrame) return;
+    requestAnimationFrame(() => {
+      if (Math.abs(window.scrollY - lastScrollY) > 500)
+        profileDropdownEl.classList.remove('visible');
+    });
+  }, { passive: true });
 }
 
 export function initRouting() {
