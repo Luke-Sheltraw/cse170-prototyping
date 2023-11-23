@@ -30,7 +30,7 @@ let curView;
 
 function enablePageRouting() {
   window.addEventListener('popstate', (e) => {
-    loadView(pathNameToRoot(window.location.pathname));
+    loadView(window.location.pathname);
   });
 }
 
@@ -48,7 +48,7 @@ export async function loadView(viewName, displayBackButton) {
 
   if (viewRoot === '/' || !view) return loadView('/home');
 
-  if (pathNameToRoot(window.location.pathname) !== viewName)
+  if (window.location.pathname !== viewName)
     window.history.pushState({ displayBackButton }, '', viewName);
 
   const curButton = document.querySelector(`#${ pathNameToRoot(curView)?.slice(1) }-button`);
@@ -58,7 +58,7 @@ export async function loadView(viewName, displayBackButton) {
   const footer = document.querySelector('#main-footer');
   
   main.innerHTML = await view.content;
-  main.setAttribute('data-curview', viewRoot);
+  main.dispatchEvent(new CustomEvent('view-switch'));
 
   if (curView) curButton.classList.remove('footer__button__active');
   viewButton.classList.add('footer__button__active');

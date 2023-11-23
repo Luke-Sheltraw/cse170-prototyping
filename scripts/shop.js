@@ -94,6 +94,7 @@ async function initializeItemView(storeName, itemName) {
 }
 
 export function initShop() {
+  console.log('called');
   const backButton = document.querySelector('.shop-back-button');
   if (window.history.state?.displayBackButton) {
     backButton.addEventListener('click', () => {

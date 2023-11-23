@@ -115,6 +115,7 @@ class ItemInput extends HTMLElement {
       }
 
       this._drinkModal.setAttribute('item-name', this._itemName);
+      this._drinkModal.setAttribute('link-disabled', '');
       this._drinkModal.setAttribute('item-rating', 5);
       this._drinkModal.setAttribute('item-pos-x', ratioX);
       this._drinkModal.setAttribute('item-pos-y', ratioY);

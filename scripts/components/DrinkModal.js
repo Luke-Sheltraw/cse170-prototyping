@@ -11,6 +11,7 @@ class DrinkModal extends HTMLElement {
   _posX;
   _posY;
   _itemName;
+  _storeName;
 
   constructor() {
     super();
@@ -32,6 +33,7 @@ class DrinkModal extends HTMLElement {
     this._posX = +this.getAttribute('item-pos-x');
     this._posY = +this.getAttribute('item-pos-y');
     this._itemName = this.getAttribute('item-name');
+    this._storeName = this.getAttribute('store-name');
 
     modal.querySelector('.item-name').innerText = this._itemName;
 
@@ -93,7 +95,12 @@ class DrinkModal extends HTMLElement {
   _initializeRouting() {
     const itemButton = this._dialogElement.querySelector('button');
     itemButton.addEventListener('click', () => {
-      loadView(`/shop/${ 'home-coffee-roasters' }/${ this._itemName.replaceAll(' ', '-').toLowerCase() }`, true);
+      if (this.hasAttribute('link-disabled')) return;
+      loadView(`/shop/${ 
+        this._storeName.replaceAll(' ', '-').toLowerCase() 
+      }/${ 
+        this._itemName.replaceAll(' ', '-').toLowerCase() 
+      }`, true);
     });
   }
 

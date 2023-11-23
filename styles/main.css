@@ -1184,6 +1184,7 @@ progress::-webkit-progress-value {
   text-decoration: none;
   display: flex;
   align-items: center;
+  font-size: 0.875rem;
 }
 
 .item-store-information-wrapper .store-info-links a:not(:last-of-type) {

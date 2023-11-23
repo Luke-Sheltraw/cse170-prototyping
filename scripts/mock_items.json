@@ -33,5 +33,17 @@
         "image_url": "/assets/images/items/matcha_latte.jpg"
       }
     }
+  },
+  "sit-and-stay-cafe": {
+    "fullname": "Sit and Stay Cafe",
+    "location": {
+      
+    },
+    "items": {
+      "ice-water": {
+        "fullname": "Ice Water",
+        "rating": 5
+      }
+    }
   }
 }

@@ -66,6 +66,7 @@ class UserPost extends HTMLElement {
     this._post_data.image_items.forEach((item, i) => {
       const modal = document.createElement('drink-modal');
 
+      modal.setAttribute('store-name', this._post_data.store_name);
       modal.setAttribute('item-name', item.item_name);
       modal.setAttribute('item-rating', item.item_rating);
       modal.setAttribute('item-pos-x', item.item_x);
