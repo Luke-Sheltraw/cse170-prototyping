@@ -1,0 +1,47 @@
+{
+  "current_suggested_item": {
+    "fullname": "Pumpkin Spice Latte",
+    "store_name": "Starbucks",
+    "image_url": "/assets/images/items/icons/starbucks_drink1.jpg"
+  },
+  "trending_items": [
+    {
+      "fullname": "Iced Peppermint Mocha",
+      "store_name": "Peet's Coffee"
+    },
+    {
+      "fullname": "Philtered Soul Cold Brew",
+      "store_name": "Philz Coffee"
+    },
+    {
+      "fullname": "Sandpiper Latte",
+      "store_name": "Bird Rock Coffee Roasters"
+    }
+  ],
+  "coming_soon_items": [
+    {
+      "fullname": "Hazelnut Truffle Mocha",
+      "store_name": "Dutch Bros",
+      "release_date": {
+        "datetime": "2023-12-12",
+        "short_written": "Dec 12"
+      }
+    },
+    {
+      "fullname": "Iced Gingerbread Oatmilk Chai",
+      "store_name": "Starbucks",
+      "release_date": {
+        "datetime": "2023-12-24",
+        "short_written": "Dec 24"
+      }
+    },
+    {
+      "fullname": "Snickernoodle Milk",
+      "store_name": "Blue Bottle Coffee",
+      "release_date": {
+        "datetime": "2023-12-29",
+        "short_written": "Dec 29"
+      }
+    }
+  ]
+}

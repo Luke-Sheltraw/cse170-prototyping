@@ -22,7 +22,7 @@
         "ratings_count": 203,
         "description": "Enjoy our Matcha Latte, a perfect harmony of traditional and modern, where green tea meets creamy steamed milk for a rich and soothing experience. It's a serene and delightful indulgence that takes your taste buds on a unique journey.",
         "related_posts_count": 146,
-        "image_url": "/assets/images/items/matcha_latte.jpg"
+        "image_url": "/assets/images/items/banners/matcha_latte.jpg"
       },
       "cinnamon-latte": {
         "fullname": "Cinnamon Latte",
@@ -30,14 +30,14 @@
         "ratings_count": 789,
         "description": "This is an example description",
         "related_posts_count": 123,
-        "image_url": "/assets/images/items/matcha_latte.jpg"
+        "image_url": "/assets/images/items/banners/matcha_latte.jpg"
       }
     }
   },
   "sit-and-stay-cafe": {
     "fullname": "Sit and Stay Cafe",
     "location": {
-      
+
     },
     "items": {
       "ice-water": {

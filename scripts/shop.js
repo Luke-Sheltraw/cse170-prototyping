@@ -2,7 +2,7 @@ import { loadView } from './router.js';
 
 const MOCK_ITEMS_URI = '/scripts/mock_items.json';
 
-function initializeMainView() {
+async function initializeMainView() {
 
 }
 
@@ -27,17 +27,17 @@ async function initializeStoreView(storeName) {
   const directionsLinkEl = storeViewEl.querySelector('.store-info-links .store-directions-link');
   const extWebsiteLinkEl = storeViewEl.querySelector('.store-info-links .store-website-link');
   
-  itemImageEl.src = storeObj['image_url'];
+  itemImageEl.src = storeObj.image_url;
   itemImageEl.alt = `Image of ${ storeObj.fullname }`;
   itemNameEl.innerText = storeObj.fullname;
   itemLocationEl.innerText = storeObj.location.short;
   itemRatingEl.setAttribute('aria-label', `${ storeObj.fullname } is rated ${ storeObj.rating } stars`);
   itemRatingEl.classList.add(`stars-${ storeObj.rating }`);
-  itemRatingDescEl.innerText = `${ storeObj.rating } stars (${ storeObj['ratings_count'] } reviews)`;
+  itemRatingDescEl.innerText = `${ storeObj.rating } stars (${ storeObj.ratings_count } reviews)`;
   itemDescEl.innerText = storeObj.description;
-  relatedPostsCountEl.innerText = storeObj['related_posts_count'];
-  directionsLinkEl.href = storeObj.location['maps_url'];
-  extWebsiteLinkEl.href = storeObj['website_url'];
+  relatedPostsCountEl.innerText = storeObj.related_posts_count;
+  directionsLinkEl.href = storeObj.location.maps_url;
+  extWebsiteLinkEl.href = storeObj.website_url;
   
   /* Attaching to DOM */
   const pageContainerEl = document.querySelector('#shop-view-container');
@@ -79,14 +79,14 @@ async function initializeItemView(storeName, itemName) {
   const itemDescEl = itemViewEl.querySelector('figcaption p');
   const relatedPostsCountEl = itemViewEl.querySelector('figcaption .related-posts-count');
   
-  itemImageEl.src = itemObj['image_url'];
+  itemImageEl.src = itemObj.image_url;
   itemImageEl.alt = `Image of ${ itemObj.fullname }`;
   itemNameEl.innerText = itemObj.fullname;
   itemRatingEl.setAttribute('aria-label', `${ itemObj.fullname } is rated ${ itemObj.rating } stars`);
   itemRatingEl.classList.add(`stars-${ itemObj.rating }`);
-  itemRatingDescEl.innerText = `${ itemObj.rating } stars (${ itemObj['ratings_count'] } reviews)`;
+  itemRatingDescEl.innerText = `${ itemObj.rating } stars (${ itemObj.ratings_count } reviews)`;
   itemDescEl.innerText = itemObj.description;
-  relatedPostsCountEl.innerText = itemObj['related_posts_count'];
+  relatedPostsCountEl.innerText = itemObj.related_posts_count;
   
   /* Attaching to DOM */
   const pageContainerEl = document.querySelector('#shop-view-container');
@@ -94,7 +94,6 @@ async function initializeItemView(storeName, itemName) {
 }
 
 export function initShop() {
-  console.log('called');
   const backButton = document.querySelector('.shop-back-button');
   if (window.history.state?.displayBackButton) {
     backButton.addEventListener('click', () => {

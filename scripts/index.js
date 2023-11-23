@@ -2,6 +2,7 @@ import { initRouting, loadView } from './router.js';
 import { initHome } from './home.js';
 import { initPost } from './post.js';
 import { initShop } from './shop.js';
+import { initTrending } from './trending.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   initRouting();
@@ -13,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
         initHome();
         break;
       case 'trending':
-
+        initTrending();
         break;
       case 'post':
         initPost();
