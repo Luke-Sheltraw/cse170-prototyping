@@ -1099,7 +1099,7 @@ progress::-webkit-progress-value {
   height: auto;
   transform: translate(-50%, -50%);
   left: 50%;
-  position: relative;
+  position: absolute;
   top: 50%;
 }
 
