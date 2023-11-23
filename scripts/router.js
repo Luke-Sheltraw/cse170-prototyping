@@ -80,8 +80,18 @@ function enableNavButtonListeners() {
   });
 }
 
+function enableProfileButtonListeners() {
+  const profileButtonEl = document.querySelector('.profile-button');
+  const profileDropdownEl = document.querySelector('#profile-menu-dropdown');
+
+  profileButtonEl.addEventListener('click', () => {
+    profileDropdownEl.classList.toggle('visible');
+  });
+}
+
 export function initRouting() {
   enablePageRouting();
   loadView(window.location.pathname);
   enableNavButtonListeners();
+  enableProfileButtonListeners();
 };

@@ -82,19 +82,57 @@ button {
 
 /* Header */
 
-.profile-button {
+#profile-menu-wrapper {
   position: fixed;
   right: 1rem;
   top: 2rem;
-  width: 2rem;
-  height: 2rem;
+  z-index: 5;
+}
+
+#profile-menu-dropdown-wrapper {
+  overflow: hidden;
+  padding-top: 3rem;
+  margin-top: -3rem;
+  border-radius: 0 0 0.75rem 0.75rem;
+  transition: box-shadow 150ms ease-in-out;
+}
+
+#profile-menu-dropdown-wrapper:has( #profile-menu-dropdown.visible) {
+  box-shadow: var(--default-shadow);
+}
+
+#profile-menu-dropdown {
+  display: flex;
+  flex-direction: column;
+  padding-top: 3rem;
+  margin-top: -3rem;
+  background-color: var(--psuedo-white);
+  border: 2px solid var(--primary-gold);
+  border-radius: 0 0 0.75rem 0.75rem;
+
+  transform: translateY(-100%);
+  transition: transform 150ms ease-in-out;
+}
+
+#profile-menu-dropdown.visible {
+  transform: translateY(0);
+}
+
+#profile-menu-dropdown button {
+  background: none;
+  border: none;
+}
+
+.profile-button {
+  position: relative;
   width: 4rem;
   height: 4rem;
   border-radius: 50%;
   border: 2px solid var(--tertiary-teal);
   overflow: hidden;
   box-shadow: var(--default-shadow);
-  z-index: 5;
+  padding: 0;
+  z-index: 6;
 }
 
 .profile-button:active {
@@ -102,12 +140,9 @@ button {
 }
 
 .profile-button img {
-  width: 110%;
-  height: auto;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 dialog:not([open]) {
@@ -1274,7 +1309,7 @@ progress::-webkit-progress-value {
 
 #trending-trending-items li:first-of-type::before {
   color: var(--psuedo-black);
-  border: 2px solid var(--primary-gold);
+  outline: 2px solid var(--primary-gold);
 }
 
 .trending-list button {
@@ -1326,11 +1361,11 @@ progress::-webkit-progress-value {
 
 #trending-coming-soon-items time {
   display: block;
-  width: 3.75rem;
+  width: 4rem;
   text-align: right;
   font-size: 1rem;
   word-spacing: 5rem;
   line-height: 1.5rem;
-  color: var(--psuedo-black-lightened);
   padding-top: 0.375rem;
+  color: var(--tertiary-teal);
 }
