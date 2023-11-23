@@ -4,6 +4,13 @@ async function initializeTrendingLayout() {
   const items = await fetch(MOCK_TRENDING_URI).then((contents) => contents.json());
 
   /* Create suggested item */
+  const suggestedImgEl = document.querySelector('#trending-suggested-item img');
+  const suggestedItemNameEl = document.querySelector('#trending-suggested-item h3');
+  const suggestedStoreNameEl = document.querySelector('#trending-suggested-item h4');
+  suggestedImgEl.src = items.current_suggested_item.image_url;
+  suggestedImgEl.alt = `Image of ${ items.current_suggested_item.fullname } from ${ items.current_suggested_item.store_name }`;
+  suggestedItemNameEl.innerText = items.current_suggested_item.fullname;
+  suggestedStoreNameEl.innerText = items.current_suggested_item.store_name;
   
   /* Create trending list */
   const trendingItemEls = items.trending_items.map((item) => {

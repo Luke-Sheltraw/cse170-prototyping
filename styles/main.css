@@ -1250,18 +1250,87 @@ progress::-webkit-progress-value {
   line-height: 2rem;
 }
 
-#trending-trending-items button {
+#trending-trending-items ol {
+  counter-reset: trending-rank;
+}
+
+#trending-trending-items li {
+  counter-increment: trending-rank;
+  align-items: center;
+}
+
+#trending-trending-items li::before {
+  content: counter(trending-rank);
+  display: flex;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  align-items: center;
+  flex-shrink: 0;
+  justify-content: center;
+  color: var(--tertiary-teal);
+  margin-right: 1rem;
+}
+
+#trending-trending-items li:first-of-type::before {
+  color: var(--psuedo-black);
+  border: 2px solid var(--primary-gold);
+}
+
+.trending-list button {
+  flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  flex-direction: column;
-  width: 100%;
+  padding-right: 2rem;
 }
 
 #trending-coming-soon-items {
   margin-bottom: 8.5rem;
 }
 
-#trending-coming-soon-items ol {
+.trending-list ol {
   list-style-type: none;
   padding: 0;
+}
+
+.trending-list ol {
+  margin: 0;
+}
+
+.trending-list li {
+  display: flex;
+  width: 100%;
+}
+
+.trending-section:not(:last-of-type) {
+  margin-bottom: 1rem;
+}
+
+.trending-list li:not(:last-of-type) {
+  margin-bottom: 1rem;
+}
+
+.trending-list button {
+  flex: 1;
+  min-width: 0;
+}
+
+.trending-list h3,
+.trending-list h4 {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  line-height: 2rem;
+}
+
+#trending-coming-soon-items time {
+  display: block;
+  width: 3.75rem;
+  text-align: right;
+  font-size: 1rem;
+  word-spacing: 5rem;
+  line-height: 1.5rem;
+  color: var(--psuedo-black-lightened);
+  padding-top: 0.375rem;
 }

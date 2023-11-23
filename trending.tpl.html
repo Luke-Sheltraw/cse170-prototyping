@@ -1,28 +1,28 @@
 <h1>Brew<span class="text__secondaryColor">+</span>Buzz</h1>
-<section id="trending-suggested-item">
+<section id="trending-suggested-item" class="trending-section">
   <h2>Suggested for you</h2>
   <button class="chevron-button">
     <img
-      src="/assets/images/items/icons/starbucks_drink1.jpg"
-      alt="Image of Pumpkin Spice Latte from Starbucks"
+      src="{{ item image url }}"
+      alt="Image of {{ item name }} from {{ store name }}"
       width="75"
       height="75"
     >
     <div>
       <h3>
-        Pumpkin Spice Latte
+        {{ item name }}
       </h3>
       <h4>
-        Starbucks
+        {{ store name }}
       </h4>
     </div>
   </button>
 </section>
-<section id="trending-trending-items">
+<section id="trending-trending-items" class="trending-list trending-section">
   <h2>Trending items</h2>
   <ol></ol>
 </section>
-<section id="trending-coming-soon-items">
+<section id="trending-coming-soon-items" class="trending-list trending-section">
   <h2>Coming soon</h2>
   <ol></ol>
 </section>
