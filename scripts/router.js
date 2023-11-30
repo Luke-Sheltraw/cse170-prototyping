@@ -81,7 +81,7 @@ export async function loadView(viewName, displayBackButton) {
 function enableNavButtonListeners() {
   document.querySelectorAll('.footer__button').forEach((el) => {
     el.addEventListener('click', () => {
-      loadView(`/${ el.getAttribute('data-view') }`);
+      loadView(`/${ el.dataset.view }`);
     });
   });
 }

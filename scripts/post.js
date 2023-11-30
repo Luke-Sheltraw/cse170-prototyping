@@ -43,8 +43,8 @@ function initializeNavigationListeners() {
   backButtons.forEach((btn) => 
     btn.addEventListener('click', () => {
       if (currentView <= 0) return;
-      viewList[currentView].setAttribute('data-active', 'false');
-      viewList[currentView - 1].setAttribute('data-active', 'true');
+      viewList[currentView].dataset.active = false;
+      viewList[currentView - 1].dataset.active = true;
       progressBar.value = currentView;
       currentView -= 1;
     }
@@ -52,8 +52,8 @@ function initializeNavigationListeners() {
 
   const moveToNextView = () => {
     if (currentView >= viewList.length - 1) return;
-    viewList[currentView].setAttribute('data-active', 'false');
-    viewList[currentView + 1].setAttribute('data-active', 'true');
+    viewList[currentView].dataset.active = false;
+    viewList[currentView + 1].dataset.active = true;
     progressBar.value = currentView + 2;
     currentView += 1;
   }
@@ -193,17 +193,17 @@ function initializeStoreSearch() {
   suggestedOptionElements.forEach((btn) => {
     btn.addEventListener('click', () => {
       if (btn === activeButtonElement) {
-        activeButtonElement.removeAttribute('data-selected');
+        delete activeButtonElement.dataset.selected
         activeButtonElement = undefined;
         hiddenFieldElementName.value = '';
         hiddenFieldElementLocation.value = '';
         return;
       };
-      activeButtonElement?.removeAttribute('data-selected');
-      btn.setAttribute('data-selected', '');
+      delete activeButtonElement?.dataset?.selected
+      delete btn.dataset.selected;
       activeButtonElement = btn;
-      hiddenFieldElementName.value = activeButtonElement.getAttribute('data-storename');
-      hiddenFieldElementLocation.value = activeButtonElement.getAttribute('data-storelocation');
+      hiddenFieldElementName.value = activeButtonElement.dataset.storename
+      hiddenFieldElementLocation.value = activeButtonElement.dataset.storelocation;
     });
   });
 }

@@ -33,8 +33,8 @@ class ItemInput extends HTMLElement {
   
     const handleModalSwitch = (targetedModalEl) => {
       if (targetedModalEl === currentModalEl) return;
-      currentModalEl.removeAttribute('data-active');
-      targetedModalEl.setAttribute('data-active', '');
+      delete currentModalEl.dataset.active;
+      targetedModalEl.dataset.active = true;
       currentModalEl = targetedModalEl;
     };
   
@@ -59,8 +59,8 @@ class ItemInput extends HTMLElement {
 
     previewContainerEl.addEventListener('click', () => {
       currentModalEl = itemLocationModalEl;
-      itemSelectModalEl.removeAttribute('data-active');
-      itemLocationModalEl.setAttribute('data-active', '');
+      delete itemSelectModalEl.dataset.active;
+      itemLocationModalEl.dataset.active = true;
       this._modalWrapper.setAttribute('open', '');
     });
 
@@ -80,7 +80,7 @@ class ItemInput extends HTMLElement {
           return;
         };
         activeButtonEl?.removeAttribute('data-selected');
-        btn.setAttribute('data-selected', '');
+        btn.dataset.selected = true;
         activeButtonEl = btn;
         this._itemName = activeButtonEl.getAttribute('data-itemname');
         hiddenItemInputEl.value = this._itemName;

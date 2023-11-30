@@ -25,7 +25,7 @@ async function initializeInfiniteScroll() {
 function loadNextPostBatch() {
   if (currentlyFetchingData || currentNumPosts >= MAX_POSTS) return;
   currentlyFetchingData = true;
-  postFeedFooterElement.setAttribute('data-loading', 'true');
+  postFeedFooterElement.dataset.loading = 'true';
 
   const container = document.querySelector('#post-feed-container');
 
@@ -41,7 +41,7 @@ function loadNextPostBatch() {
     })
     .finally(() => {
       currentlyFetchingData = false;
-      postFeedFooterElement.setAttribute('data-loading', 'false');
+      postFeedFooterElement.dataset.loading = false;
     });
 }
 

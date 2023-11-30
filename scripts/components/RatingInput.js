@@ -33,7 +33,7 @@ class RatingInput extends HTMLElement {
         this._currentValue = i + 1;
         this._hiddenInputEl.value = this._currentValue;
         stars.forEach((otherStar, j) => {
-          if (j <= i) otherStar.setAttribute('data-selected', '');
+          if (j <= i) otherStar.dataset.selected = true;
           else otherStar.removeAttribute('data-selected');
         });
       });
