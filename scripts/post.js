@@ -200,7 +200,7 @@ function initializeStoreSearch() {
         return;
       };
       delete activeButtonElement?.dataset?.selected
-      delete btn.dataset.selected;
+      btn.dataset.selected = true;
       activeButtonElement = btn;
       hiddenFieldElementName.value = activeButtonElement.dataset.storename
       hiddenFieldElementLocation.value = activeButtonElement.dataset.storelocation;
