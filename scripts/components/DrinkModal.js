@@ -1,4 +1,4 @@
-import { loadView } from '../router.js';
+import { loadView, URIString } from '../router.js';
 
 class DrinkModal extends HTMLElement {
   static observedAttributes = ['open', 'item-pos-x', 'item-pos-y', 'item-name'];
@@ -96,11 +96,7 @@ class DrinkModal extends HTMLElement {
     const itemButton = this._dialogElement.querySelector('button');
     itemButton.addEventListener('click', () => {
       if (this.hasAttribute('link-disabled')) return;
-      loadView(`/shop/${ 
-        this._storeName.replaceAll(' ', '-').toLowerCase() 
-      }/${ 
-        this._itemName.replaceAll(' ', '-').toLowerCase() 
-      }`, true);
+      loadView(`/shop/${ URIString(this._storeName, this._itemName) }`, true);
     });
   }
 

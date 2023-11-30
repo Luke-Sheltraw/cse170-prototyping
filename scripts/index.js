@@ -3,6 +3,7 @@ import { initHome } from './home.js';
 import { initPost } from './post.js';
 import { initShop } from './shop.js';
 import { initTrending } from './trending.js';
+import { initSearch } from './search.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   initRouting();
@@ -23,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
         initShop();
         break;
       case 'search':
-        
+        initSearch();
         break;
       default:
         loadView('/home');

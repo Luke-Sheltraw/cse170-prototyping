@@ -1,4 +1,4 @@
-import { loadView } from './../router.js'
+import { loadView, URIString } from './../router.js'
 
 const DEFAULT_POST = {
   store_name: 'Store Name',
@@ -59,7 +59,7 @@ class UserPost extends HTMLElement {
     /* enable location link */
     post.querySelector('address a').addEventListener('click', (e) => {
       e.preventDefault();
-      loadView(`/shop/${ this._post_data.store_name.replaceAll(' ', '-').toLowerCase() }`, true);
+      loadView(`/shop/${ URIString(this._post_data.store_name) }`, true);
     });
 
     /* create popover drink modals */

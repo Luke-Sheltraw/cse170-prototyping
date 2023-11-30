@@ -1,4 +1,4 @@
-import { loadView } from './router.js';
+import { loadView, URIString } from './router.js';
 
 const MOCK_ITEMS_URI = '/scripts/mock_items.json';
 
@@ -68,7 +68,7 @@ async function initializeItemView(storeName, itemName) {
   /* Enabling location link */
   itemViewEl.querySelector('.store-link-button').addEventListener('click', (e) => {
     e.preventDefault();
-    loadView(`/shop/${ storeObj.fullname.replaceAll(' ', '-').toLowerCase() }`, true);
+    loadView(`/shop/${ URIString(storeObj.fullname) }`, true);
   });
   
   /* Placing item information */

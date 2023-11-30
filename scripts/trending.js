@@ -1,9 +1,12 @@
+import { loadView, URIString } from './router.js';
+
 const MOCK_TRENDING_URI = '/scripts/mock_trending.json';
 
 async function initializeTrendingLayout() {
   const items = await fetch(MOCK_TRENDING_URI).then((contents) => contents.json());
 
   /* Create suggested item */
+  const suggestedButtonEl = document.querySelector('#trending-suggested-item button');
   const suggestedImgEl = document.querySelector('#trending-suggested-item img');
   const suggestedItemNameEl = document.querySelector('#trending-suggested-item h3');
   const suggestedStoreNameEl = document.querySelector('#trending-suggested-item h4');
@@ -12,6 +15,13 @@ async function initializeTrendingLayout() {
   suggestedItemNameEl.innerText = items.current_suggested_item.fullname;
   suggestedStoreNameEl.innerText = items.current_suggested_item.store_name;
   
+  suggestedButtonEl.addEventListener('click', () => {
+    loadView(`/shop/${ URIString(
+      items.current_suggested_item.store_name,
+      items.current_suggested_item.fullname) 
+    }`, true);
+  });
+
   /* Create trending list */
   const trendingItemEls = items.trending_items.map((item) => {
     const listItemEl = document.createElement('li');
@@ -23,6 +33,14 @@ async function initializeTrendingLayout() {
     buttonEl.append(itemNameEl, storeNameEl);
     listItemEl.append(buttonEl);
     buttonEl.classList.add('chevron-button');
+
+    buttonEl.addEventListener('click', () => {
+      loadView(`/shop/${ URIString(
+        item.store_name,
+        item.fullname
+      )}`, true);
+    });
+
     return listItemEl;
   });
   document.querySelector('#trending-trending-items ol').replaceChildren(...trendingItemEls);
@@ -41,6 +59,14 @@ async function initializeTrendingLayout() {
     buttonEl.append(itemNameEl, storeNameEl);
     listItemEl.append(buttonEl, timeEl);
     buttonEl.classList.add('chevron-button');
+
+    buttonEl.addEventListener('click', () => {
+      loadView(`/shop/${ URIString(
+        item.store_name,
+        item.fullname
+      )}`, true);
+    });
+
     return listItemEl;
   });
   document.querySelector('#trending-coming-soon-items ol').replaceChildren(...comingSoonEls);

@@ -41,6 +41,12 @@ function pathNameToRoot(fullPathname) {
   return fullPathname.substring(0, nextSlashIndex);
 }
 
+export function URIString(...strings) {
+  return strings
+    .map((str) => str.replaceAll(' ', '-').toLowerCase())
+    .join('/');
+}
+
 export async function loadView(viewName, displayBackButton) {
   if (viewName === curView) return;
   const viewRoot = pathNameToRoot(viewName);
