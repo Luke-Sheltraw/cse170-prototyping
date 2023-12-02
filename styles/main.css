@@ -1411,6 +1411,7 @@ progress::-webkit-progress-value {
 
 #biography {
   font-size: 0.875rem;
+  margin: 0;
 }
 
 .favorite-wrapper {
@@ -1430,8 +1431,20 @@ progress::-webkit-progress-value {
   gap: 0.5rem;
 }
 
-#my-posts-wrapper img {
-  outline: 1px solid black;
+#my-posts-wrapper button {
+  width: 100%;
   height: auto;
   aspect-ratio: 1 / 1;
+  box-shadow: var(--default-shadow);
+  border-radius: 0.75rem;
+  background: none;
+  border: none;
+  padding: 0;
+  overflow: hidden;
+}
+
+#my-posts-wrapper img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
