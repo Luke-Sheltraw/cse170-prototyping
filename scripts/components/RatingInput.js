@@ -28,7 +28,7 @@ class RatingInput extends HTMLElement {
     stars.forEach((star, i) => {
       star.addEventListener('click', () => {
         if (this._currentValue === -1) {
-          this.querySelector('.save-stars-button')?.removeAttribute('disabled');
+          this.dispatchEvent(new CustomEvent('starselected'));
         }
         this._currentValue = i + 1;
         this._hiddenInputEl.value = this._currentValue;
@@ -40,13 +40,11 @@ class RatingInput extends HTMLElement {
       starWrapper.append(star);
     });
 
-    this.prepend(starWrapper);
-
     this._hiddenInputEl = document.createElement('input');
     this._hiddenInputEl.setAttribute('type', 'hidden');
     this._hiddenInputEl.setAttribute('name', this._inputName);
-    this.append(this._hiddenInputEl);
 
+    this.replaceChildren(starWrapper, this._hiddenInputEl);
   }
 
   attributeChangedCallback(name, _, newValue) {

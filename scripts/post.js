@@ -61,14 +61,18 @@ function initializeNavigationListeners() {
   nextButtons.forEach((btn) => 
     btn.addEventListener('click', () => {
       if (currentView === 1) { // store select next button
-        const modal = document.querySelector('#location-rating-modal');
+        const modalEl = document.querySelector('#location-rating-modal');
+        const saveStarsButtonEl = document.querySelector('.save-stars-button');
         document.querySelector('#review-store-name').innerText = 
           document.querySelector('#selected-store-name').value;
         document.querySelector('#review-store-location').innerText = 
           document.querySelector('#selected-store-location').value;
-        modal.setAttribute('open', '');
-        document.querySelector('.save-stars-button').addEventListener('click', () => {
-          modal.removeAttribute('open');
+        modalEl.setAttribute('open', '');
+        document.querySelector('rating-input').addEventListener('click', () => {
+          saveStarsButtonEl.removeAttribute('disabled');
+        }, { once: true });
+        saveStarsButtonEl.addEventListener('click', () => {
+          modalEl.removeAttribute('open');
           moveToNextView();
         }, { once: true });
       } else if (currentView === viewList.length - 2) { // confirmation screen
@@ -79,8 +83,7 @@ function initializeNavigationListeners() {
         const postPreview = document.createElement('user-post');
         postPreview.setAttribute('post-id', postInfo.post_id);
         postPreview.setAttribute('preview', 'true');
-        wrapper.innerHTML = '';
-        wrapper.append(postPreview);
+        wrapper.replaceChildren(postPreview);
         postPreview.querySelector('.button-wrapper').remove();
         postPreview.querySelector('.leave-comment').remove();
         moveToNextView();

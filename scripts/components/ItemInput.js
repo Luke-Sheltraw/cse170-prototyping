@@ -12,7 +12,7 @@ class ItemInput extends HTMLElement {
     /* Creation */
     const template = document.querySelector('#item-input-template');
     const itemChooser = template.content.cloneNode(true);
-    this.append(itemChooser);
+    this.replaceChildren(itemChooser);
     this._modalWrapper = this.querySelector('dialog');
     this._imageWrapper = this.querySelector('.image-wrapper');
     this._imageEl = this._imageWrapper.querySelector('img');

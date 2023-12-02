@@ -80,6 +80,27 @@ button {
   right: 1rem;
 }
 
+.minimal-button {
+  background: none;
+  border: none;
+  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+}
+
+.minimal-button::after {
+  content: "";
+  display: inline-block;
+  width: 0.75rem;
+  height: 0.75rem;
+  background: url(../assets/images/icons/chevron_icon.svg);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-left: 0.5rem;
+  filter: brightness(0);
+}
+
 /* Header */
 
 #profile-menu-wrapper {
@@ -798,6 +819,7 @@ html:has(form#post-upload) {
   width: 100%;
   height: 100%;
   text-align: left;
+  line-height: 2rem;
 }
 
 .suggested-wrapper button[data-selected] {
@@ -807,7 +829,11 @@ html:has(form#post-upload) {
 .suggested-wrapper address {
   color: var(--psuedo-black-lightened);
   font-style: normal;
-  font-size: 0.75rem;
+  font-size: 0.875rem;
+}
+
+.suggested-wrapper h4 {
+  font-size: 0.875rem;
 }
 
 .suggested-wrapper button[data-selected] address {
@@ -917,7 +943,7 @@ html:has(form#post-upload) {
 .review-location-wrapper address {
   font-style: normal;
   line-height: 1rem;
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   color: var(--psuedo-black-lightened);
   width: 80%;
 }
@@ -1297,6 +1323,7 @@ progress::-webkit-progress-value {
   flex-direction: column;
   height: 100%;
   padding: 0 1rem;
+  justify-content: space-between;
 }
 
 #trending-suggested-item button > div h3 {
@@ -1331,23 +1358,29 @@ progress::-webkit-progress-value {
   outline: 2px solid var(--primary-gold);
 }
 
-.trending-list button {
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  padding-right: 2rem;
-}
-
 #trending-coming-soon-items {
   margin-bottom: 8.5rem;
 }
 
+.trending-list {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.trending-list ol button {
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding-right: 2rem;
+  flex: 1;
+  min-width: 0;
+}
+
+
 .trending-list ol {
   list-style-type: none;
   padding: 0;
-}
-
-.trending-list ol {
   margin: 0;
 }
 
@@ -1364,11 +1397,6 @@ progress::-webkit-progress-value {
   margin-bottom: 1rem;
 }
 
-.trending-list button {
-  flex: 1;
-  min-width: 0;
-}
-
 .trending-list h3,
 .trending-list h4 {
   white-space: nowrap;
@@ -1376,6 +1404,15 @@ progress::-webkit-progress-value {
   text-overflow: ellipsis;
   width: 100%;
   line-height: 2rem;
+}
+
+.trending-list h3 {
+  font-size: 0.875rem;
+}
+
+.trending-list h4 {
+  font-size: 0.875rem;
+  color: var(--psuedo-black-lightened);
 }
 
 #trending-coming-soon-items time {
@@ -1407,4 +1444,18 @@ progress::-webkit-progress-value {
 
 .no-display {
   display: none;
+}
+
+.view-more-btn {
+
+}
+
+.split-title-wrapper {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.trending-section .section-heading {
+  margin-bottom: 0.5rem;
 }
