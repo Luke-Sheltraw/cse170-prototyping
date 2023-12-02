@@ -1,6 +1,6 @@
 import { loadView, URIString } from './router.js';
 
-const MOCK_TRENDING_URI = '/scripts/mock_trending.json';
+const MOCK_TRENDING_URI = '/scripts/mocks/mock_trending.json';
 
 async function initializeTrendingLayout() {
   const items = await fetch(MOCK_TRENDING_URI).then((contents) => contents.json());
@@ -73,6 +73,29 @@ async function initializeTrendingLayout() {
 
 }
 
-export function initTrending() {
+function initializeSearchBar() {
+  const searchBar = document.querySelector('#search-bar');
+  const resultWrapper = document.querySelector('#search-result-wrapper');
+  
+  searchBar.addEventListener('input', (e) => {
+    if (e.target.value.length > 0) resultWrapper.dataset.curview = 'real';
+    else resultWrapper.dataset.curview = 'suggested';
+  });
+}
+
+function resetSearchBar() {
+  const searchBar = document.querySelector('#search-bar');
+  const resultWrapper = document.querySelector('#search-result-wrapper');
+  
+  searchBar.value = '';
+  resultWrapper.dataset.curview = 'suggested';
+}
+
+export function initExplore() {
+  initializeSearchBar();
   initializeTrendingLayout();
+}
+
+export function updateExplore() {
+  resetSearchBar();
 }

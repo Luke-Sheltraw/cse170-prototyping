@@ -8,36 +8,19 @@
   <link rel="manifest" href="/manifest.json">
   <link rel="icon" href="/assets/images/manifest/icons-512.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/manifest/apple-touch-icon.png">
+  <script src="/scripts/components/DrinkModal.js" type="module"></script>
+  <script src="/scripts/components/UserPost.js" type="module"></script>
+  <script src="/scripts/components/RatingInput.js" type="module"></script>
+  <script src="/scripts/components/ItemInput.js" type="module"></script>
+  <script src="/scripts/index.js" type="module"></script>
 </head>
 <body>
-  <!-- HEADER -->
-  <header id="main-header">
-    <nav id="profile-menu-wrapper">
-      <button class="profile-button">
-        <img
-          src="/assets/images/profiles/self_profile.jpg"
-          alt="Profile picture"
-          width="50"
-          height="50"
-        >
-      </button>
-      <div id="profile-menu-dropdown-wrapper">
-        <div id="profile-menu-dropdown">
-          <button id="profile-button" aria-label="Profile"></button>
-          <button id="friends-button" aria-label="Friends"></button>
-          <button id="settings-button" aria-label="Settings"></button>
-        </div>
-      </div>
-    </nav>
-  </header>
-
   <!-- MAIN CONTENT -->
   <main>
     
   </main>
 
   <!-- FOOTER -->
-  <!-- TODO: MOVE PROFILE TO BOTTOM BAR, MOVE TRENDING INTO SEARCH -->
   <footer id="main-footer">
     <nav>
       <ul>
@@ -59,14 +42,14 @@
         </li>
         <li>
           <button
-            aria-label="Trending"
-            id="trending-button"
-            data-view="trending"
+            aria-label="Profile"
+            id="profile-button"
+            data-view="profile"
             class="footer__button"
           >
             <img
-              src="/assets/images/icons/trending_icon.svg"
-              alt="Trending icon image"
+              src="/assets/images/icons/profile_icon.svg"
+              alt="Profile icon image"
               width="40"
               height="40"
               draggable="false"
@@ -78,7 +61,7 @@
             aria-label="Post"
             id="post-button"
             data-view="post"
-            class="post-button footer__button"
+            class="footer__button"
           >
             <img
               src="/assets/images/icons/plus_icon.svg"
@@ -107,14 +90,14 @@
         </li>
         <li>
           <button
-            aria-label="Search"
-            id="search-button"
-            data-view="search"
+            aria-label="Explore"
+            id="explore-button"
+            data-view="explore"
             class="footer__button"
           >
             <img
               src="/assets/images/icons/search_icon.svg"
-              alt="Search icon image"
+              alt="Explore icon image"
               width="40"
               height="40"
               draggable="false"
@@ -352,14 +335,6 @@
       </figure>
     </div>
   </template>
-
   <div id="css-asset-preloader"></div>
-
-  <!-- SCRIPTS -->
-  <script src="/scripts/components/DrinkModal.js" type="module"></script>
-  <script src="/scripts/components/UserPost.js" type="module"></script>
-  <script src="/scripts/components/RatingInput.js" type="module"></script>
-  <script src="/scripts/components/ItemInput.js" type="module"></script>
-  <script src="/scripts/index.js" type="module"></script>
 </body>
 </html>

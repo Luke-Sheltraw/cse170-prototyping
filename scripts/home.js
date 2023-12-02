@@ -1,5 +1,5 @@
 const MOCK_SERVER_DELAY_MS = 500;
-const MOCK_POSTS_URI = '/scripts/mock_posts.json';
+const MOCK_POSTS_URI = '/scripts/mocks/mock_posts.json';
 const MAX_POSTS = 35;
 
 let mock_posts;

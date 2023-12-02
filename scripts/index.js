@@ -2,8 +2,7 @@ import { initRouting, loadView } from './router.js';
 import { initHome } from './home.js';
 import { initPost } from './post.js';
 import { initShop, updateShop } from './shop.js';
-import { initTrending } from './trending.js';
-import { initSearch, updateSearch } from './search.js';
+import { initExplore, updateExplore } from './explore.js';
 
 const pages = {
   'home': {
@@ -21,14 +20,14 @@ const pages = {
     updater: updateShop,
     hasBeenInitialized: false,
   },
-  'trending': {
-    initializer: initTrending,
+  'profile': {
+    initializer: () => {},
     updater: () => {},
     hasBeenInitialized: false,
   },
-  'search': {
-    initializer: initSearch,
-    updater: updateSearch,
+  'explore': {
+    initializer: initExplore,
+    updater: updateExplore,
     hasBeenInitialized: false,
   },
 }

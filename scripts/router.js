@@ -3,29 +3,24 @@ let curView;
 
 const VIEWS = {
   '/home': {
-    showHeader: true,
     showFooter: true,
     content: getDOMFragFromPathname('/home.tpl.html'),
   },
-  '/trending': {
-    showHeader: true,
+  '/profile': {
     showFooter: true,
-    content: getDOMFragFromPathname('/trending.tpl.html'),
+    content: getDOMFragFromPathname('/profile.tpl.html'),
   },
   '/post': {
-    showFooter: false,
     showHeader: false,
     content: getDOMFragFromPathname('/post.tpl.html'),
   },
   '/shop': {
-    showHeader: true,
     showFooter: true,
     content: getDOMFragFromPathname('/shop.tpl.html'),
   },
-  '/search': {
-    showHeader: false,
+  '/explore': {
     showFooter: true,
-    content: getDOMFragFromPathname('/search.tpl.html'),
+    content: getDOMFragFromPathname('/explore.tpl.html'),
   },
 };
 
@@ -78,9 +73,6 @@ export async function loadView(viewName, displayBackButton) {
   if (curView) curButton.classList.remove('footer__button__active');
   viewButton.classList.add('footer__button__active');
 
-  if (view.showHeader) header.classList.remove('hidden');
-  else header.classList.add('hidden');
-
   if (view.showFooter) footer.classList.remove('hidden');
   else footer.classList.add('hidden');
 
@@ -95,31 +87,8 @@ function enableNavButtonListeners() {
   });
 }
 
-function enableProfileButtonListeners() {
-  const profileButtonEl = document.querySelector('.profile-button');
-  const profileDropdownEl = document.querySelector('#profile-menu-dropdown');
-
-  let lastScrollY;
-
-  profileButtonEl.addEventListener('click', () => {
-    lastScrollY = window.scrollY;
-    profileDropdownEl.classList.toggle('visible');
-  });
-
-  let waitingForFrame = false;
-
-  window.addEventListener('scroll', () => {
-    if (waitingForFrame) return;
-    requestAnimationFrame(() => {
-      if (Math.abs(window.scrollY - lastScrollY) > 500)
-        profileDropdownEl.classList.remove('visible');
-    });
-  }, { passive: true });
-}
-
 export function initRouting() {
   enablePageRouting();
   loadView(window.location.pathname);
   enableNavButtonListeners();
-  enableProfileButtonListeners();
 };

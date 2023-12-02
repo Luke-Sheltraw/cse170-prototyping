@@ -1,0 +1,48 @@
+<input
+  type="text"
+  placeholder="Search for stores, items, and people"
+  maxlength="50"
+  id="search-bar"
+  class="fw-text-input"
+>
+<div id="search-result-wrapper" data-curview="suggested">
+  <section id="suggested-search-results">
+    <section id="trending-suggested-item" class="trending-section">
+      <h2 class="section-heading">Suggested for you</h2>
+      <button class="chevron-button">
+        <img
+          src="{{ item image url }}"
+          alt="Image of {{ item name }} from {{ store name }}"
+          width="75"
+          height="75"
+        >
+        <div>
+          <h3>
+            <!--{{ item name }}-->
+          </h3>
+          <h4>
+            <!--{{ store name }}-->
+          </h4>
+        </div>
+      </button>
+    </section>
+    <section id="trending-trending-items" class="trending-list trending-section">
+      <div class="split-title-wrapper section-heading">
+        <h2>Trending items</h2>
+        <button class="view-more-btn minimal-button">View more</button>
+      </div>
+      <ol></ol>
+    </section>
+    <section id="trending-coming-soon-items" class="trending-list trending-section">
+      <div class="split-title-wrapper section-heading">
+        <h2>Coming soon</h2>
+        <button class="view-more-btn minimal-button">View more</button>
+      </div>
+      <ol></ol>
+    </section>
+  </section>
+  <section id="real-search-results">
+    <h2>Results</h2>
+    <ol></ol>
+  </section>
+</div>

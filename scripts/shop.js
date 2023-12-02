@@ -1,6 +1,6 @@
 import { loadView, URIString } from './router.js';
 
-const MOCK_ITEMS_URI = '/scripts/mock_items.json';
+const MOCK_ITEMS_URI = '/scripts/mocks/mock_items.json';
 
 async function initializeMainView() {
 

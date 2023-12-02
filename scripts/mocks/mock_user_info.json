@@ -1,0 +1,32 @@
+{
+  "fullname": "Luke Sheltraw",
+  "friends": [
+    "Bob Joe",
+    "Lucy Smith",
+    "John Doe",
+    "Jeremy Brown",
+    "Jason Grand"
+  ],
+  "post_ids": [
+    "aP4rTq",
+    "aP4rTq",
+    "aP4rTq",
+    "aP4rTq"
+  ],
+  "count_drinks_purchased": 567,
+  "biography": "This is an example bio",
+  "favorite_store_name": "Home Coffee Roasters",
+  "favorite_item_name": "Matcha Latte",
+  "recent_store_searches": [
+
+  ],
+  "popular_stores_nearby": [
+
+  ],
+  "recent_item_searches": [
+
+  ],
+  "popular_items_nearby": [
+
+  ]
+}
