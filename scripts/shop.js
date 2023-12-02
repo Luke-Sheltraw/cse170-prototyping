@@ -95,13 +95,19 @@ async function initializeItemView(storeName, itemName) {
 
 export function initShop() {
   const backButton = document.querySelector('.shop-back-button');
-  if (window.history.state?.displayBackButton) {
-    backButton.addEventListener('click', () => {
-      window.history.back();
-    });
-  } else {
-    backButton.remove();
-  }
+
+  backButton.addEventListener('click', () => {
+    window.history.back();
+  });
+}
+
+export function updateShop() {
+  const backButton = document.querySelector('.shop-back-button');
+  backButton.classList[
+    window.history.state?.displayBackButton
+    ? 'remove'
+    : 'add'
+  ]('no-display');
 
   const storeName = window.location.pathname.split('/')[2]; 
   const itemName = window.location.pathname.split('/')[3];

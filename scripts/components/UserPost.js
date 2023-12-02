@@ -94,7 +94,7 @@ class UserPost extends HTMLElement {
       else this._handleLike();
     });
 
-    this.appendChild(post);
+    this.replaceChildren(post);
   }
 
   _closeAllModalsExcept(n) {

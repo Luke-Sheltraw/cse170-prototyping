@@ -44,13 +44,7 @@ class DrinkModal extends HTMLElement {
     }
 
     /* initialize event listeners */
-    this._button.addEventListener('click', () => {
-      if (this.hasAttribute('open')) {
-        this.removeAttribute('open');
-      } else {
-        this.setAttribute('open', '');
-      }
-    });
+    this._button.addEventListener('click', () => this.toggleAttribute('open'));
 
     const resizeObserver = new ResizeObserver(() => {
       this._positionModal();
@@ -60,7 +54,7 @@ class DrinkModal extends HTMLElement {
 
     this._initializeRouting();
 
-    this.appendChild(modal);
+    this.replaceChildren(modal);
   }
 
   _positionModal() {
@@ -96,7 +90,7 @@ class DrinkModal extends HTMLElement {
     const itemButton = this._dialogElement.querySelector('button');
     itemButton.addEventListener('click', () => {
       if (this.hasAttribute('link-disabled')) return;
-      loadView(`/shop/${ URIString(this._storeName, this._itemName) }`, true);
+      loadView(`/shop/${ URIString(this._storeName, this._itemName)}`, true);
     });
   }
 

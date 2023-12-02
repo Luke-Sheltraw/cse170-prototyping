@@ -1,32 +1,40 @@
+const parser = new DOMParser();
+let curView;
+
 const VIEWS = {
   '/home': {
     showHeader: true,
     showFooter: true,
-    content: fetch('/home.tpl.html').then((res) => res.text()),
+    content: getDOMFragFromPathname('/home.tpl.html'),
   },
   '/trending': {
     showHeader: true,
     showFooter: true,
-    content: fetch('/trending.tpl.html').then((res) => res.text()),
+    content: getDOMFragFromPathname('/trending.tpl.html'),
   },
   '/post': {
     showFooter: false,
     showHeader: false,
-    content: fetch('/post.tpl.html').then((res) => res.text()),
+    content: getDOMFragFromPathname('/post.tpl.html'),
   },
   '/shop': {
     showHeader: true,
     showFooter: true,
-    content: fetch('/shop.tpl.html').then((res) => res.text()),
+    content: getDOMFragFromPathname('/shop.tpl.html'),
   },
   '/search': {
     showHeader: false,
     showFooter: true,
-    content: fetch('/search.tpl.html').then((res) => res.text()),
+    content: getDOMFragFromPathname('/search.tpl.html'),
   },
 };
 
-let curView;
+async function getDOMFragFromPathname(pathname) {
+  return fetch(pathname)
+    .then((res) => res.text())
+    .then((htmlText) => parser.parseFromString(htmlText, 'text/html'))
+    .then((domFrag) => [...domFrag.body.children]);
+}
 
 function enablePageRouting() {
   window.addEventListener('popstate', (e) => {
@@ -63,7 +71,8 @@ export async function loadView(viewName, displayBackButton) {
   const main = document.querySelector('main');
   const footer = document.querySelector('#main-footer');
   
-  main.innerHTML = await view.content;
+  const newContent = await view.content;
+  main.replaceChildren(...newContent);
   main.dispatchEvent(new CustomEvent('view-switch'));
 
   if (curView) curButton.classList.remove('footer__button__active');
