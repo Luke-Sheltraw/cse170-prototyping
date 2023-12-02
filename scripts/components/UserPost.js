@@ -44,7 +44,7 @@ class UserPost extends HTMLElement {
     post.querySelector('address .store-name').innerText = this._post_data.store_name;
     post.querySelector('address .city-state').innerText = this._post_data.store_location;
     
-    const image = post.querySelector('picture img');
+    const image = post.querySelector('.image-wrapper img');
     image.setAttribute('src', this._post_data.image_url);
     image.setAttribute('alt', this._post_data.image_desc);
 
@@ -120,7 +120,7 @@ class UserPost extends HTMLElement {
 
   _handleDblTapLike() {
     if (this.getAttribute('preview') === 'true') return;
-    const picture = this.querySelector('picture');
+    const picture = this.querySelector('.image-wrapper');
     picture.classList.add('liked-post');
     picture.addEventListener('animationend', () => {
       picture.classList.remove('liked-post');

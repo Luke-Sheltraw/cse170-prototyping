@@ -86,6 +86,7 @@ button {
   font-size: 0.875rem;
   display: flex;
   align-items: center;
+  padding: 0;
 }
 
 .minimal-button::after {
@@ -128,6 +129,7 @@ dialog {
 
 main {
   padding: 0.5rem;
+  margin-bottom: 8.5rem;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -495,7 +497,6 @@ figure .button-wrapper {
 #post-feed-footer {
   display: flex;
   justify-content: center;
-  margin-bottom: 8rem;
 }
 
 #post-feed-footer[data-loading=true] .loading-icon {
@@ -1072,10 +1073,6 @@ progress::-webkit-progress-value {
   margin-top: 0.75rem;
 }
 
-#shop-view-container {
-  margin-bottom: 8.5rem;
-}
-
 .item-store-information-wrapper figure {
   padding: 0;
   margin: 0;
@@ -1271,10 +1268,6 @@ progress::-webkit-progress-value {
   outline: 2px solid var(--primary-gold);
 }
 
-#trending-coming-soon-items {
-  margin-bottom: 8.5rem;
-}
-
 .trending-list {
   display: flex;
   flex-direction: column;
@@ -1367,4 +1360,78 @@ progress::-webkit-progress-value {
 
 .trending-section .section-heading {
   margin-bottom: 0.5rem;
+}
+
+#my-orders-btn {
+  width: 100%;
+}
+
+#settings-button {
+  background: none;
+  border: none;
+  width: 2.5rem;
+  aspect-ratio: 1 / 1;
+  background-color: var(--psuedo-black);
+  float: right;
+  margin-bottom: 0.75rem;
+  -webkit-mask: url(../assets/images/icons/settings_icon.svg);
+  -webkit-mask-size: contain;
+  -webkit-mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  mask: url(../assets/images/icons/settings_icon.svg);
+  mask-size: contain;
+  mask-position: center;
+  mask-repeat: no-repeat;
+}
+
+#username-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+#username-wrapper p {
+  font-size: 0.875rem;
+}
+
+#username-wrapper #username {
+  font-size: 1.25rem;
+}
+
+#profile-stats-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+#profile-stats-wrapper button {
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+#biography {
+  font-size: 0.875rem;
+}
+
+.favorite-wrapper {
+  display: flex;
+  font-size: 0.875rem;
+  margin: 0;
+}
+
+.favorite-wrapper button {
+  margin-left: 0.5rem;
+}
+
+#my-posts-wrapper {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+}
+
+#my-posts-wrapper img {
+  outline: 1px solid black;
+  height: auto;
+  aspect-ratio: 1 / 1;
 }
