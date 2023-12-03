@@ -1410,7 +1410,7 @@ progress::-webkit-progress-value {
 #biography {
   margin: 1rem 0;
   padding: 0.25rem 1rem;
-  border-left: 2px solid var(--psuedo-black);
+  border-left: 2px solid var(--tertiary-teal);
   font-family: "Inter", sans-serif;
   font-size: 1rem;
 }
