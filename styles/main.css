@@ -1389,6 +1389,7 @@ progress::-webkit-progress-value {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
+  margin-top: 1rem;
 }
 
 #username {
