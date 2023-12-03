@@ -1389,11 +1389,11 @@ progress::-webkit-progress-value {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  margin-top: 1rem;
+  margin-top: 0.5rem;
 }
 
 #username {
-  font-size: 1.25rem;
+  font-size: 1.375rem;
 }
 
 #profile-stats-wrapper {
