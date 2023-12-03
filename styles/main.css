@@ -724,7 +724,8 @@ html:has(form#post-upload) {
   margin: 0.75rem 0;
 }
 
-.suggested-wrapper button {
+.suggested-wrapper button,
+.item-button {
   box-shadow: var(--default-shadow);
   border-radius: 0.75rem;
   padding: 0.25rem 0.75rem;
@@ -740,13 +741,13 @@ html:has(form#post-upload) {
   outline: 2px solid var(--tertiary-teal);
 }
 
-.suggested-wrapper address {
+.suggested-wrapper address, .item-button address {
   color: var(--psuedo-black-lightened);
   font-style: normal;
   font-size: 0.875rem;
 }
 
-.suggested-wrapper h4 {
+.suggested-wrapper h4, .item-button h4 {
   font-size: 0.875rem;
 }
 
@@ -1390,11 +1391,7 @@ progress::-webkit-progress-value {
   align-items: baseline;
 }
 
-#username-wrapper p {
-  font-size: 0.875rem;
-}
-
-#username-wrapper #username {
+#username {
   font-size: 1.25rem;
 }
 
@@ -1410,8 +1407,11 @@ progress::-webkit-progress-value {
 }
 
 #biography {
-  font-size: 0.875rem;
-  margin: 0;
+  margin: 1rem 0;
+  padding: 0.25rem 1rem;
+  border-left: 2px solid var(--psuedo-black);
+  font-family: "Inter", sans-serif;
+  font-size: 1rem;
 }
 
 .favorite-wrapper {
@@ -1447,4 +1447,14 @@ progress::-webkit-progress-value {
   width: 100%;
   height: auto;
   display: block;
+}
+
+#favorite-item-btn {
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+#posts-section {
+  margin-top: 1rem;
 }
