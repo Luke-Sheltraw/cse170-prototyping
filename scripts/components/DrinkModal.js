@@ -90,7 +90,9 @@ class DrinkModal extends HTMLElement {
     const itemButton = this._dialogElement.querySelector('button');
     itemButton.addEventListener('click', () => {
       if (this.hasAttribute('link-disabled')) return;
-      loadView(`/shop/${ URIString(this._storeName, this._itemName)}`, true);
+      loadView(`/shop/${ URIString(this._storeName, this._itemName)}`, {
+        displayBackButton: true,
+      });
     });
   }
 

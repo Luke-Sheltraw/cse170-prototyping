@@ -59,7 +59,9 @@ class UserPost extends HTMLElement {
     /* enable location link */
     post.querySelector('address a').addEventListener('click', (e) => {
       e.preventDefault();
-      loadView(`/shop/${ URIString(this._post_data.store_name) }`, true);
+      loadView(`/shop/${ URIString(this._post_data.store_name) }`, {
+        displayBackButton: true,
+      });
     });
 
     /* create popover drink modals */

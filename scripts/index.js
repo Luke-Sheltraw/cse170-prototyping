@@ -35,7 +35,7 @@ const pages = {
 document.addEventListener('DOMContentLoaded', () => {
   initRouting();
 
-  document.querySelector('main').addEventListener('view-switch', () => {
+  document.querySelector('main').addEventListener('view-switch', async () => {
     const newView = window.location.pathname.split('/')?.[1] ?? 'home';
     const pageObj = pages[newView];
 
@@ -46,6 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
       pageObj.initializer();
     }
 
-    pageObj.updater();
+    await pageObj.updater();
+    document.documentElement.scrollTop = 0;
   });
 });

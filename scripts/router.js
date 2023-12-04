@@ -50,7 +50,12 @@ export function URIString(...strings) {
     .join('/');
 }
 
-export async function loadView(viewName, displayBackButton) {
+export async function loadView (
+  viewName, 
+  { 
+    displayBackButton,
+  } = {},
+) {
   if (viewName === curView) return;
   const viewRoot = pathNameToRoot(viewName);
   const view = VIEWS[viewRoot];
@@ -62,7 +67,6 @@ export async function loadView(viewName, displayBackButton) {
 
   const curButton = document.querySelector(`#${ pathNameToRoot(curView)?.slice(1) }-button`);
   const viewButton = document.querySelector(`#${ viewRoot.slice(1) }-button`);
-  const header = document.querySelector('#main-header');
   const main = document.querySelector('main');
   const footer = document.querySelector('#main-footer');
   

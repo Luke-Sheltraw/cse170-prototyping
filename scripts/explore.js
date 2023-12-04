@@ -19,7 +19,9 @@ async function initializeTrendingLayout() {
     loadView(`/shop/${ URIString(
       items.current_suggested_item.store_name,
       items.current_suggested_item.fullname) 
-    }`, true);
+    }`, {
+      displayBackButton: true,
+    });
   });
 
   /* Create trending list */
@@ -38,7 +40,9 @@ async function initializeTrendingLayout() {
       loadView(`/shop/${ URIString(
         item.store_name,
         item.fullname
-      )}`, true);
+      )}`, {
+        displayBackButton: true,
+      });
     });
 
     return listItemEl;
@@ -64,7 +68,9 @@ async function initializeTrendingLayout() {
       loadView(`/shop/${ URIString(
         item.store_name,
         item.fullname
-      )}`, true);
+      )}`, {
+        displayBackButton: true,
+      });
     });
 
     return listItemEl;

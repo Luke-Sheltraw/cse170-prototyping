@@ -68,7 +68,9 @@ async function initializeItemView(storeName, itemName) {
   /* Enabling location link */
   itemViewEl.querySelector('.store-link-button').addEventListener('click', (e) => {
     e.preventDefault();
-    loadView(`/shop/${ URIString(storeObj.fullname) }`, true);
+    loadView(`/shop/${ URIString(storeObj.fullname) }`, {
+      displayBackButton: true,
+    });
   });
   
   /* Placing item information */
@@ -101,7 +103,7 @@ export function initShop() {
   });
 }
 
-export function updateShop() {
+export async function updateShop() {
   const backButton = document.querySelector('.shop-back-button');
   backButton.classList[
     window.history.state?.displayBackButton
