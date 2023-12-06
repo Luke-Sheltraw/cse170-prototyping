@@ -332,6 +332,7 @@ span.city-state {
   width: 6.675rem;
   text-align: left;
   white-space: nowrap;
+  padding-left: 0;
 }
 
 figure .button-wrapper {
