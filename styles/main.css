@@ -158,6 +158,7 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: var(--up-shadow);
   border-radius: 0.75rem 1rem 0 0;
   z-index: 999;
+  pointer-events: all !important;
 }
 
 #main-footer::before {
@@ -593,7 +594,7 @@ html:has(form#post-upload) {
   background-color: var(--psuedo-white);
   box-shadow: var(--default-shadow);
   border-radius: 0.75rem;
-  font-size: 0.875rem;
+  font-size: 1rem;
   color: var(--psuedo-black);
   font-family: "Inter", sans-serif;
   padding: 0.875rem;
@@ -1203,7 +1204,7 @@ progress::-webkit-progress-value {
   text-decoration: underline;
 }
 
-.shop-back-button {
+.back-corner-button {
   width: 2rem;
   height: 2rem;
   border: none;
@@ -1489,5 +1490,72 @@ progress::-webkit-progress-value {
 
 #recent-order-wrapper #recent-order-content address {
   font-style: normal;
+  color: var(--psuedo-black-lightened);
+}
+
+#comment-overlay-wrapper {
+  position: absolute;
+  background: var(--psuedo-white);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 20;
+  flex-direction: column;
+}
+
+#comment-overlay-wrapper[open] {
+  display: flex;
+}
+
+#comment-overlay-wrapper ol {
+  list-style-type: none;
+  padding: 0;
+  flex: 1;
+}
+
+.comment-item {
+  box-shadow: var(--default-shadow);
+  border-radius: 0.75rem;
+  margin-bottom: 1rem;
+  padding: 0.5rem 1rem;
+}
+
+.comment-item div {
+  display: flex;
+  align-items: center;
+}
+
+.comment-item div > p {
+  margin: 0 0 0 1rem;
+}
+
+.comment-item > p {
+  margin-bottom: 0;
+  font-family: "Inter", sans-serif;
+}
+
+.comment-item img {
+  border-radius: 50%;
+  overflow: hidden;
+  object-position: center;
+}
+
+#comment-input, #comment-input:focus {
+  width: 100%;
+  height: 2.75rem;
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  border: none;
+  outline: none;
+  resize: none;
+  box-shadow: var(--default-shadow);
+  font-size: 1rem;
+  font-family: "Inter", sans-serif;
+  transition: height 150ms ease-in-out;
+  margin-bottom: 8.5rem;
+}
+
+#comment-input::placeholder {
   color: var(--psuedo-black-lightened);
 }

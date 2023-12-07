@@ -36,9 +36,7 @@ function initializeNavigationListeners() {
 
   progressBar.max = viewList.length;
   
-  closeButton.addEventListener('click', () => {
-    window.history.back();
-  });
+  closeButton.addEventListener('click', () => window.history.back());
 
   backButtons.forEach((btn) => 
     btn.addEventListener('click', () => {

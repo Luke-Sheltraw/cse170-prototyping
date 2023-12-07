@@ -96,15 +96,13 @@ async function initializeItemView(storeName, itemName) {
 }
 
 export function initShop() {
-  const backButton = document.querySelector('.shop-back-button');
+  const backButton = document.querySelector('.back-corner-button');
 
-  backButton.addEventListener('click', () => {
-    window.history.back();
-  });
+  backButton.addEventListener('click', () => window.history.back());
 }
 
 export async function updateShop() {
-  const backButton = document.querySelector('.shop-back-button');
+  const backButton = document.querySelector('.back-corner-button');
   backButton.classList[
     window.history.state?.displayBackButton
     ? 'remove'

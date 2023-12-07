@@ -64,6 +64,15 @@ class UserPost extends HTMLElement {
       });
     });
 
+    /* enable comment link */
+    post.querySelectorAll('.leave-comment, .comments-counter').forEach((el) => {
+      el.addEventListener('click', () => {
+        loadView('/home/comment', {
+          displayBackButton: true,
+        });
+      });
+    });
+
     /* create popover drink modals */
     this._post_data.image_items.forEach((item, i) => {
       const modal = document.createElement('drink-modal');

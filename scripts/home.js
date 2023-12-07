@@ -62,6 +62,32 @@ function getMockedPostInfo() {
   return mock_posts[Math.floor(Math.random() * mock_posts.length)];
 }
 
+function showCommentOverlay() {
+  const overlayEl = document.querySelector('#comment-overlay-wrapper');
+  const commentInputEl = document.querySelector('#comment-input');
+
+  overlayEl.setAttribute('open', '');
+  commentInputEl.focus();
+}
+
+function hideCommentOverlay() {
+  const overlayEl = document.querySelector('#comment-overlay-wrapper');
+
+  overlayEl.removeAttribute('open');
+}
+
 export function initHome() {
   initializeInfiniteScroll();
+
+  const backButtonEl = document.querySelector('.back-corner-button');
+  backButtonEl.addEventListener('click', () => window.history.back());
+}
+
+export function updateHome() {
+  const updateType = window.location.pathname.split('/')[2];
+  if (updateType === 'comment') {
+    showCommentOverlay();
+  } else {
+    hideCommentOverlay();
+  }
 }

@@ -1,5 +1,5 @@
 import { initRouting, loadView } from './router.js';
-import { initHome } from './home.js';
+import { initHome, updateHome } from './home.js';
 import { initPost } from './post.js';
 import { initShop, updateShop } from './shop.js';
 import { initExplore, updateExplore } from './explore.js';
@@ -7,7 +7,7 @@ import { initExplore, updateExplore } from './explore.js';
 const pages = {
   'home': {
     initializer: initHome,
-    updater: () => {},
+    updater: updateHome,
     hasBeenInitialized: false,
   },
   'post': {
