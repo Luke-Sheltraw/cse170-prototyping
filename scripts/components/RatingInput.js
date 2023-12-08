@@ -1,13 +1,13 @@
 class RatingInput extends HTMLElement {
   static observedAttributes = ['name'];
 
-  constructor() {
-    super();
-  }
-
   _hiddenInputEl;
   _inputName;
   _currentValue;
+
+  constructor() {
+    super();
+  }
 
   connectedCallback() {
     this._inputName = this.getAttribute('name');

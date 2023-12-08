@@ -83,16 +83,7 @@ export async function loadView (
   curView = viewName;
 }
 
-function enableNavButtonListeners() {
-  document.querySelectorAll('.footer__button').forEach((el) => {
-    el.addEventListener('click', () => {
-      loadView(`/${ el.dataset.view }`);
-    });
-  });
-}
-
 export function initRouting() {
   enablePageRouting();
   loadView(window.location.pathname);
-  enableNavButtonListeners();
 };

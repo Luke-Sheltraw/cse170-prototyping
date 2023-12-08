@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-  <title>Home | Brew+Buzz</title>
+  <title>Brew+Buzz</title>
   <link rel="stylesheet" href="/styles/main.css" media="screen" type="text/css">
   <link rel="manifest" href="/manifest.json">
   <link rel="icon" href="/assets/images/manifest/icons-512.png">
@@ -12,6 +12,7 @@
   <script src="/scripts/components/UserPost.js" type="module"></script>
   <script src="/scripts/components/RatingInput.js" type="module"></script>
   <script src="/scripts/components/ItemInput.js" type="module"></script>
+  <script src="/scripts/components/RouterLink.js" type="module"></script>
   <script src="/scripts/index.js" type="module"></script>
 </head>
 <body>
@@ -25,10 +26,10 @@
     <nav>
       <ul>
         <li>
-          <button
+          <router-link
+            href="/home"
             aria-label="Home"
             id="home-button"
-            data-view="home"
             class="footer__button"
           >
             <img
@@ -38,13 +39,13 @@
               height="40"
               draggable="false"
             >
-          </button>
+          </router-link>
         </li>
         <li>
-          <button
+          <router-link
+            href="/profile"
             aria-label="Profile"
             id="profile-button"
-            data-view="profile"
             class="footer__button"
           >
             <img
@@ -54,13 +55,13 @@
               height="40"
               draggable="false"
             >
-          </button>
+          </router-link>
         </li>
         <li>
-          <button
+          <router-link
+            href="/post"
             aria-label="Post"
             id="post-button"
-            data-view="post"
             class="footer__button"
           >
             <img
@@ -70,13 +71,13 @@
               height="40"
               draggable="false"
             >
-          </button>
+          </router-link>
         </li>
         <li>
-          <button
+          <router-link
+            href="/shop"
             aria-label="Shop"
             id="shop-button"
-            data-view="shop"
             class="footer__button"
           >
             <img
@@ -86,13 +87,13 @@
               height="40"
               draggable="false"
             >
-          </button>
+          </router-link>
         </li>
         <li>
-          <button
+          <router-link
+            href="/explore"
             aria-label="Explore"
             id="explore-button"
-            data-view="explore"
             class="footer__button"
           >
             <img
@@ -102,7 +103,7 @@
               height="40"
               draggable="false"
             >
-          </button>
+          </router-link>
         </li>
       </ul>
     </nav>
@@ -135,13 +136,21 @@
           <span id="count-likes">{{ num likes }}</span>
           likes
         </button>
-        <button class="button-counter comments-counter">
+        <router-link
+          href="/home/comment"
+          display-back-button="true"
+          class="button-counter comments-counter"
+        >
           <span class="emoji">💬</span>
           <span id="count-comments">{{ num comments }}</span>
           comments
-        </button>
+        </router-link>
       </div>
-      <button class="leave-comment chevron-button">Leave a comment</button>
+      <router-link
+        href="/home/comment"
+        display-back-button="true"
+        class="leave-comment chevron-button"
+      >Leave a comment</router-link>
     </figure>
   </template>
 

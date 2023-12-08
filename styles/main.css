@@ -28,6 +28,7 @@ body {
 body:has(dialog.blocking[open]) {
   overflow: hidden;
   pointer-events: none;
+  height: 100vh;
 }
 
 * {
@@ -40,6 +41,11 @@ button {
   font-size: 0.875rem;
   font-family: "Inknut Antiqua", sans-serif;
   color: var(--psuedo-black);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
 .hidden {
@@ -338,7 +344,7 @@ span.city-state {
 
 figure .button-wrapper {
   display: flex;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.5rem;
 }
 
 .leave-comment {
@@ -1240,7 +1246,7 @@ progress::-webkit-progress-value {
 }
 
 #trending-suggested-item button > div h3 {
-  font-size: 1.25rem;
+  font-size: 1.17rem;
   line-height: 2rem;
 }
 
@@ -1345,6 +1351,10 @@ progress::-webkit-progress-value {
 
 #search-result-wrapper[data-curview="real"] #real-search-results {
   display: block;
+}
+
+#search-result-wrapper h2 {
+  font-size: 1.375rem;
 }
 
 #search-bar {
@@ -1509,6 +1519,10 @@ progress::-webkit-progress-value {
   display: flex;
 }
 
+#comment-overlay-wrapper h2 {
+  font-size: 1.17rem;
+}
+
 #comment-overlay-wrapper ol {
   list-style-type: none;
   padding: 0;
@@ -1519,7 +1533,7 @@ progress::-webkit-progress-value {
   box-shadow: var(--default-shadow);
   border-radius: 0.75rem;
   margin-bottom: 1rem;
-  padding: 0.5rem 1rem;
+  padding: 1rem;
 }
 
 .comment-item div {
