@@ -30,6 +30,7 @@ body:has(dialog.blocking[open]) {
   pointer-events: none;
   height: 100vh;
   position: relative;
+  margin: 0;
 }
 
 * {
