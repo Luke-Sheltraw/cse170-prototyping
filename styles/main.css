@@ -31,7 +31,11 @@ body:has(dialog.blocking[open]) {
   height: 100vh;
   position: relative;
   margin: 0;
-  touch-action: none;
+}
+
+main:has(dialog.blocking[open]) {
+  height: 100%;
+  overflow: hidden;
 }
 
 * {
@@ -1513,7 +1517,7 @@ progress::-webkit-progress-value {
   top: 0;
   left: 0;
   width: 100%;
-  height: calc(100% + 50rem);
+  height: 100%;
   z-index: 20;
   flex-direction: column;
   border: none;
