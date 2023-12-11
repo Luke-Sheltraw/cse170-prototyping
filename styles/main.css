@@ -349,6 +349,7 @@ figure .button-wrapper {
 
 .leave-comment {
   width: 100%;
+  font-size: 0.875rem;
 }
 
 .small-white-icon {
@@ -1521,12 +1522,18 @@ progress::-webkit-progress-value {
 
 #comment-overlay-wrapper h2 {
   font-size: 1.17rem;
+  z-index: 10;
+  padding: 0 1rem;
+  margin: 0 -1rem;
+  background-color: var(--psuedo-white);
 }
 
 #comment-overlay-wrapper ol {
   list-style-type: none;
-  padding: 0;
-  flex: 1;
+  padding: 3rem;
+  margin: -2.8rem -3rem;
+  height: calc(100vh - 17rem);
+  overflow: hidden auto;
 }
 
 .comment-item {
@@ -1556,8 +1563,8 @@ progress::-webkit-progress-value {
   object-position: center;
 }
 
-#comment-input, #comment-input:focus {
-  width: 100%;
+#comment-input {
+  width: calc(100% - 2rem);
   height: 2.75rem;
   padding: 0.75rem 1rem;
   border-radius: 0.75rem;
@@ -1568,7 +1575,8 @@ progress::-webkit-progress-value {
   font-size: 1rem;
   font-family: "Inter", sans-serif;
   transition: height 150ms ease-in-out;
-  margin-bottom: 58.5rem;
+  position: absolute;
+  top: calc(100vh - 12.5rem);
 }
 
 #comment-input::placeholder {
