@@ -1515,7 +1515,7 @@ progress::-webkit-progress-value {
   top: 0;
   left: 0;
   width: 100%;
-  height: calc(100% + 50rem);
+  height: calc(100%);
   z-index: 20;
   flex-direction: column;
   border: none;
