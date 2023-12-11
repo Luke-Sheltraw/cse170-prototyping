@@ -1509,7 +1509,7 @@ progress::-webkit-progress-value {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: calc(100% + 50rem);
   z-index: 20;
   flex-direction: column;
   border: none;
@@ -1568,7 +1568,7 @@ progress::-webkit-progress-value {
   font-size: 1rem;
   font-family: "Inter", sans-serif;
   transition: height 150ms ease-in-out;
-  margin-bottom: 8.5rem;
+  margin-bottom: 58.5rem;
 }
 
 #comment-input::placeholder {
