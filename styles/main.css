@@ -31,6 +31,7 @@ body:has(dialog.blocking[open]) {
   height: 100vh;
   position: relative;
   margin: 0;
+  touch-action: none;
 }
 
 * {
