@@ -1,5 +1,5 @@
-<button id="settings-button" aria-label="Settings"></button>
-<button class="chevron-button" id="my-orders-btn">My orders</button>
+<a href="https://wikipedia.com" id="settings-button" aria-label="Settings"></a>
+<a href="https://wikipedia.com" class="chevron-button" id="my-orders-btn">My orders</a>
 <section aria-labelledby="username">
   <section>
     <div id="username-wrapper">
@@ -14,10 +14,15 @@
     <p id="biography">Fueled by coffee, occassionally.</p>
     <div>
       <h3>My favorite item</h3>
-      <button class="chevron-button item-button" id="favorite-item-btn">
+      <router-link
+        href="/shop/home-coffee-roasters/matcha-latte"
+        display-back-button="true"
+        class="chevron-button item-button"
+        id="favorite-item-btn"
+      >
         <h4>Matcha Latte</h4>
         <address>Home Coffee Roasters</address>
-      </button>
+      </router-link>
     </div>
   </section>
   <section aria-labelledby="my-posts-heading" id="posts-section">

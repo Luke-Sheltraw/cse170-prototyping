@@ -46,7 +46,7 @@ function pathNameToRoot(fullPathname) {
 
 export function URIString(...strings) {
   return strings
-    .map((str) => str.replaceAll(' ', '-').toLowerCase())
+    .map((str) => str.replaceAll(' ', '-').replaceAll('\'', '').toLowerCase())
     .join('/');
 }
 

@@ -2,8 +2,12 @@ import { loadView, URIString } from './router.js';
 
 const MOCK_ITEMS_URI = '/scripts/mocks/mock_items.json';
 
-async function initializeMainView() {
+let mainViewContentEls = null;
 
+async function initializeMainView() {
+  const pageContainerEl = document.querySelector('#shop-view-container');
+
+  pageContainerEl.replaceChildren(...mainViewContentEls);
 }
 
 async function initializeStoreView(storeName) {
@@ -96,14 +100,17 @@ async function initializeItemView(storeName, itemName) {
 }
 
 export function initShop() {
-  const backButton = document.querySelector('.back-corner-button');
+  const backButtonEl = document.querySelector('.back-corner-button');
+  const pageContainerEl = document.querySelector('#shop-view-container');
 
-  backButton.addEventListener('click', () => window.history.back());
+  backButtonEl.addEventListener('click', () => window.history.back());
+
+  mainViewContentEls = [...pageContainerEl.childNodes];
 }
 
 export async function updateShop() {
-  const backButton = document.querySelector('.back-corner-button');
-  backButton.classList[
+  const backButtonEl = document.querySelector('.back-corner-button');
+  backButtonEl.classList[
     window.history.state?.displayBackButton
     ? 'remove'
     : 'add'

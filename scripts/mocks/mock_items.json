@@ -28,21 +28,206 @@
         "fullname": "Cinnamon Latte",
         "rating": 5,
         "ratings_count": 789,
-        "description": "This is an example description",
+        "description": "Wow! A latte! With cinnamon!",
         "related_posts_count": 123,
-        "image_url": "/assets/images/items/banners/matcha_latte.jpg"
+        "image_url": "/assets/images/items/banners/cinnamon_latte.webp"
       }
     }
   },
   "sit-and-stay-cafe": {
     "fullname": "Sit and Stay Cafe",
     "location": {
-
+      "short": "Richmond, CA",
+      "street": "2701 Isabel St",
+      "city": "Richmond",
+      "state": "CA",
+      "zip": "94804",
+      "maps_url": "https://maps.apple.com/?address=2701%20Isabel%20St,%20Richmond,%20CA%20%2094804,%20United%20States&auid=12970693862937798600&ll=37.899084,-122.324019&lsp=9902&q=Point%20Isabel%20Regional%20Shoreline"
     },
+    "rating": 3,
+    "ratings_count": 123,
+    "image_url": "/assets/images/stores/example_store2.jpeg",
+    "description": "A cafe dedicated to dogs. At a dog park.",
+    "website_url": "https://www.mudpuppys.com/",
+    "related_posts_count": 567,
     "items": {
       "ice-water": {
         "fullname": "Ice Water",
-        "rating": 5
+        "rating": 5,
+        "ratings_count": 203,
+        "description": "It's water with ice.",
+        "related_posts_count": 568,
+        "image_url": "/assets/images/items/banners/ice_water.webp"
+      }
+    }
+  },
+  "peets-coffee": {
+    "fullname": "Peet's Coffee",
+    "location": {
+      "short": "San Francisco, CA",
+      "street": "1234 Market St",
+      "city": "San Francisco",
+      "state": "CA",
+      "zip": "94103",
+      "maps_url": "https://maps.apple.com/?address=1234%20Market%20St,%20San%20Francisco,%20CA%20%2094103,%20United%20States&auid=3725780510372061625&ll=37.754421,-122.477142&lsp=9902&q=Peet's%20Coffee"
+    },
+    "rating": 4,
+    "ratings_count": 567,
+    "image_url": "/assets/images/stores/example_store1.jpg",
+    "description": "Peet's Coffee is known for its bold and flavorful coffee beans. Enjoy a variety of coffee options brewed to perfection.",
+    "website_url": "https://www.peets.com/",
+    "related_posts_count": 654,
+    "items": {
+      "iced-peppermint-mocha": {
+        "fullname": "Iced Peppermint Mocha",
+        "rating": 4,
+        "ratings_count": 234,
+        "description": "Indulge in the cool and minty flavor of Peet's Iced Peppermint Mocha. A perfect treat for any season.",
+        "related_posts_count": 198,
+        "image_url": "/assets/images/items/banners/cinnamon_latte.webp"
+      }
+    }
+  },
+  "philz-coffee": {
+    "fullname": "Philz Coffee",
+    "location": {
+      "short": "San Francisco, CA",
+      "street": "5678 Mission St",
+      "city": "San Francisco",
+      "state": "CA",
+      "zip": "94122",
+      "maps_url": "https://maps.apple.com/?address=5678%20Mission%20St,%20San%20Francisco,%20CA%20%2094122,%20United%20States&auid=3725780510372061625&ll=37.754421,-122.477142&lsp=9902&q=Philz%20Coffee"
+    },
+    "rating": 4,
+    "ratings_count": 789,
+    "image_url": "/assets/images/stores/example_store1.jpg",
+    "description": "Philz Coffee is all about the individualized pour-over coffee experience. Each cup is crafted to your taste preferences, ensuring a unique and personalized coffee journey.",
+    "website_url": "https://www.philzcoffee.com/",
+    "related_posts_count": 876,
+    "items": {
+      "philtered-soul-cold-brew": {
+        "fullname": "Philtered Soul Cold Brew",
+        "rating": 4,
+        "ratings_count": 345,
+        "description": "Experience the smooth and bold flavor of Philz Philtered Soul Cold Brew. It's a coffee lover's delight.",
+        "related_posts_count": 299,
+        "image_url": "/assets/images/items/banners/cinnamon_latte.webp"
+      }
+    }
+  },
+  "bird-rock-coffee-roasters": {
+    "fullname": "Bird Rock Coffee Roasters",
+    "location": {
+      "short": "San Diego, CA",
+      "street": "9101 La Jolla Shores Dr",
+      "city": "San Diego",
+      "state": "CA",
+      "zip": "92037",
+      "maps_url": "https://maps.apple.com/?address=9101%20La%20Jolla%20Shores%20Dr,%20San%20Diego,%20CA%20%2092037,%20United%20States&auid=3725780510372061625&ll=32.849585,-117.272277&lsp=9902&q=Bird%20Rock%20Coffee%20Roasters"
+    },
+    "rating": 4,
+    "ratings_count": 456,
+    "image_url": "/assets/images/stores/example_store1.jpg",
+    "description": "Bird Rock Coffee Roasters is dedicated to sourcing and roasting high-quality beans. Enjoy the unique flavors in a vibrant and welcoming setting.",
+    "website_url": "https://www.birdrockcoffee.com/",
+    "related_posts_count": 543,
+    "items": {
+      "sandpiper-latte": {
+        "fullname": "Sandpiper Latte",
+        "rating": 4,
+        "ratings_count": 210,
+        "description": "Savor the rich and velvety Sandpiper Latte at Bird Rock Coffee Roasters. A perfect balance of espresso and steamed milk.",
+        "related_posts_count": 189,
+        "image_url": "/assets/images/items/banners/cinnamon_latte.webp"
+      }
+    }
+  },
+  "dutch-bros": {
+    "fullname": "Dutch Bros",
+    "location": {
+      "short": "Portland, OR",
+      "street": "4321 Hawthorne Blvd",
+      "city": "Portland",
+      "state": "OR",
+      "zip": "97214",
+      "maps_url": "https://maps.apple.com/?address=4321%20Hawthorne%20Blvd,%20Portland,%20OR%20%2097214,%20United%20States&auid=3725780510372061625&ll=45.511814,-122.619844&lsp=9902&q=Dutch%20Bros"
+    },
+    "rating": 4,
+    "ratings_count": 654,
+    "image_url": "/assets/images/stores/example_store1.jpg",
+    "description": "Dutch Bros is a drive-thru coffee chain known for its friendly service and delicious drinks. Experience a unique and uplifting coffee journey with each visit.",
+    "website_url": "https://www.dutchbros.com/",
+    "related_posts_count": 789,
+    "items": {
+      "hazelnut-truffle-mocha": {
+        "fullname": "Hazelnut Truffle Mocha",
+        "rating": 4,
+        "ratings_count": 567,
+        "description": "Indulge in the decadent Hazelnut Truffle Mocha at Dutch Bros. A delightful blend of hazelnut, chocolate, and espresso.",
+        "related_posts_count": 543,
+        "image_url": "/assets/images/items/banners/cinnamon_latte.webp"
+      }
+    }
+  },
+  "starbucks": {
+    "fullname": "Starbucks",
+    "location": {
+      "short": "Seattle, WA",
+      "street": "9876 Pike St",
+      "city": "Seattle",
+      "state": "WA",
+      "zip": "98101",
+      "maps_url": "https://maps.apple.com/?address=9876%20Pike%20St,%20Seattle,%20WA%20%2098101,%20United%20States&auid=3725780510372061625&ll=47.609464,-122.342552&lsp=9902&q=Starbucks"
+    },
+    "rating": 4,
+    "ratings_count": 789,
+    "image_url": "/assets/images/stores/example_store1.jpg",
+    "description": "Starbucks is a global coffeehouse chain known for its diverse menu and cozy ambiance. Enjoy a wide range of coffee options and snacks.",
+    "website_url": "https://www.starbucks.com/",
+    "related_posts_count": 876,
+    "items": {
+      "iced-gingerbread-oatmilk-chai": {
+        "fullname": "Iced Gingerbread Oatmilk Chai",
+        "rating": 4,
+        "ratings_count": 678,
+        "description": "Sip on the delightful Iced Gingerbread Oatmilk Chai at Starbucks. A perfect blend of gingerbread spices and creamy oat milk.",
+        "related_posts_count": 654,
+        "image_url": "/assets/images/items/banners/cinnamon_latte.webp"
+      },
+      "pumpkin-spice-latte": {
+        "fullname": "Pumpkin Spice Latte",
+        "rating": 4,
+        "ratings_count": 765,
+        "description": "Indulge in the classic fall flavor of Pumpkin Spice Latte at Starbucks. A seasonal favorite loved by many.",
+        "related_posts_count": 732,
+        "image_url": "/assets/images/items/banners/cinnamon_latte.webp"
+      }
+    }
+  },
+  "blue-bottle-coffee": {
+    "fullname": "Blue Bottle Coffee",
+    "location": {
+      "short": "New York, NY",
+      "street": "3456 Broadway Ave",
+      "city": "New York",
+      "state": "NY",
+      "zip": "10001",
+      "maps_url": "https://maps.apple.com/?address=3456%20Broadway%20Ave,%20New%20York,%20NY%20%2010001,%20United%20States&auid=3725780510372061625&ll=40.762162,-73.987501&lsp=9902&q=Blue%20Bottle%20Coffee"
+    },
+    "rating": 4,
+    "ratings_count": 678,
+    "image_url": "/assets/images/stores/example_store1.jpg",
+    "description": "Blue Bottle Coffee is committed to serving freshly roasted, high-quality coffee. Immerse yourself in the rich and unique flavors of Blue Bottle.",
+    "website_url": "https://bluebottlecoffee.com/",
+    "related_posts_count": 765,
+    "items": {
+      "snickerdoodle-milk": {
+        "fullname": "Snickerdoodle Milk",
+        "rating": 4,
+        "ratings_count": 543,
+        "description": "Experience the sweet and comforting Snickerdoodle Milk at Blue Bottle Coffee. A delightful beverage with a hint of cinnamon.",
+        "related_posts_count": 510,
+        "image_url": "/assets/images/items/banners/cinnamon_latte.webp"
       }
     }
   }
